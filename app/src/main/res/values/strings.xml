@@ -4,5 +4,5 @@
     <string name="language_choose_desc">Welcome to the Epolis app, select your language.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="language_button_title">Next</string>
 </resources>

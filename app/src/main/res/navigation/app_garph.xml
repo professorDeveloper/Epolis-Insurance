@@ -9,7 +9,11 @@
         android:id="@+id/langaugeScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.welcome.LanguageScreen"
         android:label="langauge_screen"
-        tools:layout="@layout/langauge_screen" />
+        tools:layout="@layout/langauge_screen" >
+        <action
+            android:id="@+id/action_langaugeScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.welcome.SplashScreen"
@@ -19,4 +23,8 @@
             android:id="@+id/action_splashScreen_to_langaugeScreen"
             app:destination="@id/langaugeScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.home.main.MainScreen"
+        android:label="MainScreen" />
 </navigation>

@@ -4,13 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.home.HomeScreen">
+    tools:context=".ui.screen.home.pages.HomeScreen">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="50dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="18dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/default_profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/gilory_medium"
+        android:text="+998 90 123 45 67"
+        android:textColor="#4D6370"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="#012033"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/gilory_bold"
+        android:text="Имя Фамилия"
+        app:layout_constraintStart_toEndOf="@+id/circleImageView"
+        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gilory_bold"
         android:text="Регистрация"
+        android:visibility="gone"
         android:textColor="#297AFF"
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
@@ -21,9 +57,22 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
         android:src="@drawable/notification"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="0dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="170dp"
+
+        android:id="@+id/banner_home_top"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,14 +7,15 @@
     tools:context=".ui.screen.welcome.LanguageScreen">
 
     <LinearLayout
+        android:id="@+id/choose_container"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="90dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,9 +23,9 @@
             android:fontFamily="@font/gilory_bold"
             android:text="@string/language_choose_title"
 
-            android:textColor="@color/black"
+            android:textColor="#012033"
             android:textFontWeight="650"
-            android:textSize="24sp" />
+            android:textSize="23sp" />
 
         <TextView
             android:layout_width="311dp"
@@ -38,7 +39,7 @@
             android:id="@+id/language_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="25dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -66,7 +67,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:fontFamily="@font/gilory_medium"
                         android:text="O’zbek tili"
                         android:textColor="@color/gray_black"
                         android:textSize="16sp"
@@ -79,8 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:visibility="gone"
                         android:src="@drawable/correct_circle"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -110,13 +110,13 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/ru_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:fontFamily="@font/gilory_medium"
-                        android:text="O’zbek tili"
+                        android:text="Русский язык"
                         android:textColor="@color/gray_black"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/img_ru"
@@ -128,8 +128,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:visibility="gone"
                         android:src="@drawable/correct_circle"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -158,13 +158,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/eng_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:fontFamily="@font/gilory_medium"
-                        android:text="O’zbek tili"
+                        android:layout_marginBottom="1dp"
+                        android:text="English language"
                         android:textColor="@color/gray_black"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/eng_img"
@@ -176,8 +177,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
-                        android:visibility="gone"
                         android:src="@drawable/correct_circle"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -190,5 +191,29 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_btn_language"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/language_button_title"
+        android:textColor="@color/white_500"
+        android:backgroundTint="@color/btn_color"
+        android:textSize="16sp"
+        android:fontFamily="@font/gilory_bold"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
