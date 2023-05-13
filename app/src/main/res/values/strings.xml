@@ -8,4 +8,6 @@
     <string name="category_item2">Авто</string>
     <string name="category_item3">Путешествия</string>
     <string name="send_otp">Отправить код</string>
+    <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
+    <string name="register_title">Номер телефона</string>
 </resources>

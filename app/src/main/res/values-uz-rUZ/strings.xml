@@ -6,5 +6,7 @@
     <string name="send_otp">Kodni Yuborish</string>
     <string name="category_item1">Hammasi</string>
     <string name="category_item2">Avtomatik</string>
+    <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash \nkodi yuboramiz</string>
+    <string name="register_title">Telefon raqamingiz</string>
     <string name="category_item3">Sayohat</string>
 </resources>
