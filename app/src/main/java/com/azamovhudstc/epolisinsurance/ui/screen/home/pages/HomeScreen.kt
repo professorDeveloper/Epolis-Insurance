@@ -21,8 +21,7 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         var bannerList = ArrayList<HomeBanner>()
         bannerList.add(HomeBanner(R.drawable.banner_one))
         bannerList.add(HomeBanner(R.drawable.banner_two))
-        bannerList.add(HomeBanner(R.drawable.banner_one))
-        bannerList.add(HomeBanner(R.drawable.banner_two))
+        bannerList.add(HomeBanner(R.drawable.banner_third))
         return bannerList
     }
     private fun startAutoSlide() {

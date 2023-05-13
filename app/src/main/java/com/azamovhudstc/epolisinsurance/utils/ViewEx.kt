@@ -5,6 +5,17 @@ import android.view.animation.AnimationUtils
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.RectF
+import android.renderscript.Allocation
+import android.renderscript.Element
+import android.renderscript.RenderScript
+import android.renderscript.ScriptIntrinsicBlur
+
 
 fun View.alphaAnim() {
     val anim = AnimationUtils.loadAnimation(App.instance, R.anim.alpha_anim).apply {
@@ -14,7 +25,11 @@ fun View.alphaAnim() {
     }
 
     startAnimation(anim)
+
 }
+
+
+
 fun View.slideTop(animTime: Long, startOffset: Long){
     val slideUp = AnimationUtils.loadAnimation(App.instance, R.anim.slide_top).apply {
         duration = animTime
