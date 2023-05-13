@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_garph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/langaugeScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.language.LanguageScreen"
+        android:label="langauge_screen"
+        tools:layout="@layout/langauge_screen" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.welcome.SplashScreen"
+        android:label="splash_screen"
+        tools:layout="@layout/splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_langaugeScreen"
+            app:destination="@id/langaugeScreen" />
+    </fragment>
+</navigation>

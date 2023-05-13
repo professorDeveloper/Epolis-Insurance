@@ -7,12 +7,30 @@ import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 
 fun View.alphaAnim() {
-    val anim = AnimationUtils.loadAnimation(App.instance, R.anim.alpha_anim);
-    anim .setFillAfter(true);
+    val anim = AnimationUtils.loadAnimation(App.instance, R.anim.alpha_anim).apply {
+        duration=1500L
+
+        fillAfter=true
+    }
 
     startAnimation(anim)
 }
-
+fun View.slideTop(animTime: Long, startOffset: Long){
+    val slideUp = AnimationUtils.loadAnimation(App.instance, R.anim.slide_top).apply {
+        duration = animTime
+        interpolator = FastOutSlowInInterpolator()
+        this.startOffset = startOffset
+    }
+    startAnimation(slideUp)
+}
+fun View.slideStart(animTime: Long, startOffset: Long){
+    val slideUp = AnimationUtils.loadAnimation(App.instance, R.anim.slide_start).apply {
+        duration = animTime
+        interpolator = FastOutSlowInInterpolator()
+        this.startOffset = startOffset
+    }
+    startAnimation(slideUp)
+}
 fun View.visible(){
     visibility=View.VISIBLE
 }
