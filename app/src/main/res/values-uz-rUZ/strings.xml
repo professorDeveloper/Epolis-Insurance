@@ -3,6 +3,5 @@
     <string name="language_choose_title">Tilni Tanlang</string>
     <string name="language_choose_desc">Epolis Ilovasiga xush kelibsiz, tilni tanlang .</string>
     <string name="language_button_title">Keyingisi</string>
-
-
+    <string name="send_otp">Kodni Yuborish</string>
 </resources>

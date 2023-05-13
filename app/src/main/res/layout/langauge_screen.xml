@@ -25,7 +25,7 @@
             android:text="@string/language_choose_title"
 
             android:textColor="#012033"
-            android:textFontWeight="650"
+            android:textFontWeight="400"
             android:textSize="23sp" />
 
         <TextView

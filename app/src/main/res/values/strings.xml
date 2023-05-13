@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Epolis</string>
-    <string name="language_choose_title">Выберите язык</string>
-    <string name="language_choose_desc">Добро пожаловать в приложение Epolis, выберите свой язык.</string>
-    <string name="language_button_title">Продолжить</string>
-    <string name="hello_blank_fragment">""</string>
+    <string name="language_choose_title">Choose Language</string>
+    <string name="language_choose_desc">Welcome to the Epolis app, select your language.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="language_button_title">Next</string>
+    <string name="send_otp">ОТправить СМС</string>
 </resources>

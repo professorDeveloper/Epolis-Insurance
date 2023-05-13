@@ -3,5 +3,5 @@
     <string name="language_choose_title">Выберите язык</string>
     <string name="language_choose_desc">Добро пожаловать в приложение Epolis, выберите свой язык.</string>
     <string name="language_button_title">Продолжить</string>
-
+    <string name="send_otp">ОТправить СМС</string>
 </resources>
