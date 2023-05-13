@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import com.azamovhudstc.epolisinsurance.utils.LanguageType
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
@@ -40,4 +41,11 @@ fun AppCompatEditText.amount(): String = this.text.toString()
 
 fun AppCompatEditText.clear() {
     setText("")
+}
+fun String.screenEnum(): LanguageType {
+    return when (this) {
+        "uz" -> LanguageType.uz
+        "ru" -> LanguageType.ru
+        else -> LanguageType.eng
+    }
 }

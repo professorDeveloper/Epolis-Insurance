@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2">
 
         <TextView
+            android:id="@+id/language_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilory_bold"
@@ -28,6 +29,7 @@
             android:textSize="23sp" />
 
         <TextView
+            android:id="@+id/language_desc"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -138,56 +140,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/eng_language_btn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/language_btn_bg">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/eng_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:src="@drawable/eng_flag"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/eng_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="English language"
-                        android:textColor="@color/gray_black"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/eng_img"
-                        app:layout_constraintStart_toEndOf="@+id/eng_img"
-                        app:layout_constraintTop_toTopOf="@+id/eng_img" />
-
-                    <ImageView
-                        android:id="@+id/eng_correct_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/correct_circle"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </LinearLayout>
@@ -196,7 +148,7 @@
         android:id="@+id/next_btn_language"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="20dp"
         android:text="@string/language_button_title"
@@ -214,6 +166,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_begin="109dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

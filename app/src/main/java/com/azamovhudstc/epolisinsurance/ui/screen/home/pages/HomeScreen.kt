@@ -6,9 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.azamovhudstc.epolisinsurance.R
-import com.azamovhudstc.epolisinsurance.model.HomeBanner
+import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import kotlinx.android.synthetic.main.fragment_home_screen.*
-import kotlinx.android.synthetic.main.home_banner_item.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
