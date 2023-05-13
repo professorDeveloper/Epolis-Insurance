@@ -1,4 +1,4 @@
-package com.azamovhudstc.sugurtaapp.utils
+package com.azamovhudstc.epolisinsurance.utils
 
 import android.annotation.SuppressLint
 import android.content.Context

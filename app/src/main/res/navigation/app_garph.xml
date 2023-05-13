@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/langaugeScreen"
-        android:name="com.azamovhudstc.epolisinsurance.ui.screen.language.LanguageScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.welcome.LanguageScreen"
         android:label="langauge_screen"
         tools:layout="@layout/langauge_screen" />
     <fragment

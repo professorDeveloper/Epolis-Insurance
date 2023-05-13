@@ -1,4 +1,4 @@
-package com.azamovhudstc.epolisinsurance.ui.screen.language
+package com.azamovhudstc.epolisinsurance.ui.screen.welcome
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
