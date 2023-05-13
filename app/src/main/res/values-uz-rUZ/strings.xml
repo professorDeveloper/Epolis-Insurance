@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="language_choose_title">Tilni Tanlang</string>
-    <string name="language_choose_desc">Epolis Ilovasiga xush kelibsiz, tilni tanlang .</string>
+    <string name="language_choose_desc">Impex Ilovasiga xush kelibsiz, tilni tanlang .</string>
     <string name="language_button_title">Keyingisi</string>
     <string name="send_otp">Kodni Yuborish</string>
+    <string name="category_item1">Hammasi</string>
+    <string name="category_item2">Avtomatik</string>
+    <string name="category_item3">Sayohat</string>
 </resources>

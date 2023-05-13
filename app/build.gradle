@@ -99,6 +99,7 @@ dependencies {
      * Dots Indicator
      * */
     implementation("com.tbuonomo:dotsindicator:4.3")
+    implementation 'com.github.zhpanvip:viewpagerindicator:1.2.2'
 
 
 

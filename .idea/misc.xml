@@ -12,13 +12,19 @@
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/drawable/language_select_btn.xml" value="0.2035" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/drawable/polis_selector.xml" value="0.2035" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/drawable/profile_selector.xml" value="0.2035" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/drawable/selected_category_bg.xml" value="0.2035" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/drawable/un_selected_category_bg.xml" value="0.2035" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/font/roboto.xml" value="0.34010416666666665" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
-        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_home_screen.xml" value="0.2988679352838745" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_home_screen.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_main_screen.xml" value="0.3098958333333333" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_polis_screen.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_register_screen.xml" value="0.30512820512820515" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/fragment_splash_screen.xml" value="0.3098958333333333" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/home_banner_item.xml" value="0.3098958333333333" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/home_bottom_product_item.xml" value="0.3098958333333333" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/home_category_item.xml" value="0.2988679352838745" />
+        <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/hr_home_tab_item.xml" value="0.2264151024877837" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/langauge_screen.xml" value="0.2264151024877837" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/layout/splash_screen.xml" value="0.3098958333333333" />
         <entry key="..\:/AndroidStudioProjects/EpolisInsurance/app/src/main/res/menu/main_bottom_navigation.xml" value="0.3098958333333333" />

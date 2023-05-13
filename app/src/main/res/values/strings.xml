@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name" translatable="false">Epolis</string>
-    <string name="language_choose_title">Choose Language</string>
-    <string name="language_choose_desc">Welcome to the Epolis app, select your language.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="language_button_title">Next</string>
-    <string name="send_otp">ОТправить СМС</string>
+    <string name="app_name" translatable="false">Impex Insurance</string>
+    <string name="language_choose_title">Выберите язык</string>
+    <string name="language_choose_desc">Добро пожаловать в приложение Impex Insurance, выберите свой язык.</string>
+    <string name="language_button_title">Продолжить</string>
+    <string name="hello_blank_fragment" translatable="false">""</string>
+    <string name="category_item1">Все</string>
+    <string name="category_item2">Авто</string>
+    <string name="category_item3">Путешествия</string>
+    <string name="send_otp">Отправить код</string>
 </resources>

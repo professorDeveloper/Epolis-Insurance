@@ -1,17 +1,16 @@
 package com.azamovhudstc.sugurtaapp.utils
 
-import android.util.Log
+import android.content.Context
+import android.content.res.Resources
+import android.util.DisplayMetrics
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.core.widget.ContentLoadingProgressBar
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import com.azamovhudstc.epolisinsurance.utils.LanguageType
+import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
+import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
-import com.google.gson.JsonSyntaxException
-import retrofit2.Callback
-import retrofit2.Response
+
 
 fun <T> T.myApply(block: T.() -> Unit) {
     block(this)
@@ -45,7 +44,17 @@ fun AppCompatEditText.clear() {
 fun String.screenEnum(): LanguageType {
     return when (this) {
         "uz" -> LanguageType.uz
-        "ru" -> LanguageType.ru
-        else -> LanguageType.eng
+        else -> LanguageType.ru
     }
+}
+fun String.screenCurrentEnum(): CurrentScreenEnum {
+    return when (this) {
+        "MAIN" -> CurrentScreenEnum.HOME
+        else-> CurrentScreenEnum.LANGUAGE
+    }
+}
+fun convertDpToPixel(dp: Float, context: Context): Float {
+    val resources: Resources = context.getResources()
+    val metrics: DisplayMetrics = resources.getDisplayMetrics()
+    return dp * (metrics.densityDpi / 160f)
 }
