@@ -35,7 +35,7 @@ class SplashScreen : Fragment(R.layout.splash_screen) {
             when (appReference.currentScreenEnum) {
                 CurrentScreenEnum.HOME -> {
                     findNavController().navigate(
-                        R.id.otpScreen,
+                        R.id.mainScreen,
                         null,
                         NavOptions.Builder().setPopUpTo(R.id.splashScreen, true).build()
                     )
