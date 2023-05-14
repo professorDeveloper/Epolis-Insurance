@@ -1,135 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.screen.home.pages.HomeScreen">
 
-    <LinearLayout
-        android:id="@+id/container_home_profile"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="18dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/default_profile_image" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/container_home_profile"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            android:layout_gravity="center"
-            android:orientation="vertical">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_profile_image" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/gilory_bold"
-                android:text="Имя Фамилия"
-                android:textColor="#012033"
-                android:textSize="16sp"
-/>
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilory_medium"
-                android:text="+998 90 123 45 67"
-                android:textColor="#4D6370"
-                android:textSize="14sp"
-/>
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="wrap_content"
 
-    </LinearLayout>
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/gilory_bold"
-        android:text="Регистрация"
-        android:textColor="#297AFF"
-        android:textSize="18sp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/gilory_bold"
+                            android:text="Имя Фамилия"
+                            android:textColor="#012033"
+                            android:textSize="16sp"
+                            />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+998 90 123 45 67"
+                            android:textColor="#4D6370"
+                            android:textSize="14sp"
+                            />
+                    </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/notification"
-        app:layout_constraintBottom_toBottomOf="@+id/container_home_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/container_home_profile"
-        app:tint="#f58634" />
+                </LinearLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/banner_home_top"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/gilory_bold"
+                    android:text="Регистрация"
+                    android:textColor="#297AFF"
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container_home_profile" />
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/notification"
+                    app:layout_constraintBottom_toBottomOf="@+id/container_home_profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/container_home_profile"
+                    app:tint="#f58634" />
 
-    <com.zhpan.indicator.IndicatorView
-        android:id="@+id/home_banner_indicator"
-        android:layout_width="wrap_content"
-        app:vpi_style="round_rect"
-        app:vpi_slider_normal_color="#EA995D"
-        app:vpi_slide_mode="worm"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/banner_home_top"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
 
-        app:vpi_slider_checked_color="@color/bottom_icon_txt_color"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toEndOf="@+id/banner_home_top"
-        app:layout_constraintStart_toStartOf="@+id/banner_home_top"
-        app:layout_constraintTop_toBottomOf="@+id/banner_home_top" />
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/container_home_profile" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/banner_home_top"
-        app:layout_constraintTop_toBottomOf="@+id/home_banner_indicator"
-        tools:listitem="@layout/home_category_item" />
+                <com.zhpan.indicator.IndicatorView
+                    android:id="@+id/home_banner_indicator"
+                    android:layout_width="wrap_content"
+                    app:vpi_style="round_rect"
+                    app:vpi_slider_normal_color="#EA995D"
+                    app:vpi_slide_mode="worm"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/home_bottom_rv"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="6dp"
+                    app:vpi_slider_checked_color="@color/bottom_icon_txt_color"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintEnd_toEndOf="@+id/banner_home_top"
+                    app:layout_constraintStart_toStartOf="@+id/banner_home_top"
+                    app:layout_constraintTop_toBottomOf="@+id/banner_home_top" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        android:orientation="vertical"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="20dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/home_category_item" />
 
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryRv"
-        app:spanCount="2"
-        tools:listitem="@layout/home_bottom_product_item" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_bottom_rv"
+            android:layout_marginHorizontal="10dp"
+
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginTop="?attr/actionBarSize"
+
+            android:orientation="vertical"
+            tools:itemCount="10"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryRv"
+            app:spanCount="2"
+            tools:listitem="@layout/home_bottom_product_item" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

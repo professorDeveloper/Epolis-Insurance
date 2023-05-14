@@ -14,7 +14,6 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.window?.navigationBarColor=R.color.white
         activity?.window?.setFlags(
                 WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
