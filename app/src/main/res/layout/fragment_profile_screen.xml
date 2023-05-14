@@ -40,11 +40,10 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/openInfo"
+        android:id="@+id/profile_info"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:background="?selectableItemBackground"
         android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
@@ -81,15 +80,6 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="25dp"
-            android:src="@drawable/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -138,13 +128,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/openInfo"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
+        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openInfo">
+        app:layout_constraintTop_toBottomOf="@+id/profile_info">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -188,7 +179,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/openInfo">
 
         <ImageView
             android:id="@+id/languageImage"
@@ -311,9 +302,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout7"
+        android:id="@+id/contact_us_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="?selectableItemBackground"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -368,6 +360,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_us_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
