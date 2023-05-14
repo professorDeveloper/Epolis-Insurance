@@ -39,12 +39,13 @@
         android:src="@drawable/back"
         app:layout_constraintStart_toStartOf="@+id/choose_container"
         app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/choose_container"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/register_title"
+            android:text="@string/phone"
 
             android:textColor="#012033"
             android:textSize="23sp" />
@@ -64,10 +65,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="#A3A4A5"
-            android:textFontWeight="600"
             android:fontFamily="@font/gilory_medium"
             android:text="@string/phone_des_register"
+            android:textColor="#A3A4A5"
+            android:textFontWeight="600"
             android:textSize="16sp" />
 
 
@@ -88,7 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilory_medium"
-            android:text="Номер телефона"
+            android:text="@string/phone"
             android:textColor="#012033"
             android:textFontWeight="580"
             android:textSize="16sp" />
@@ -97,28 +98,26 @@
             android:id="@+id/register_type_phone_container"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            >
-
+            android:layout_marginTop="10dp">
 
 
             <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/register_phone"
-                android:drawableStart="@drawable/uz_flag"
                 android:layout_width="match_parent"
-                app:mask="@string/_998"
                 android:layout_height="match_parent"
+                android:background="@drawable/register_edit_bg"
+                android:drawableStart="@drawable/uz_flag"
                 android:drawablePadding="20dp"
-                android:paddingStart="15dp"
                 android:hint="@string/_998"
-                android:background="@drawable/register_edit_bg"                android:inputType="number"
+                android:inputType="number"
+                android:paddingStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:mask="@string/_998" />
         </FrameLayout>
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

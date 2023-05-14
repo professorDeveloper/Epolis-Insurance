@@ -49,7 +49,7 @@ fun String.screenEnum(): LanguageType {
 }
 fun String.screenCurrentEnum(): CurrentScreenEnum {
     return when (this) {
-        "MAIN" -> CurrentScreenEnum.HOME
+        "HOME" -> CurrentScreenEnum.HOME
         else-> CurrentScreenEnum.LANGUAGE
     }
 }

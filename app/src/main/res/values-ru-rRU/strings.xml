@@ -6,11 +6,27 @@
     <string name="hello_blank_fragment">""</string>
     <string name="category_item1">Все</string>
     <string name="category_item2">Авто</string>
-    <string name="logout">Выйти</string>
     <string name="category_item3">Путешествия</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>
     <string name="send_otp">Отправить код</string>
     <string name="otp_title">Подтвердить код</string>
     <string name="otp_des">Пожалуйста, введите код, который вы отправили на +998901234567</string>
+    <string name="logout">Выйти</string>
+    <string name="skip_intro">Пропустить</string>
+    <string name="_998">+998 (##) ### ## ##</string>
+    <string name="intro_page_one_title">Получить страховой полис онлайн за 5 минут</string>
+    <string name="intro_page_two_ttle">Автоматически заполним данные</string>
+    <string name="intro_page_one_desc">Сравним цены от 20 разных страховых и поможем выбрать самую низкую</string>
+    <string name="intro_page_two_desc">Загрузим информацию из баз данных. Данные не нужно будет вводить вручную</string>
+    <string name="intropage_third_title">Живая и дружелюбная 24/7 техническая поддержка</string>
+    <string name="intropage_third_desc">Оперативно придём на помощь и поможем решить все проблемы</string>
+    <string name="success_otp_title">Учетная запись подтверждена</string>
+    <string name="success_otp_desc">Ваша учетная запись успешно подтверждена, теперь давайте наслаждаться функциями Epolis</string>
+    <string name="edit_profile_title">Информация профиля</string>
+    <string name="add_profile_picture_txt">Добавить изображение</string>
+    <string name="name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="phone">Номер телефона</string>
+
 </resources>

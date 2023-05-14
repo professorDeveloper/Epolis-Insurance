@@ -358,7 +358,6 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginHorizontal="20dp"
-
         android:background="@drawable/logout_bg"
         android:backgroundTint="@color/btn_color"
         android:fontFamily="@font/gilory_bold"

@@ -30,20 +30,8 @@ class MainActivity : LocalizationAppCompatActivity() {
     fun mySetLocate(locale: Locale, _block: (() -> Unit)) {
         block = _block
         setLocale(locale)
-        initLanguage()
     }
 
-    private fun initLanguage() {
-        val shared: AppReference = AppReference(this)
-        when (shared.currentLanguage) {
-            LanguageType.uz -> {
-                setLocale(Locale.forLanguageTag(LanguageType.uz.name.toString()))
-            }
-            else -> {
-                setLocale(Locale.forLanguageTag(LanguageType.ru.name.toString()))
-            }
-        }
-    }
 
     private var block: (() -> Unit)? = null
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.screen.welcome.OnboardScreen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navigationIcon="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/skip_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skip_intro"
+            android:layout_gravity="end"
+            android:fontFamily="@font/gilory_medium"
+            android:layout_marginEnd="16dp"
+/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/intro_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/next_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <ImageButton
+        android:id="@+id/next_btn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/intro_btn_bg"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/last_btn"
+        android:layout_width="267dp"
+        android:layout_height="55dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/gilory_bold"
+        android:visibility="invisible"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/intro_btn_bg"
+        android:text="@string/intro_btn_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.zhpan.indicator.IndicatorView
+        android:id="@+id/onboard_indicator"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/next_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/next_btn"
+        app:vpi_slide_mode="worm"
+        app:vpi_slider_checked_color="@color/bottom_icon_txt_color"
+        app:vpi_slider_normal_color="#EA995D"
+        app:vpi_style="round_rect" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,6 +52,9 @@ fun View.visible(){
 fun View.gone(){
     visibility=View.GONE
 }
+fun View.invisible(){
+    visibility=View.INVISIBLE
+}
 fun View.slideUp(animTime: Long, startOffset: Long) {
     val slideUp = AnimationUtils.loadAnimation(App.instance, R.anim.slide_up).apply {
         duration = animTime

@@ -30,9 +30,11 @@
 
         <TextView
             android:id="@+id/language_desc"
-            android:layout_width="311dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:layout_marginTop="8dp"
+            android:maxLines="2"
             android:fontFamily="@font/gilory_medium"
             android:text="@string/language_choose_desc"
             android:textSize="16sp" />
