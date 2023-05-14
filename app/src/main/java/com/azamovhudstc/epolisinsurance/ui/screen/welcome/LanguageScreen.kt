@@ -1,7 +1,9 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.welcome
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
@@ -21,7 +23,15 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class LanguageScreen : Fragment(R.layout.langauge_screen) {
+    @SuppressLint("ResourceAsColor")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.window?.navigationBarColor=R.color.white
+        activity?.window?.setFlags(
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()

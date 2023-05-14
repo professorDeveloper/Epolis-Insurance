@@ -68,6 +68,7 @@
         app:hideLineWhenFilled="false"
         app:itemCount="6"
         app:itemHeight="50dp"
+        app:itemSpacing="5dp"
         app:itemRadius="10dp"
         app:itemWidth="50dp"
         app:layout_constraintEnd_toEndOf="@+id/choose_container"

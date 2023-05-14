@@ -3,8 +3,11 @@ package com.azamovhudstc.epolisinsurance.ui.screen.register
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
@@ -19,9 +22,11 @@ class RegisterScreen : Fragment(R.layout.fragment_register_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.send_otp.slideUp(777,0)
-        view.send_otp.setOnClickListener {
-            view.register_type_phone_container.setBackgroundResource(R.drawable.selected_tg)
-        }
+        view.send_otp.slideUp(777, 0)
+        view.register_phone.setOnEditorActionListener(object : OnEditorActionListener {
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                return true
+            }
+        })
     }
 }
