@@ -30,20 +30,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.12" />
+
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="15dp"
+        android:background="?selectableItemBackgroundBorderless"
         android:src="@drawable/back"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/choose_container"
         app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
         android:id="@+id/choose_container"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="28dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:textColor="#A3A4A5"
             android:textFontWeight="600"
             android:fontFamily="@font/gilory_medium"
@@ -91,50 +93,30 @@
             android:textFontWeight="580"
             android:textSize="16sp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
             android:id="@+id/register_type_phone_container"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/register_edit_bg">
+            >
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:src="@drawable/uz_flag"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/gilory_bold"
-                android:text="+998"
-                android:textColor="#012033"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/register_phone"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="20dp"
-                android:background="@null"
-                android:inputType="number"
-                android:hint="(--) --- -- --"
-                android:keyboardNavigationCluster="false"
+                android:drawableStart="@drawable/uz_flag"
+                android:layout_width="match_parent"
+                app:mask="@string/_998"
+                android:layout_height="match_parent"
+                android:drawablePadding="20dp"
+                android:paddingStart="15dp"
+                android:hint="@string/_998"
+                android:background="@drawable/register_edit_bg"                android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
     </LinearLayout>
 
 

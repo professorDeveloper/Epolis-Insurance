@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#f58634"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.screen.welcome.SplashScreen">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/splash_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/impeks_g"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/splash_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3">
         <TextView
             android:textSize="16sp"
-            android:textColor="@color/white"
+            android:textColor="#f58634"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Powered by"/>
@@ -42,11 +42,13 @@
             android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/powered_lines"/>
+            android:src="@drawable/powered_lines"
+            app:tint="#f58634" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:src="@drawable/powered_txt"/>
+            android:src="@drawable/powered_txt"
+            app:tint="#f58634" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

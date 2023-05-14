@@ -20,5 +20,8 @@ class RegisterScreen : Fragment(R.layout.fragment_register_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.send_otp.slideUp(777,0)
+        view.send_otp.setOnClickListener {
+            view.register_type_phone_container.setBackgroundResource(R.drawable.selected_tg)
+        }
     }
 }

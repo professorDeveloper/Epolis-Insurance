@@ -6,7 +6,10 @@
     <string name="send_otp">Kodni Yuborish</string>
     <string name="category_item1">Hammasi</string>
     <string name="category_item2">Avtomatik</string>
-    <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash \nkodi yuboramiz</string>
+    <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash kodi yuboramiz</string>
     <string name="register_title">Telefon raqamingiz</string>
+    <string name="otp_title">Kodni tasdiqlang</string>
+    <string name="logout">Chiqish</string>
     <string name="category_item3">Sayohat</string>
+    <string name="otp_des">Iltimos, kodni kiriting,kod +998901234567 raqamiga yuborildi </string>
 </resources>

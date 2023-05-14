@@ -1,12 +1,11 @@
 package com.azamovhudstc.epolisinsurance.ui.adapter
 
-import android.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.azamovhudstc.epolisinsurance.ui.screen.home.pages.HomeScreen
 import com.azamovhudstc.epolisinsurance.ui.screen.home.pages.PolisScreen
-import com.azamovhudstc.epolisinsurance.ui.screen.home.pages.ProfileScreen
+import com.azamovhudstc.epolisinsurance.ui.screen.profile.ProfileScreen
 
 class BottomNavAdapter(fragmentManager: FragmentActivity) :
     FragmentStateAdapter(fragmentManager) {
