@@ -177,5 +177,6 @@ dependencies {
      ***/
     implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
 
+    implementation "com.github.skydoves:expandablelayout:1.0.7"
 
 }

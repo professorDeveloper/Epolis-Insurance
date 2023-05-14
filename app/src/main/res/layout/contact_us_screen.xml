@@ -9,22 +9,23 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/contact_us_toolbar"
         android:layout_width="match_parent"
-        app:navigationIcon="@drawable/ic_back"
         android:layout_height="?actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:textSize="16sp"
-                android:fontFamily="@font/gilory_bold"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/gilory_bold"
                 android:text="@string/title_contact_us"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -97,12 +98,12 @@
     <TextView
         android:id="@+id/contact_question_title"
         android:layout_width="wrap_content"
-        android:textSize="18sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/gilory_bold"
         android:textColor="@color/black"
-        android:layout_marginTop="24dp"
-        android:layout_height="wrap_content"
         android:text="@string/contact_question_title"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
