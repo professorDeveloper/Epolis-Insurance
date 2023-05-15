@@ -16,6 +16,7 @@
         android:theme="@style/Theme.EpolisInsurance"
         tools:targetApi="31">
         <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

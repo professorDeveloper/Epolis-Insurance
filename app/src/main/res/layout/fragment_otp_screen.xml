@@ -21,12 +21,13 @@
         android:src="@drawable/back"
         app:layout_constraintStart_toStartOf="@+id/choose_container"
         app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/choose_container"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="28dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,37 +47,79 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="#A3A4A5"
-            android:textFontWeight="600"
             android:fontFamily="@font/gilory_medium"
             android:text="@string/otp_des"
+            android:textColor="#A3A4A5"
+            android:textFontWeight="600"
             android:textSize="16sp" />
 
     </LinearLayout>
 
     <com.chaos.view.PinView
-        android:id="@+id/pinview"
+        android:id="@+id/firstPinView"
         style="@style/PinWidget.PinView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:cursorVisible="true"
-        android:gravity="center"
-        android:inputType="number"
-        android:itemBackground="@color/white"
-        app:hideLineWhenFilled="false"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
+        app:cursorColor="@color/btn_color"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
         app:itemCount="6"
-        app:itemHeight="50dp"
-        app:itemSpacing="5dp"
-        app:itemRadius="10dp"
-        app:itemWidth="50dp"
+        app:itemHeight="48dp"
+        app:itemRadius="4dp"
+        app:itemSpacing="12dp"
+        app:itemWidth="48dp"
         app:layout_constraintEnd_toEndOf="@+id/choose_container"
         app:layout_constraintStart_toStartOf="@+id/choose_container"
-        app:layout_constraintTop_toBottomOf="@+id/choose_container">
+        app:layout_constraintTop_toBottomOf="@+id/choose_container"
 
-    </com.chaos.view.PinView>
+        app:lineColor="@color/bottom_unselected_icon_txt_Color"
+        app:lineWidth="2dp"
+        app:viewType="rectangle" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/firstPinView"
+        app:layout_constraintTop_toBottomOf="@+id/firstPinView">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A3A4A5"
+            android:fontFamily="@font/gilory_medium"
+            android:text="@string/resend_otp_title" />
 
+        <TextView
+            android:id="@+id/resend_time"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/gilory_medium"
+            android:textColor="@color/btn_color" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/gilory_bold"
+        android:textSize="16sp"
+        android:text="@string/success_otp_btn_title"
+        android:background="@drawable/button_bg"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ class App : LocalizationApplication() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
     }
 
 }

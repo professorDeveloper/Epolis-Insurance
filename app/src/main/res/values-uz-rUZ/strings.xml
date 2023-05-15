@@ -34,5 +34,6 @@
     <string name="contact_us_title">Biz qanday yordam bera olamiz?</string>
     <string name="contact_us_desc">Siz izlagan javobni topa olmadingizmi? Bizning qo`llab-quvvatlash markazimizga murojaat qiling!</string>
     <string name="contact_question_title">Ommabop savollar</string>
+    <string name="resend_otp_title">orqali kodni qayta yuboring</string>
 
 </resources>

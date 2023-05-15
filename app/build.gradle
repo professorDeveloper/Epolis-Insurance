@@ -180,4 +180,12 @@ dependencies {
 
     implementation "com.github.skydoves:expandablelayout:1.0.7"
 
+    /**
+     * Android OtpView
+     ***/
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2'
+    implementation 'com.chaos.view:pinview:1.4.4'
+    implementation "io.karn:notify:1.4.0"
+
+
 }
