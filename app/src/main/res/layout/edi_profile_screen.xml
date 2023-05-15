@@ -137,21 +137,23 @@
             android:layout_marginTop="10dp">
 
 
-            <com.vicmikhailau.maskededittext.MaskedEditText
+            <TextView
+
                 android:id="@+id/register_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/register_edit_bg"
                 android:drawableStart="@drawable/uz_flag"
                 android:drawablePadding="20dp"
-                android:hint="@string/_998"
-                android:inputType="number"
                 android:paddingStart="15dp"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:text="@string/_998"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent"
-                app:mask="@string/_998" />
+                />
         </FrameLayout>
     </LinearLayout>
 
