@@ -19,6 +19,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures {
+        viewBinding true
+    }
 
     buildTypes {
         release {
@@ -185,7 +188,7 @@ dependencies {
      ***/
     implementation 'com.github.aabhasr1:OtpView:v1.1.2'
     implementation 'com.chaos.view:pinview:1.4.4'
-    implementation "io.karn:notify:1.4.0"
+//    implementation "io.karn:notify:1.4.0"
 
 
 }

@@ -3,11 +3,11 @@
     <item android:id="@+id/home"
         android:icon="@drawable/home_selector"
 
-        android:title="Главная"/>
+        android:title="@string/home"/>
     <item android:id="@+id/polis"
         android:icon="@drawable/polis_selector"
-        android:title="Мои полисы"/>
+        android:title="@string/my_polis"/>
     <item android:id="@+id/profile"
         android:icon="@drawable/profile_selector"
-        android:title="Профиль"/>
+        android:title="@string/profile"/>
 </menu>

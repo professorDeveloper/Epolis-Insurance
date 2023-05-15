@@ -55,71 +55,70 @@
 
     </LinearLayout>
 
-    <com.chaos.view.PinView
-        android:id="@+id/firstPinView"
-        style="@style/PinWidget.PinView"
+    <in.aabhasjindal.otptextview.OtpTextView
+            android:id="@+id/otp_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:cursorVisible="true"
-        android:inputType="text"
+
+        android:inputType="number"
         android:textSize="18sp"
         android:textStyle="bold"
-
-        app:cursorColor="@color/btn_color"
-        app:cursorWidth="2dp"
-        app:hideLineWhenFilled="true"
-        app:itemCount="6"
-        app:itemHeight="48dp"
-        app:itemRadius="4dp"
-        app:itemSpacing="12dp"
-        app:itemWidth="48dp"
+        app:bar_active_color="@color/bottom_icon_txt_color"
+        app:bar_height="3dp"
+        app:bar_margin="4dp"
+        app:height="52dp"
         app:layout_constraintEnd_toEndOf="@+id/choose_container"
         app:layout_constraintStart_toStartOf="@+id/choose_container"
         app:layout_constraintTop_toBottomOf="@+id/choose_container"
-
-        app:lineColor="@color/bottom_unselected_icon_txt_Color"
-        app:lineWidth="2dp"
-        app:viewType="rectangle" />
+        app:length="6"
+        app:otp_box_background_active="@drawable/otp_item_bg_active"
+        app:otp_box_background_error="@drawable/otp_item_bg_error"
+        app:otp_box_background_inactive="@drawable/otp_item_bg"
+        app:otp_box_background_success="@drawable/otp_item_bg_success"
+        app:otp_text_size="24dp"
+        app:width="52dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@+id/firstPinView"
-        app:layout_constraintTop_toBottomOf="@+id/firstPinView">
+        app:layout_constraintStart_toStartOf="@+id/otp_txt"
+        app:layout_constraintTop_toBottomOf="@+id/otp_txt">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#A3A4A5"
             android:fontFamily="@font/gilory_medium"
-            android:text="@string/resend_otp_title" />
+            android:text="@string/resend_otp_title"
+            android:textColor="#A3A4A5" />
 
         <TextView
             android:id="@+id/resend_time"
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
-            android:text="0:00"
             android:layout_marginStart="4dp"
             android:fontFamily="@font/gilory_medium"
+            android:text="0:00"
             android:textColor="@color/btn_color" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/check_code_otp_btn"
         android:layout_width="match_parent"
-        android:layout_marginBottom="50dp"
         android:layout_height="50dp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/gilory_bold"
-        android:textSize="16sp"
-        android:text="@string/success_otp_btn_title"
-        android:background="@drawable/button_bg"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/gilory_bold"
+        android:text="@string/success_otp_btn_title"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>

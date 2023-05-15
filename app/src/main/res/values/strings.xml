@@ -36,4 +36,14 @@
     <string name="contact_us_desc">Не нашли ответ, который искали? Свяжитесь с нашим центром поддержки!</string>
     <string name="contact_question_title">Популярные вопросы</string>
     <string name="resend_otp_title">Повторно отправить код через</string>
+    <string name="register_txt">Регистрация</string>
+    <string name="home">Главная</string>
+    <string name="my_polis">Мои полисы</string>
+    <string name="profile">Профиль</string>
+    <string name="all">Все</string>
+    <string name="working">Действующие</string>
+    <string name="archive">Архиные</string>
+    <string name="polis_not_Register_des">Сначала зарегистрируйтесь, чтобы добавить \n или приобрести страховой полис</string>
+    <string name="reset">Обновить</string>
+    <string name="item_name">ОСАГО</string>
 </resources>

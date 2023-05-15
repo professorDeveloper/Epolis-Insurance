@@ -3,6 +3,7 @@
     <style name="Theme.EpolisInsurance" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/bottom_icon_txt_color</item>
+        <item name="android:textColor">#808F99</item>
         <item name="colorPrimaryVariant">@color/bottom_icon_txt_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

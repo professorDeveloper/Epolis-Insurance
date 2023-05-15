@@ -63,7 +63,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryVh>() {
         holder.onBind(list[position])
     }
 
-    fun submitList(newList: List<CategoryItem>) {
+    fun submitList(newList: ArrayList<CategoryItem>) {
         list.clear()
         list.addAll(newList)
     }

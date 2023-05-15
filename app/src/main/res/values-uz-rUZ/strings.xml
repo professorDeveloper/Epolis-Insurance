@@ -35,5 +35,17 @@
     <string name="contact_us_desc">Siz izlagan javobni topa olmadingizmi? Bizning qo`llab-quvvatlash markazimizga murojaat qiling!</string>
     <string name="contact_question_title">Ommabop savollar</string>
     <string name="resend_otp_title">orqali kodni qayta yuboring</string>
+    <string name="register_txt">Kirish</string>
+    <string name="home">Uy</string>
+    <string name="my_polis">Mening Polislarim</string>
+    <string name="profile">Profil</string>
+    <string name="all">Hammasi</string>
+    <string name="working">Faollar</string>
+    <string name="archive">Arxivlar</string>
+
+    <string name="polis_not_Register_des">Sug`urta polisini qo`shish yoki sotib olish \n uchun avval r`yxatdan o`ting
+</string>
+    <string name="reset">Yangilash</string>
+    <string name="item_name">ОСАГО</string>
 
 </resources>
