@@ -5,12 +5,12 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="1dp"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/home_banner_img"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="180dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banner_two"
         app:layout_constraintBottom_toBottomOf="parent"
