@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 
 class HomeScreen : Fragment(R.layout.fragment_home_screen) {
     private var currentPage = 0
-    private val PERIOD_MS: Long = 1500// Avtomatik kayish oralig'i millisaniyalar
+    private val PERIOD_MS: Long = 2000// Avtomatik kayish oralig'i millisaniyalar
     fun loadCat(): ArrayList<CategoryItem> {
         var arrayList = ArrayList<CategoryItem>()
         arrayList.add(CategoryItem("Все"))
