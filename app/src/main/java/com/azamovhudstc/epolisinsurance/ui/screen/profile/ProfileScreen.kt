@@ -19,6 +19,9 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
         openInfo.setOnClickListener {
             findNavController().navigate(R.id.editProfileScreen)
         }
+        contact_us_btn.setOnClickListener {
+            findNavController().navigate(R.id.contactUsScreen)
+        }
     }
 
 }

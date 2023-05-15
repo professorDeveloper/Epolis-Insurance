@@ -173,6 +173,11 @@ dependencies {
     implementation 'com.zeugmasolutions.localehelper:locale-helper-android:1.5.1'
     implementation 'com.github.prongbang:localization:2.1.2'
 
+    /**
+     * Progress Loading Button
+     ***/
+    implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
 
+    implementation "com.github.skydoves:expandablelayout:1.0.7"
 
 }

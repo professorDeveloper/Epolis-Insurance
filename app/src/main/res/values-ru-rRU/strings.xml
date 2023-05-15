@@ -28,5 +28,12 @@
     <string name="name">Имя</string>
     <string name="last_name">Фамилия</string>
     <string name="phone">Номер телефона</string>
+    <string name="save_profile">Сохранить изменения</string>
+    <string name="success_otp_btn_title">Подтвердить</string>
+    <string name="intro_btn_txt">Начать пользоваться</string>
+    <string name="title_contact_us">Центр помощи</string>
+    <string name="contact_us_title">Как мы можем помочь?</string>
+    <string name="contact_us_desc">Не нашли ответ, который искали? Свяжитесь с нашим центром поддержки!</string>
+    <string name="contact_question_title">Популярные вопросы</string>
 
 </resources>

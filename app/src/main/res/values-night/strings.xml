@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="_998">+998 (##) ### ## ##</string>
-    <string name="skip_intro" />
-    <string name="intro_btn_txt">Начать пользоваться</string>
-    <string name="edit_profile_title">Информация профиля</string>
-    <string name="name">Имя</string>
-    <string name="last_name">Фамилия</string>
-</resources>
