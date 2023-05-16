@@ -107,4 +107,15 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+
+    <com.skydoves.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable"
+        android:layout_width="0dp"
+        android:layout_marginEnd ="20dp"
+        android:layout_height="wrap_content"
+        app:expandable_duration="300"
+        app:expandable_isExpanded="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/contact_question_title"
+        app:layout_constraintTop_toBottomOf="@+id/contact_question_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

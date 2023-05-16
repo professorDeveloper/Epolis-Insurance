@@ -35,7 +35,7 @@ class BuyedPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buyed_page, container, false)
+        return inflater.inflate(R.layout.fragment_all_page, container, false)
     }
 
     companion object {

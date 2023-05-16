@@ -1,14 +1,10 @@
 package com.azamovhudstc.epolisinsurance.utils
 
-import android.os.Build
-import android.preference.PreferenceManager
-import android.annotation.TargetApi
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
-import java.util.*
 import kotlin.collections.ArrayList
 
 object LocalData {
@@ -17,6 +13,9 @@ object LocalData {
     var currentPage = 0
     const val REQUEST_CODE =0
     const val PERIOD_MS: Long = 2000
+    fun  loadPollList(){
+
+    }
     fun loadGridData(): ArrayList<HomeBottomItem> {
         val arrayList = ArrayList<HomeBottomItem>()
         arrayList.add(
