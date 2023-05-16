@@ -33,9 +33,9 @@ class PolisScreen : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val appReference = AppReference(App.instance)
-        var categoryAdapter = PolisCategoryAdapter(loadCat(), requireActivity())
+        val categoryAdapter = PolisCategoryAdapter(loadCat(), requireActivity())
         binding.apply {
-            if (!appReference.getToken().toString().isEmpty()){
+            if (appReference.getToken().toString().isEmpty()){
                 isRegister.visible()
                 viewPager.gone()
             }
