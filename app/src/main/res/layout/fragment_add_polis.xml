@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/back_add"
                 android:layout_width="24dp"
                 android:background="?selectableItemBackgroundBorderless"
                 android:layout_height="24dp"
@@ -41,7 +41,7 @@
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/back_add"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -89,10 +89,10 @@
             <Spinner
                 android:id="@+id/polis_type"
                 android:layout_width="match_parent"
+                tools:listitem="@layout/item_spinner"
                 android:fontFamily="@font/gilory_medium"
                 android:textFontWeight="500"
                 android:layout_height="50dp"
-                android:hint="Выберите тип полиса"
                 android:paddingStart="15dp"
                 android:textSize="16sp" />
         </LinearLayout>

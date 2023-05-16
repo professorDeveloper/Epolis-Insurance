@@ -8,10 +8,12 @@ import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.prongbang.localization.LocalizationAppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : LocalizationAppCompatActivity() {
 
 

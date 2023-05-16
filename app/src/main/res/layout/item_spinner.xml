@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:padding="7dp"
-    android:gravity="center_horizontal"
-    android:text="Ogohlantiruvchi"
-    android:textColor="@android:color/black"
+    android:fontFamily="@font/gilory_medium"
+    android:textFontWeight="500"
+    android:text="Выберите тип полиса"
+    android:textColor="@color/textColor"
+    android:paddingStart="15dp"
     android:textSize="16sp" />

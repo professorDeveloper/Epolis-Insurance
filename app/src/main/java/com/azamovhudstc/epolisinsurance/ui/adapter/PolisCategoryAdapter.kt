@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.azamovhudstc.epolisinsurance.ui.screen.polis.pages.AllPage
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.pages.ArchivePage
-import com.azamovhudstc.epolisinsurance.ui.screen.polis.pages.BuyedPage
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.pages.WorkingPage
 
 
@@ -21,8 +21,8 @@ class PolisCategoryAdapter(var arrayList: ArrayList<String>, fragmentManager: Fr
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> WorkingPage()
-            1 -> BuyedPage()
+            0 -> AllPage()
+            1 -> WorkingPage()
             else -> ArchivePage()
         }
 

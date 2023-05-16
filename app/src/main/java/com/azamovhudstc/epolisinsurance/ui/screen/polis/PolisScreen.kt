@@ -35,7 +35,7 @@ class PolisScreen : Fragment() {
         val appReference = AppReference(App.instance)
         val categoryAdapter = PolisCategoryAdapter(loadCat(), requireActivity())
         binding.apply {
-            if (appReference.getToken().toString().isEmpty()){
+            if (appReference.getToken().toString().isNotEmpty()){
                 isRegister.visible()
                 viewPager.gone()
             }

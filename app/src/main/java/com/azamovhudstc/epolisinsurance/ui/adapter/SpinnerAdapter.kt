@@ -33,9 +33,7 @@ class SpinnerAdapter : BaseAdapter() {
 
         view.tv_spinner.text = data!![p0]
 
-        if (p0 == 0) {
-            view.tv_spinner.setTextColor(Color.parseColor("#A8A3A3"))
-        }
+
 
         return view
     }

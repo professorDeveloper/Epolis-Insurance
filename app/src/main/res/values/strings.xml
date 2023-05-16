@@ -10,7 +10,7 @@
     <string name="send_otp">Отправить код</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>
-    <string name="otp_des">Пожалуйста, введите код, который вы отправили на +998901234567</string>
+    <string name="otp_des">Пожалуйста, введите код, который вы отправили на </string>
     <string name="otp_title">Подтвердить код</string>
     <string name="logout">Выйти</string>
     <string name="_998">+998 (##) ### ## ##</string>

@@ -32,6 +32,7 @@
         app:layout_constraintGuide_begin="88dp" />
 
     <ImageView
+        android:id="@+id/imageView8"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
@@ -68,11 +69,22 @@
             android:fontFamily="@font/gilory_medium"
             android:text="@string/phone_des_register"
             android:textColor="#A3A4A5"
-            android:textFontWeight="600"
+            android:textFontWeight="550"
             android:textSize="16sp" />
 
 
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_Register"
+        android:elevation="2dp"
+        android:progressTint="@color/white"
+        android:visibility="gone"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/send_otp"
+        app:layout_constraintEnd_toEndOf="@+id/send_otp"
+        app:layout_constraintStart_toStartOf="@+id/send_otp"
+        app:layout_constraintTop_toTopOf="@+id/send_otp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -104,11 +116,12 @@
             <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/register_phone"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@drawable/register_edit_bg"
                 android:drawableStart="@drawable/uz_flag"
                 android:drawablePadding="20dp"
                 android:hint="@string/_998"
+                android:textColorHint="#B3BCC2"
                 android:inputType="number"
                 android:paddingStart="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"

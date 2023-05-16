@@ -1,0 +1,53 @@
+package com.azamovhudstc.epolisinsurance.repo.imp
+
+import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
+import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
+import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
+import com.azamovhudstc.epolisinsurance.data.remote.response.ConfirmResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.RegisterResponse
+import com.azamovhudstc.epolisinsurance.repo.AuthRepository
+import com.azamovhudstc.epolisinsurance.utils.hasConnection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
+
+class AuthRepositoryImp @Inject constructor(private val authApi: AuthApi): AuthRepository {
+    override fun otpConfirm(otpRequest: ConfirmRequest): Flow<Result<ConfirmResponse>> = flow {
+        val confirmOtp = authApi.confirmOtp(otpRequest.phone, otpRequest.code)
+        if (hasConnection()){
+            if (confirmOtp.isSuccessful){
+                emit(Result.success(confirmOtp.body()!!))
+            }
+            else{
+                emit(Result.failure(Exception("Xatolik Sodir bo`ldi")))
+            }
+
+        }
+        else{
+            emit(Result.failure(java.lang.Exception("Нет соединения")))
+        }
+    }
+
+    override fun registerUser(registerRequest: RegisterRequest): Flow<Result<RegisterResponse>> = flow {
+        val registerUser = authApi.registerUser(registerRequest.phone, registerRequest.name)
+
+        if (hasConnection()){
+            if (registerUser.isSuccessful){
+                emit(Result.success(registerUser.body()!!))
+            }
+            else{
+                emit(Result.failure(Exception("Xatolik Sodir bo`ldi")))
+            }
+
+        }
+        else{
+            emit(Result.failure(java.lang.Exception("Нет соединения")))
+        }
+
+    }.catch {
+        emit(Result.failure(it))
+    }.flowOn(Dispatchers.IO)
+}

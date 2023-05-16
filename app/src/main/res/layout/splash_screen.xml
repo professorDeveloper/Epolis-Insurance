@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3">
         <TextView
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textColor="#f58634"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

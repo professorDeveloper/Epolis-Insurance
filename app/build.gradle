@@ -142,7 +142,7 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.44"
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
-
+    implementation 'com.github.tfaki:ComposableSweetToast:1.0.1'
     /**
      * PinView
      * */

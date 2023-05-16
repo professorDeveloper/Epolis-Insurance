@@ -1,6 +1,6 @@
 package com.azamovhudstc.epolisinsurance.data.remote.response
 
-data class RegisterResponse(
-    val `data`: String,
+data class ConfirmResponse(
+    val `data`: DataX,
     val error: Any
 )

@@ -44,13 +44,14 @@
             android:textSize="23sp" />
 
         <TextView
+            android:id="@+id/otp_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/gilory_medium"
             android:text="@string/otp_des"
             android:textColor="#A3A4A5"
-            android:textFontWeight="600"
+            android:textFontWeight="550"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -120,5 +121,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:layout_width="40dp"
+        android:id="@+id/progress_confirm"
+        android:visibility="gone"
+        android:elevation="2dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/check_code_otp_btn"
+        app:layout_constraintEnd_toEndOf="@+id/check_code_otp_btn"
+        app:layout_constraintStart_toStartOf="@+id/check_code_otp_btn"
+        app:layout_constraintTop_toTopOf="@+id/check_code_otp_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
