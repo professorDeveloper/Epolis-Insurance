@@ -50,6 +50,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
+        app:tabBackground="@color/white"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         app:tabInlineLabel="true"
