@@ -1,14 +1,27 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
+import kotlinx.android.synthetic.main.fragment_agree_screen.*
 
 class AgreeScreen : Fragment(R.layout.fragment_agree_screen) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadAgree()
+    }
 
-
-
+    private fun loadAgree() {
+        back_btn.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        agree_user.setOnCheckedChangeListener { buttonView, isChecked ->
+            agree_btn.isEnabled = isChecked
+        }
+        agree_btn.setOnClickListener {
+            findNavController().navigate(R.id.mainScreen)
+        }
+    }
 }

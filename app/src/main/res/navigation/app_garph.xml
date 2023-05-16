@@ -83,4 +83,9 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.contact_admin.ContactUsScreen"
         android:label="contact_us_screen"
         tools:layout="@layout/contact_us_screen" />
+    <fragment
+        android:id="@+id/agreeScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.register.AgreeScreen"
+        android:label="fragment_agree_screen"
+        tools:layout="@layout/fragment_agree_screen" />
 </navigation>
