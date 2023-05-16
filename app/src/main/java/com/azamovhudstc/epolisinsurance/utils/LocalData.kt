@@ -16,6 +16,14 @@ object LocalData {
     fun  loadPollList(){
 
     }
+    fun  addSpinnerCat():ArrayList<String>{
+        var arrayList=ArrayList<String>()
+        arrayList.add("ОСАГО")
+        arrayList.add("КАСКО")
+        arrayList.add("ОСГО ВТС")
+        arrayList.add("ТРЕВЕЛ")
+        return  arrayList
+    }
     fun loadGridData(): ArrayList<HomeBottomItem> {
         val arrayList = ArrayList<HomeBottomItem>()
         arrayList.add(

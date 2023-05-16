@@ -61,9 +61,11 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <LinearLayout
-        android:layout_marginHorizontal="20dp"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,16 +75,112 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Тип полиса"
-            android:textColor="@color/textColor"
             android:layout_marginBottom="8dp"
+            android:text="Тип полиса"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/textColor"
+            android:textFontWeight="700"
             android:textSize="15sp" />
-        <Spinner
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:textSize="15sp"
-            android:layout_height="50dp"
-            android:paddingStart="10dp"
-            android:hint="Выберите тип полиса"
-            android:background="@drawable/bg_add_polis_edit"/>
+            android:background="@drawable/bg_add_polis_edit"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/polis_type"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/gilory_medium"
+                android:textFontWeight="500"
+                android:layout_height="50dp"
+                android:hint="Выберите тип полиса"
+                android:paddingStart="15dp"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Серия и номер полиса"
+            android:textColor="@color/textColor"
+            android:textFontWeight="700"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/gilory_medium"
+            android:textFontWeight="500"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_add_polis_edit"
+            android:hint="ААА 1234ABCD"
+            android:paddingStart="15dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Номер транспорта"
+            android:textColor="@color/textColor"
+            android:textFontWeight="700"
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:fontFamily="@font/gilory_medium"
+            android:textFontWeight="500"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_add_polis_edit"
+            android:hint="01 A 001 AA"
+            android:paddingStart="15dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/agree_register"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/button_bg"
+        android:fontFamily="@font/gilory_bold"
+        android:text="@string/add_polis"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
