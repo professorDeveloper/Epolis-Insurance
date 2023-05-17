@@ -9,7 +9,6 @@ import com.azamovhudstc.epolisinsurance.app.App
 
 fun hasConnection(): Boolean = App.instance.isAvailableNetwork()
 
-@SuppressLint("MissingPermission")
 private fun Context.isAvailableNetwork(): Boolean {
     var result = false
     val connectivityManager =

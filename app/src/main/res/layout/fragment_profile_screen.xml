@@ -10,39 +10,27 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
         app:elevation="2dp"
+        android:background="@color/white"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent" >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:fontFamily="@font/gilory_bold"
                 android:text="Профиль"
-
+                android:layout_marginStart="20dp"
                 android:textColor="@color/textColor"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -54,7 +42,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="?selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -73,14 +61,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item1"
+            android:text="Имя Фамилия"
             android:textColor="@color/textColor"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/circleImageView2"
             app:layout_constraintTop_toTopOf="@+id/circleImageView2" />
 
         <TextView
-            android:id="@+id/phone_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -97,28 +84,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="18dp"
-
-        android:background="?selectableItemBackground"
-        android:visibility="visible"
+        android:background="@drawable/bg_profile_top"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="#C0C5C8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:background="#ADB1B3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
 
         <ImageView
             android:id="@+id/imageView4"
@@ -136,13 +106,21 @@
             android:layout_marginStart="16dp"
 
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/register_txt"
-            android:textColor="@color/black"
+            android:text="Регистрация"
+            android:textColor="@color/btn_color"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -150,7 +128,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_container">
@@ -171,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item2"
+            android:text="Информация профиля"
             android:textColor="@color/textColor"
 
             android:textSize="16sp"
@@ -191,11 +168,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/language_setting"
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/openInfo">
@@ -216,7 +192,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item3"
+            android:text="Язык приложения"
 
             android:textColor="@color/textColor"
             android:textSize="16sp"
@@ -226,8 +202,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gilory_bold"
-            android:text="@string/russian_yazik"
+            android:text="Русский язык"
             android:textColor="#99A6AD"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -250,10 +225,9 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/language_setting">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <ImageView
             android:id="@+id/profileNotif"
@@ -270,7 +244,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item4"
+            android:text="Напоминания"
             android:textColor="@color/textColor"
 
             android:textSize="16sp"
@@ -294,7 +268,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
@@ -314,7 +287,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item5"
+            android:text="О Нас"
             android:textColor="@color/textColor"
 
             android:textSize="16sp"
@@ -338,7 +311,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
@@ -358,7 +330,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:fontFamily="@font/gilory_bold"
-            android:text="@string/profile_item6"
+            android:text="Центр помощи"
             android:textColor="@color/textColor"
 
             android:textSize="16sp"
@@ -378,17 +350,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/logout_btn"
+        android:id="@+id/send_otp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/logout_bg"
         android:backgroundTint="@color/btn_color"
-        android:clickable="true"
         android:fontFamily="@font/gilory_bold"
-        android:selectAllOnFocus="true"
         android:text="@string/logout"
         android:textAllCaps="true"
+        android:clickable="true"
+        android:selectAllOnFocus="true"
         android:textColor="@color/btn_color"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"

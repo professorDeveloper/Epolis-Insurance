@@ -209,4 +209,5 @@ dependencies {
      ***/
     implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
 
+    implementation 'com.github.shuhart:stepview:1.5.1'
 }

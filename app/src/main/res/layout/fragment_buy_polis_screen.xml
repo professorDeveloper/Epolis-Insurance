@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.screen.polis.BuyPolisScreen">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        app:elevation="2dp"
+        android:background="@color/white"
+        android:layout_height="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="24dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_height="24dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_marginStart="20dp"
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilory_bold"
+                android:text="Оформление страховки"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.shuhart.stepview.StepView
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:sv_showLabel="true"
+        app:sv_nextStepCircleEnabled="true"
+        app:sv_nextStepCircleColor="#808F99"
+        app:sv_stepsNumber="4"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:sv_animationType="Circle"
+        app:sv_doneStepMarkColor="@color/white"
+        app:sv_doneCircleRadius="12dp"
+        app:sv_selectedStepNumberColor="#297AFF"
+        app:sv_doneStepLineColor="#297AFF"
+        app:sv_nextStepLineColor="#808F99"
+        app:sv_nextTextColor="#fff"
+        app:sv_selectedCircleColor="#297AFF"
+        app:sv_selectedCircleRadius="12dp"
+        app:sv_selectedTextColor="#297AFF"
+        app:sv_stepLineWidth="1dp"
+        app:sv_stepNumberTextSize="12sp"
+        app:sv_stepPadding="4dp"
+        app:sv_stepViewStyle="@style/StepView"
+        app:sv_typeface="@font/gilory_bold" />
+</androidx.constraintlayout.widget.ConstraintLayout>
