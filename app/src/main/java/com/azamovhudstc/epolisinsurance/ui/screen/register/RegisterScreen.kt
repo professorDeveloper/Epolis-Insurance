@@ -13,6 +13,7 @@ import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
 import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AuthViewModelImp
+import com.azamovhudstc.sugurtaapp.utils.checkPhone
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_register_screen.*
 import kotlinx.android.synthetic.main.fragment_register_screen.view.*

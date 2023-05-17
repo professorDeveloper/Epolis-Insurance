@@ -46,6 +46,12 @@
         <action
             android:id="@+id/action_mainScreen_to_profileLanguage"
             app:destination="@id/profileLanguage" />
+        <action
+            android:id="@+id/action_mainScreen_to_profileScreen"
+            app:destination="@id/profileScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_contactUsScreen2"
+            app:destination="@id/contactUsScreen" />
     </fragment>
     <fragment
         android:id="@+id/registerScreen"
@@ -78,7 +84,11 @@
         android:id="@+id/successOtpScreen"
         tools:layout="@layout/succes_otp_screen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.register.SuccessOtpScreen"
-        android:label="SuccessOtpScreen" />
+        android:label="SuccessOtpScreen" >
+        <action
+            android:id="@+id/action_successOtpScreen_to_agreeScreen"
+            app:destination="@id/agreeScreen" />
+    </fragment>
     <fragment
         android:id="@+id/editProfileScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.edit.EditProfileScreen"
@@ -93,7 +103,11 @@
         android:id="@+id/agreeScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.register.AgreeScreen"
         android:label="fragment_agree_screen"
-        tools:layout="@layout/fragment_agree_screen" />
+        tools:layout="@layout/fragment_agree_screen" >
+        <action
+            android:id="@+id/action_agreeScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
     <fragment
         android:id="@+id/addPolis"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.AddPolis"
@@ -108,4 +122,9 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.BuyPolisScreen"
         android:label="fragment_buy_polis_screen"
         tools:layout="@layout/fragment_buy_polis_screen" />
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.ProfileScreen"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen" />
 </navigation>

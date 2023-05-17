@@ -54,11 +54,11 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="?selectableItemBackground"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView2"
+            android:id="@+id/profile_circle_image"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_marginStart="20dp"
@@ -76,8 +76,8 @@
             android:text="@string/profile_item1"
             android:textColor="@color/textColor"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView2"
-            app:layout_constraintTop_toTopOf="@+id/circleImageView2" />
+            app:layout_constraintStart_toEndOf="@+id/profile_circle_image"
+            app:layout_constraintTop_toTopOf="@+id/profile_circle_image" />
 
         <TextView
             android:id="@+id/phone_profile"
@@ -99,7 +99,7 @@
         android:layout_marginTop="18dp"
 
         android:background="?selectableItemBackground"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
@@ -111,13 +111,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="#ADB1B3"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <ImageView

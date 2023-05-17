@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface EditProfileRepository {
     fun loadPhoneNumber():Flow<Result<String>>
     fun updateProfile(profileEntity: ProfileEntity):Flow<Result<Unit>>
+    fun initProfile():Flow<Result<ProfileEntity>>
+
 }

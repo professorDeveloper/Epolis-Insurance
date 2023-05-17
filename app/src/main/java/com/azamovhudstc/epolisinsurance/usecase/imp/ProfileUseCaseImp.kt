@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.usecase.imp
 
+import com.azamovhudstc.epolisinsurance.data.local.room.entity.ProfileEntity
 import com.azamovhudstc.epolisinsurance.repo.imp.ProfileRepositoryImp
 import com.azamovhudstc.epolisinsurance.usecase.ProfileUseCase
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
@@ -13,6 +14,14 @@ class ProfileUseCaseImp @Inject constructor(private val repo: ProfileRepositoryI
     }
 
     override fun saveLanguage(languageType: LanguageType): Flow<Result<Unit>> {
-      return  repo.saveLanguage(languageType)
+        return repo.saveLanguage(languageType)
+    }
+
+    override fun initProfileWithImage(): Flow<Result<ProfileEntity>> {
+        return repo.initProfileImage()
+    }
+
+    override fun logout(): Flow<Result<Unit>> {
+        return repo.logout()
     }
 }

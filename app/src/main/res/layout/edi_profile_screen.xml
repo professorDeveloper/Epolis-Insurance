@@ -160,10 +160,10 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_profile"
         android:layout_width="0dp"
         android:layout_marginHorizontal="20dp"
         android:textSize="16sp"
-
         android:textColor="@color/white"
         android:fontFamily="@font/gilory_bold"
         android:text="@string/save_profile"

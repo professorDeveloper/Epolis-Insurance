@@ -15,4 +15,8 @@ class EditProfileUseCaseImp @Inject constructor(private val repo: EditProfileRep
     override fun updateProfile(profileEntity: ProfileEntity): Flow<Result<Unit>> {
         return repo.updateProfile(profileEntity)
     }
+
+    override fun initProfileData(): Flow<Result<ProfileEntity>> {
+        return repo.initProfile()
+    }
 }

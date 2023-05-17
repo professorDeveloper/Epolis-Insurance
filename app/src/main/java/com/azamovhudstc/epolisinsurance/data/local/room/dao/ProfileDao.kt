@@ -16,4 +16,8 @@ interface ProfileDao {
 
     @Query("SELECT * from profileEntity ")
     suspend fun getProfiles():List<ProfileEntity>
+
+    @Query("DELETE FROM profileEntity")
+    suspend fun clear()
+
 }

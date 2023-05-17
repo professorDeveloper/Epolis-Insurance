@@ -28,4 +28,11 @@ class EditProfileRepositoryImp @Inject constructor(
             emit(Result.success(Unit))
         }
     }
+    override fun initProfile() = flow<Result<ProfileEntity>> {
+        if (dao.getProfiles().isNotEmpty()) {
+            emit(Result.success(dao.getProfileDataById(1)!!))
+        } else {
+            emit(Result.failure(Exception("Malumot Hali qo`shilmagan ")))
+        }
+    }
 }

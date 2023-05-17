@@ -16,6 +16,7 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
+import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.showToast
 import com.azamovhudstc.epolisinsurance.utils.showToastSuccess
@@ -43,7 +44,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
             val shared = AppReference(App.instance)
             shared.token = it?.data!!.token!!
             val phoneString = arguments?.getString("phone")
-            shared.phone=phoneString.toString()
+            shared.phone="+"+phoneString.toString()
             otp_txt.showSuccess()
             findNavController().navigate(
                 R.id.successOtpScreen,
