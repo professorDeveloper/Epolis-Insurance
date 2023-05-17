@@ -35,7 +35,6 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         startAutoSlide()
         initIndicator()
     }
@@ -77,12 +76,14 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         categoryRv.adapter = cateAdapter
         val list = loadCatHome()
         list.clear()
         list.addAll(loadCatHome())
         cateAdapter.submitList(list)
     }
+
+
 }

@@ -54,12 +54,14 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
         openInfo.isEnabled = true
         phone_profile.text=it
         logout_btn.visible()
+        openInfo.visible()
     }
 
     private val errorLoadProfileData = Observer<String> {
         constraintLayout.visible()
         profile_container.invisible()
         logout_btn.invisible()
+        openInfo.gone()
 
         openInfo.isEnabled = false
 

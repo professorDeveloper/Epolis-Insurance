@@ -54,7 +54,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="?selectableItemBackground"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -99,10 +99,26 @@
         android:layout_marginTop="18dp"
 
         android:background="?selectableItemBackground"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#C0C5C8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ADB1B3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
 
         <ImageView
             android:id="@+id/imageView4"
@@ -127,14 +143,6 @@
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="25dp"
-            android:src="@drawable/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,7 +194,6 @@
         android:id="@+id/language_setting"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,6 +204,7 @@
             android:id="@+id/languageImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             android:src="@drawable/languagesetting"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
