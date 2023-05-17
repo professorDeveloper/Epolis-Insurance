@@ -21,8 +21,8 @@ class PolisCategoryAdapter(var arrayList: ArrayList<String>, fragmentManager: Fr
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> AllPage()
-            1 -> WorkingPage()
+            0 -> WorkingPage()
+            1 -> AllPage()
             else -> ArchivePage()
         }
 

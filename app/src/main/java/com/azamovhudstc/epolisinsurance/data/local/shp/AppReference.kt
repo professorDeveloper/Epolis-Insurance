@@ -31,23 +31,17 @@ class AppReference @Inject constructor(
             sharedPref.edit().putString("current_language", value.name).apply()
         }
 
-    fun setToken(token: String) {
-        editor.putString("TOKEN", token)
-        editor.apply()
-    }
+    var token: String
+        get() = sharedPref.getString("token", "")!!
+        set(value) {
+            sharedPref.edit().putString("token", value.toString()).apply()
+        }
 
-    fun getToken(): String? {
-        return sharedPref.getString("TOKEN", "")
-    }
+    var phone: String
+        get() = sharedPref.getString("phone", "")!!
+        set(value) {
+            sharedPref.edit().putString("phone", value.toString()).apply()
+        }
 
-
-    fun setDarkMode(token: Boolean) {
-        editor.putBoolean("isDarkModeOn", token)
-        editor.apply()
-    }
-
-    fun getDarkMode(): Boolean? {
-        return sharedPref.getBoolean("isDarkModeOn", false)
-    }
 
 }

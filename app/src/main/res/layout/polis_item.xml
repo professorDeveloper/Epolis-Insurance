@@ -10,11 +10,11 @@
 
     <ImageView
         android:id="@+id/polis_item_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
-        android:src="@drawable/polis_item_img1"
+        android:src="@drawable/impeks_g"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/polis_item_img"
         app:layout_constraintStart_toStartOf="@+id/polis_item_img"
         app:layout_constraintTop_toBottomOf="@+id/polis_item_img">
 
@@ -84,11 +83,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="12dp"
+        android:layout_marginBottom="16dp"
         android:layout_centerVertical="true"
         android:max="100"
         android:padding="0dp"
         android:progress="23"
-        android:progressDrawable="@drawable/progress_orange"
+        android:progressDrawable="@drawable/progress_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/date_item"

@@ -10,7 +10,7 @@
     <string name="register_title">Telefon raqamingiz</string>
     <string name="category_item3">Sayohat</string>
     <string name="otp_title">Kodni tekshirish</string>
-    <string name="otp_des">+998901234567 raqamiga yuborgan kodingizni kiriting</string>
+    <string name="otp_des"> raqamiga yuborgan kodingizni kiriting</string>
     <string name="logout">Tashqariga chiqish</string>
     <string name="_998">+998 (##) ### ## ##</string>
     <string name="skip_intro">Oʻtkazib yuborish</string>
@@ -44,7 +44,7 @@
     <string name="agree_txt">Litsenziya shartnomasi</string>
     <string name="add_polis_info">Siz polis qo`shishingiz mumkin</string>
     <string name="archive">Arxivlar</string>
-    <string name="agree_info">Yechimdan foydalanishdan oldin (quyida tavsiflanganidek) ushbu Yakuniy foydalanuvchi Litsenziya Shartnomasi (“Shartnoma”) shartlarini diqqat bilan o‘qib chiqing. Ushbu matn yuridik jihatdan majburiy shartnoma hisoblanadi. Elektron roziligingizni berish, Yechimni oʻrnatish yoki Yechimdan foydalanish orqali siz ushbu Shartnomaning barcha shartlarini oʻzingiz va oʻzingiz vakili boʻlgan yoki Yechimni sotib olayotgan har qanday yuridik va jismoniy shaxs nomidan qabul qilasiz (birgalikda, “ siz"). Agar siz ushbu Shartnoma shartlariga rozi bo'lmasangiz, Yechimni o'rnatish jarayonini davom ettirmang, undan foydalanmang va sizda mavjud bo'lgan yoki nazorat qiladigan barcha nusxalarini o'chiring yoki yo'q qiling.
+    <string name="privacy_description">Yechimdan foydalanishdan oldin (quyida tavsiflanganidek) ushbu Yakuniy foydalanuvchi Litsenziya Shartnomasi (“Shartnoma”) shartlarini diqqat bilan o‘qib chiqing. Ushbu matn yuridik jihatdan majburiy shartnoma hisoblanadi. Elektron roziligingizni berish, Yechimni oʻrnatish yoki Yechimdan foydalanish orqali siz ushbu Shartnomaning barcha shartlarini oʻzingiz va oʻzingiz vakili boʻlgan yoki Yechimni sotib olayotgan har qanday yuridik va jismoniy shaxs nomidan qabul qilasiz (birgalikda, “ siz"). Agar siz ushbu Shartnoma shartlariga rozi bo'lmasangiz, Yechimni o'rnatish jarayonini davom ettirmang, undan foydalanmang va sizda mavjud bo'lgan yoki nazorat qiladigan barcha nusxalarini o'chiring yoki yo'q qiling.
 
 Ushbu Shartnoma muayyan xizmatlar va dasturiy ta'minotdan, shu jumladan, ushbu Shartnomani qabul qilganingiz bilan bog'liq Yangilanishlar (har biri "Yechim") va barcha tegishli hujjatlardan foydalanishingiz uchun amal qiladi. Ushbu Shartnomada “Provayder” bu yerda sizga Yechimni taqdim etuvchi shaxsni bildiradi; “Hujjatlar” Yechim bilan taʼminlangan har qanday foydalanuvchi qoʻllanmalari va koʻrsatmalarini anglatadi; va “Qo‘llaniladigan shartlar” umumiy ma’noda Obuna shartlari, qurilmalar turlari, ruxsat etilgan qurilmalar soni, boshqa tranzaksiya shartlari, Qarorni sotib olayotganda siz qabul qilgan shartlar va hujjatlar (shu jumladan, sotish shartlari) va distribyutor, sotuvchi, hamkor bilan tuzilgan har qanday shartnoma yoki siz va Yetkazib beruvchi yoki Yetkazib beruvchilar guruhining boshqa a'zosi o'rtasidagi kelishuv va 2-bo'limda va Hujjatlarda tasvirlangan har qanday boshqa cheklovlar.
 
@@ -57,7 +57,23 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
 </string>
     <string name="reset">Uzatish</string>
     <string name="item_name">ОСАГО</string>
-    <string name="privacy_description">Перед использованием Решения (см. определение ниже) внимательно ознакомьтесь с условиями данного Лицензионного соглашения с конечным пользователем (далее — «Соглашение»). Данный текст является юридически обязывающим договором. Давая согласие в электронной форме, устанавливая Решение или используя Решение, вы принимаете все условия настоящего Соглашения от своего лица и любой организации и физического лица, которое вы представляете или для чьего Устройства вы приобретаете Решение (в совокупности «вы»). Если вы не согласны с условиями данного Соглашения, не продолжайте процесс установки Решения, не используйте его и удалите или уничтожьте все его копии, которые у вас имеются или которыми вы распоряжаетесь. Данное Соглашение относится к использованию вами определенных служб и программного обеспечения, включая Обновления (каждое — «Решение»), в связи с которым вы принимаете данное Соглашение, и всей связанной Документации. В настоящем Соглашении «Поставщик» обозначает организацию, определенную здесь, как предоставляющую Решение вам; «Документация» обозначает любые руководства пользователей и инструкции, предоставляемые с Решением; а «Применимые условия» обозначают в совокупности Срок подписки вместе с типами Устройств, Разрешенным количеством устройств, прочими условиями транзакций, условиями и документами, принятыми вами при покупке Решения (включая условия продажи), а также любое соглашение с дистрибьютором, реселлером, партнером или иное соглашение между вами и Поставщиком или другим участником Группы поставщика, а также прочие ограничения, описываемые в Разделе 2 и в Документации. раве прекратить использование вами такого затронутого Решения. В этом случае вы имеете п раво на возмещение оплаченной стоимости той части Срока подписки, который еще не истек или не был использован. Соответствующие инструкции можно найти здесь. 1. ЛИЦЕНЗИЯв использовании соответствующего Решения или Устройства (либо определенных функций Устройства) до тех пор, пока не будет завершена полная установка или активация Обновления. Каждое Обновление будет считаться частью Решения во всем, что касается настоящего Соглашения. Обновление может быть представлено в виде какого-либо дополнения, удаления любой конкретной функции или возможности Решения или его полной замены. При этом содержание, а также функции и возможности обновленного Решения определяет исключительно Поставщик. От Поставщика не требуется предлагать вам возможность отказываться от Обновлений или задерживать их установку, но, в любом случае, вам может потребоваться скачать и разрешить установку или активацию всех доступных Обновлений для того, чтобы воспользоваться всеми преимуществами Решения. Поставщик может прекратить предоставление поддержки Решения до тех пор, пока вы не примете, не установите или не активируете все Обновления. Необходимость и периодичность предоставления Обновлений определяется Поставщиком по его собственному усмотрению, причем предоставление вам Обновлений не является обязательством Поставщика. Поставщик может по собственному усмотрению прекратить предоставление Обновлений для любой версии Решения, кроме наиболее новой версии, или же Обновлений, которые поддерживают использование Решения с любой версией операционных систем, программ электронной почты, браузеров и другого программного обеспечения, для работы с которым предназначено Решение.</string>
-    <string name="next">Продолжить</string>
+    <string name="next">Davom Etish</string>
+    <string name="russian_yazik">O`zbek Tili</string>
+    <string name="dont_have_code">Kodni qayta yuborish</string>
+    <string name="error_">Xatolik Sodir bo`ldi</string>
+    <string name="error_code">Kod Xato kiritildi !</string>
+    <string name="code_resend">Kod Qayta Jo`natildi !</string>
+    <string name="agree_title">Men foydalanuvchi shartnomasi shartlariga to`liq roziman</string>
+
+    <style name="no_internet">Internet Mavjud Emas</style>
+    <string name="sms_code_error">SMS Code To`g`ri Kiriting !</string>
+    <string name="error_phone">Telefon Raqam Noto`g`ri Kiritilgan !</string>
+    <string name="code_error">Kod Notog`ri Kiritildi !</string>
+    <string name="profile_item1">Ism Familya</string>
+    <string name="profile_item2">Profile Haqida</string>
+    <string name="profile_item3">Ilova Tili</string>
+    <string name="profile_item4">Bildirishnoma</string>
+    <string name="profile_item5">Haqida</string>
+    <string name="profile_item6">Yordam markazi</string>
 
 </resources>

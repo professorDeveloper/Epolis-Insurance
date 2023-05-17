@@ -10,6 +10,7 @@ import com.azamovhudstc.epolisinsurance.data.remote.response.RegisterResponse
 import com.azamovhudstc.epolisinsurance.usecase.AuthUseCase
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -22,17 +23,20 @@ class AuthViewModelImp @Inject constructor(private val authUseCase: AuthUseCase)
     override val registerResponseLiveData: MutableLiveData<RegisterResponse> = MutableLiveData()
     override val errorResponseLiveData: MutableLiveData<String> = MutableLiveData()
     override fun confirmOtp(confirmRequest: ConfirmRequest) {
-        progressLiveData.value=true
-        authUseCase.confirmOtp(confirmRequest).onEach {result ->
-            result.onFailure {exception: Throwable ->
-                errorResponseLiveData.value=exception.message
-                progressLiveData.value=false
+        progressLiveData.value = true
+
+        authUseCase.confirmOtp(confirmRequest).onEach { result ->
+            result.onFailure { exception: Throwable ->
+                errorResponseLiveData.value = exception.message
+                delay(500)
+                progressLiveData.value = false
             }
             result.onSuccess { confirm: ConfirmResponse ->
-                confirmResponseLiveData.value=confirm
-                progressLiveData.value=false
+                confirmResponseLiveData.value = confirm
+                delay(500)
+                progressLiveData.value = false
             }
-        }
+        }.launchIn(viewModelScope)
     }
 
 

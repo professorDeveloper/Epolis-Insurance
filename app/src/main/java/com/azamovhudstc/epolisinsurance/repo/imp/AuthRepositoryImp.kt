@@ -1,5 +1,7 @@
 package com.azamovhudstc.epolisinsurance.repo.imp
 
+import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
@@ -14,40 +16,36 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class AuthRepositoryImp @Inject constructor(private val authApi: AuthApi): AuthRepository {
+class AuthRepositoryImp @Inject constructor(private val authApi: AuthApi) : AuthRepository {
     override fun otpConfirm(otpRequest: ConfirmRequest): Flow<Result<ConfirmResponse>> = flow {
         val confirmOtp = authApi.confirmOtp(otpRequest.phone, otpRequest.code)
-        if (hasConnection()){
-            if (confirmOtp.isSuccessful){
-                emit(Result.success(confirmOtp.body()!!))
+        if (hasConnection()) {
+            if (confirmOtp.isSuccessful) {
+                val response=confirmOtp.body()!!
+                if (response.error!=null){
+                    emit(Result.failure(Exception(response.error.message)))
+                }
+                else{
+                    emit(Result.success(response))
+                }
             }
-            else{
-                emit(Result.failure(Exception("Xatolik Sodir bo`ldi")))
-            }
-
+        } else {
+            emit(Result.failure(java.lang.Exception(App.instance.getString(R.string.error_))))
         }
-        else{
-            emit(Result.failure(java.lang.Exception("Нет соединения")))
-        }
-    }
-
-    override fun registerUser(registerRequest: RegisterRequest): Flow<Result<RegisterResponse>> = flow {
-        val registerUser = authApi.registerUser(registerRequest.phone, registerRequest.name)
-
-        if (hasConnection()){
-            if (registerUser.isSuccessful){
-                emit(Result.success(registerUser.body()!!))
-            }
-            else{
-                emit(Result.failure(Exception("Xatolik Sodir bo`ldi")))
-            }
-
-        }
-        else{
-            emit(Result.failure(java.lang.Exception("Нет соединения")))
-        }
-
     }.catch {
-        emit(Result.failure(it))
+        emit(Result.failure(Exception(it.message)))
     }.flowOn(Dispatchers.IO)
+
+    override fun registerUser(registerRequest: RegisterRequest): Flow<Result<RegisterResponse>> =
+        flow {
+            val registerUser = authApi.registerUser(registerRequest.phone)
+            if (registerUser.isSuccessful) {
+                emit(Result.success(registerUser.body()!!))
+            } else {
+                emit(Result.failure(Exception(App.instance.getString(R.string.error_))))
+            }
+
+        }.catch {
+            emit(Result.failure(it))
+        }.flowOn(Dispatchers.IO)
 }

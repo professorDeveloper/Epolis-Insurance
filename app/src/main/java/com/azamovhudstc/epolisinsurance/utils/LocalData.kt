@@ -5,25 +5,68 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
-import kotlin.collections.ArrayList
+import com.azamovhudstc.epolisinsurance.data.model.PolsItem
 
 object LocalData {
-    var position =0
+    var position = 0
 
     var currentPage = 0
-    const val REQUEST_CODE =0
+    const val REQUEST_CODE = 0
     const val PERIOD_MS: Long = 2000
-    fun  loadPollList(){
-
+    fun loadPollList(): ArrayList<PolsItem> {
+        val arrayList = ArrayList<PolsItem>()
+        arrayList.add(
+            PolsItem(
+                "Impex Insurance",
+                "№ 1WWASD0008",
+                "2018-12-27",
+                "ОСАГО",
+                "2023-12-27",
+                "IMPEX"
+            )
+        )
+        arrayList.add(
+            PolsItem(
+                "Impex Insurance",
+                "№ 2DDWS0008",
+                "2022-11-29",
+                "КАСКО",
+                "2023-05-27",
+                "KACKO"
+            )
+        )
+        arrayList.add(
+            PolsItem(
+                "Impex Insurance",
+                "№ 2DDEWS008",
+                "2023-02-27",
+                "ОСАГО",
+                "2023-12-27",
+                "OCAGO"
+            )
+        )
+        arrayList.add(
+            PolsItem(
+                "Impex Insurance",
+                "№ 2WWGSD0008",
+                "2022-11-17",
+                "APEX",
+                "2023-12-27",
+                "APEX"
+            )
+        )
+        return arrayList
     }
-    fun  addSpinnerCat():ArrayList<String>{
-        var arrayList=ArrayList<String>()
+
+    fun addSpinnerCat(): ArrayList<String> {
+        var arrayList = ArrayList<String>()
         arrayList.add("ОСАГО")
         arrayList.add("КАСКО")
         arrayList.add("ОСГО ВТС")
         arrayList.add("ТРЕВЕЛ")
-        return  arrayList
+        return arrayList
     }
+
     fun loadGridData(): ArrayList<HomeBottomItem> {
         val arrayList = ArrayList<HomeBottomItem>()
         arrayList.add(
@@ -78,21 +121,11 @@ object LocalData {
         )
         return arrayList
     }
-    fun loadCatHome(): ArrayList<CategoryItem> {
-        var arrayList = ArrayList<CategoryItem>()
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item1)))
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item2)))
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item3)))
-        return arrayList
-    }
 
-    fun  loadCat():ArrayList<String>{
-        var arrayList=ArrayList<String>()
-        arrayList.add(App.instance.resources.getString(R.string.all))
-        arrayList.add(App.instance.resources.getString(R.string.working))
-        arrayList.add(App.instance.resources.getString(R.string.archive))
-        return arrayList
-    }
+
+
+
+
     fun loadBannerList(): ArrayList<HomeBanner> {
         var bannerList = ArrayList<HomeBanner>()
         bannerList.add(HomeBanner(R.drawable.banner_four))

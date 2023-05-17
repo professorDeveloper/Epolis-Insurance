@@ -7,43 +7,45 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.databinding.FragmentPolisScreenBinding
 import com.azamovhudstc.epolisinsurance.ui.adapter.PolisCategoryAdapter
-import com.azamovhudstc.epolisinsurance.utils.LocalData.loadCat
 import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.invisible
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_polis_screen.*
 import kotlinx.android.synthetic.main.tab_polis_item.view.*
 
 class PolisScreen : Fragment() {
     private var _binding: FragmentPolisScreenBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentPolisScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val appReference = AppReference(App.instance)
         val categoryAdapter = PolisCategoryAdapter(loadCat(), requireActivity())
         binding.apply {
-            if (appReference.getToken().toString().isNotEmpty()){
+            if (appReference.token.toString().isEmpty()) {
                 isRegister.visible()
                 viewPager.gone()
-            }
-            else{
+            } else {
                 isRegister.gone()
                 viewPager.visible()
             }
-            viewPager.adapter=categoryAdapter
+            viewPager.adapter = categoryAdapter
             TabLayoutMediator(tabLayout, viewPager) { _, _ ->
             }.attach()
             tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -66,6 +68,9 @@ class PolisScreen : Fragment() {
             setTab()
 
         }
+        binding.checkCodeOtpBtn.setOnClickListener {
+            findNavController().navigate(R.id.registerScreen)
+        }
 
     }
 
@@ -76,7 +81,8 @@ class PolisScreen : Fragment() {
             for (i in 0 until tabCount) {
 
 
-                val tabView = LayoutInflater.from(requireActivity()).inflate(R.layout.tab_polis_item, null, false)
+                val tabView = LayoutInflater.from(requireActivity())
+                    .inflate(R.layout.tab_polis_item, null, false)
                 val tab = tabLayout.getTabAt(i)
 
 
@@ -92,5 +98,13 @@ class PolisScreen : Fragment() {
             }
 
         }
+    }
+
+   private fun loadCat(): ArrayList<String> {
+        var arrayList = ArrayList<String>()
+        arrayList.add(App.instance.resources.getString(R.string.all))
+        arrayList.add(App.instance.resources.getString(R.string.working))
+        arrayList.add(App.instance.resources.getString(R.string.archive))
+        return arrayList
     }
 }

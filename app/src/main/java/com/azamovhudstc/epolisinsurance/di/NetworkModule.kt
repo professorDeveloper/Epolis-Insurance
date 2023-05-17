@@ -2,6 +2,8 @@ package com.azamovhudstc.epolisinsurance.di
 
 import android.content.Context
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
+import com.azamovhudstc.epolisinsurance.utils.converter.CustomConverterFactory
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,12 +19,13 @@ import javax.inject.Singleton
 object NetworkModule {
     @[Provides Singleton]
     fun getOkHTTPClient(@ApplicationContext context: Context): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(ChuckerInterceptor.Builder(context).build())
         .build()
 
 
     @[Provides Singleton]
     fun getRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl("https://ionline.uz/ru/api/")
+        .baseUrl("https://ionline.uz/")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

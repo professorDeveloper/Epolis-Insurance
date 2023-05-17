@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_mainScreen_to_addPolis"
             app:destination="@id/addPolis" />
+        <action
+            android:id="@+id/action_mainScreen_to_profileLanguage"
+            app:destination="@id/profileLanguage" />
     </fragment>
     <fragment
         android:id="@+id/registerScreen"
@@ -96,4 +99,8 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.AddPolis"
         android:label="fragment_add_polis"
         tools:layout="@layout/fragment_add_polis" />
+    <fragment
+        android:id="@+id/profileLanguage"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.language.ProfileLanguage"
+        android:label="ProfileLanguage" />
 </navigation>

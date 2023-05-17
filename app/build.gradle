@@ -196,4 +196,17 @@ dependencies {
 
     implementation 'com.github.iammert:ExpandableLayout:1.4.1'
 
+    /**
+     * Network chucker
+     */
+
+    implementation 'com.github.razir.progressbutton:progressbutton:2.1.0'
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.1"
+
+    /**
+     * SMS Verify Catcher
+     ***/
+    implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
+
 }

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.app.App
+import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 import com.azamovhudstc.epolisinsurance.ui.adapter.CategoryAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBannerAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBottomRecycleAdapter
@@ -15,7 +15,6 @@ import com.azamovhudstc.epolisinsurance.utils.HorizontalMarginItemDecoration
 import com.azamovhudstc.epolisinsurance.utils.LocalData.PERIOD_MS
 import com.azamovhudstc.epolisinsurance.utils.LocalData.currentPage
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadBannerList
-import com.azamovhudstc.epolisinsurance.utils.LocalData.loadCatHome
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadGridData
 import com.azamovhudstc.sugurtaapp.utils.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_home_screen.*
@@ -25,7 +24,14 @@ import kotlinx.coroutines.launch
 
 
 class HomeScreen : Fragment(R.layout.fragment_home_screen) {
-
+    lateinit var cateAdapter: CategoryAdapter
+    private fun loadCatHome(): ArrayList<CategoryItem> {
+        val arrayList = ArrayList<CategoryItem>()
+        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item1)))
+        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item2)))
+        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item3)))
+        return arrayList
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,17 +48,14 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
             requireContext(),
             R.dimen.viewpager_current_item_horizontal_margin
         )
-        val cateAdapter = CategoryAdapter()
         val adapter = HomeBannerAdapter(loadBannerList())
+        cateAdapter = CategoryAdapter()
         categoryRv.adapter = cateAdapter
         cateAdapter.submitList(loadCatHome())
         banner_home_top.adapter = adapter
         val homeBottomRecycleAdapter = HomeBottomRecycleAdapter()
         homeBottomRecycleAdapter.submitList(loadGridData())
         home_bottom_rv.adapter = homeBottomRecycleAdapter
-        register_txt.setOnClickListener {
-            findNavController().navigate(R.id.registerScreen)
-        }
         cateAdapter.setItemClickListener {
         }
         banner_home_top.addItemDecoration(itemDecoration)
@@ -74,4 +77,12 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        categoryRv.adapter = cateAdapter
+        val list = loadCatHome()
+        list.clear()
+        list.addAll(loadCatHome())
+        cateAdapter.submitList(list)
+    }
 }

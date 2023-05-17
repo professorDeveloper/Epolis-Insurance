@@ -29,7 +29,7 @@ class EditProfileScreen : Fragment(R.layout.edi_profile_screen) {
     }
 
     private fun pickImage() {
-        profile_picture.setOnClickListener {
+        pick_profile.setOnClickListener {
              Intent(Intent.ACTION_GET_CONTENT).also {
                 it.type = "image/*"
                 startActivityForResult(it, REQUEST_CODE)

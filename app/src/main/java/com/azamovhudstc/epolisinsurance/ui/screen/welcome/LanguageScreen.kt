@@ -14,6 +14,7 @@ import com.azamovhudstc.epolisinsurance.ui.activity.MainActivity
 import com.azamovhudstc.epolisinsurance.utils.LocalData
 import com.azamovhudstc.epolisinsurance.utils.LocalData.position
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
+import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.slideUp
 import com.azamovhudstc.epolisinsurance.utils.visible
@@ -23,14 +24,17 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class LanguageScreen : Fragment(R.layout.langauge_screen) {
+
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.window?.setFlags(
             WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
+        );
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
@@ -38,24 +42,26 @@ class LanguageScreen : Fragment(R.layout.langauge_screen) {
 
 
     private fun initView() {
-        val appReference =AppReference(requireContext())
-        appReference.currentScreenEnum =CurrentScreenEnum.HOME
+        val appReference = AppReference(requireContext())
         next_btn_language.setOnClickListener {
-            findNavController().navigate(
-                R.id.mainScreen,
-                null,
-                NavOptions.Builder().setPopUpTo(R.id.langaugeScreen, true).build()
-            )
+                appReference.currentScreenEnum = CurrentScreenEnum.HOME
+                findNavController().navigate(
+                    R.id.mainScreen,
+                    null,
+                    NavOptions.Builder().setPopUpTo(R.id.langaugeScreen, true).build()
+                )
         }
         uz_language_btn.setOnClickListener {
             clearWithPosition(1)
             setLocate("uz")
+            appReference.currentLanguage = LanguageType.uz
             position = 1
 
         }
         ru_language_btn.setOnClickListener {
             clearWithPosition(2)
             setLocate("ru")
+            appReference.currentLanguage = LanguageType.ru
             position = 2
         }
     }

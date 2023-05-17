@@ -1,5 +1,6 @@
 package com.azamovhudstc.sugurtaapp.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.util.DisplayMetrics
@@ -10,6 +11,10 @@ import androidx.fragment.app.Fragment
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.google.android.material.snackbar.Snackbar
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 
 fun <T> T.myApply(block: T.() -> Unit) {
@@ -57,4 +62,14 @@ fun convertDpToPixel(dp: Float, context: Context): Float {
     val resources: Resources = context.getResources()
     val metrics: DisplayMetrics = resources.getDisplayMetrics()
     return dp * (metrics.densityDpi / 160f)
+}
+
+fun String. parseCode():String {
+    val p: Pattern = Pattern.compile("\\b\\d{6}\\b")
+    val m: Matcher = p.matcher(this)
+    var code = ""
+    while (m.find()) {
+        code = m.group(0)
+    }
+    return code
 }

@@ -9,7 +9,9 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.ui.adapter.IntroPageAdapter
+import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.invisible
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.azamovhudstc.sugurtaapp.utils.convertDpToPixel
@@ -66,9 +68,10 @@ class OnboardScreen : Fragment(R.layout.onboarding_screen) {
             }
         })
         last_btn.setOnClickListener {
+            val bundle =Bundle ()
             findNavController().navigate(
                 R.id.langaugeScreen,
-                null,
+                bundle,
                 NavOptions.Builder().setPopUpTo(R.id.onboardScreen, true).build()
             )
         }

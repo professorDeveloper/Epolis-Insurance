@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:iconTint="@color/white"
+        
+        android:icon="@drawable/home_selector"
+
+        android:title="@string/home"/>
+    <item android:id="@+id/polis"
+        android:icon="@drawable/polis_selector"
+        android:title="@string/my_polis"/>
+    <item android:id="@+id/profile"
+        android:icon="@drawable/profile_selector"
+        android:title="@string/profile"/>
+</menu>
