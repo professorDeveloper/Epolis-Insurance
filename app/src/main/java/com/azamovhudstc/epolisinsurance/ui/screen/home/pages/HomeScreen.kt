@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
+import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 import com.azamovhudstc.epolisinsurance.ui.adapter.CategoryAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBannerAdapter
@@ -16,6 +17,7 @@ import com.azamovhudstc.epolisinsurance.utils.LocalData.PERIOD_MS
 import com.azamovhudstc.epolisinsurance.utils.LocalData.currentPage
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadBannerList
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadGridData
+import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.azamovhudstc.sugurtaapp.utils.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_home_screen.*
 import kotlinx.coroutines.delay
@@ -25,11 +27,21 @@ import kotlinx.coroutines.launch
 
 class HomeScreen : Fragment(R.layout.fragment_home_screen) {
     lateinit var cateAdapter: CategoryAdapter
+    private val data = AppReference(App.instance)
     private fun loadCatHome(): ArrayList<CategoryItem> {
         val arrayList = ArrayList<CategoryItem>()
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item1)))
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item2)))
-        arrayList.add(CategoryItem(App.instance.resources.getString(R.string.category_item3)))
+        when (data.currentLanguage) {
+            LanguageType.uz -> {
+                arrayList.add(CategoryItem("Hammasi"))
+                arrayList.add(CategoryItem("Avtomatik"))
+                arrayList.add(CategoryItem("Sayohat"))
+            }
+            LanguageType.ru -> {
+                arrayList.add(CategoryItem("Все"))
+                arrayList.add(CategoryItem("Авто"))
+                arrayList.add(CategoryItem("Путешествия"))
+            }
+        }
         return arrayList
     }
 
@@ -76,8 +88,8 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         categoryRv.adapter = cateAdapter
         val list = loadCatHome()
         list.clear()

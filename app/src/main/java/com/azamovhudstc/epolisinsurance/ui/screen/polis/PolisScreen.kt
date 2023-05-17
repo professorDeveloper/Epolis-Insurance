@@ -13,6 +13,7 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.databinding.FragmentPolisScreenBinding
 import com.azamovhudstc.epolisinsurance.ui.adapter.PolisCategoryAdapter
+import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.google.android.material.tabs.TabLayout
@@ -100,11 +101,22 @@ class PolisScreen : Fragment() {
         }
     }
 
-   private fun loadCat(): ArrayList<String> {
-        var arrayList = ArrayList<String>()
-        arrayList.add(App.instance.resources.getString(R.string.all))
-        arrayList.add(App.instance.resources.getString(R.string.working))
-        arrayList.add(App.instance.resources.getString(R.string.archive))
+    private fun loadCat(): ArrayList<String> {
+        val arrayList = ArrayList<String>()
+        val data = AppReference(App.instance)
+        when (data.currentLanguage) {
+            LanguageType.uz -> {
+                arrayList.add("Hammasi")
+                arrayList.add("Faollar")
+                arrayList.add("Arxivlar")
+            }
+            LanguageType.ru -> {
+                arrayList.add("Все")
+                arrayList.add("Путешествия")
+                arrayList.add("Архиные")
+            }
+        }
         return arrayList
     }
+
 }

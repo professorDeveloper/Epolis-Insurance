@@ -12,13 +12,17 @@ class HomeBannerAdapter(private val bannerList: ArrayList<HomeBanner>) :
     RecyclerView.Adapter<HomeBannerAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun onBind(homeBanner: HomeBanner) {
-            itemView.home_banner_img.setImageResource(homeBanner.image.toInt())
+            itemView.home_banner_img.setImageResource(homeBanner.image)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.home_banner_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.home_banner_item,
+                parent,
+                false
+            )
         )
     }
 

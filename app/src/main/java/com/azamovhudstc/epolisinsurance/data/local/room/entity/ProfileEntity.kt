@@ -6,8 +6,7 @@ import java.io.Serializable
 
 @Entity
 data class ProfileEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int=1,
     val photoUri: String,
     val name: String,
     val lastName: String

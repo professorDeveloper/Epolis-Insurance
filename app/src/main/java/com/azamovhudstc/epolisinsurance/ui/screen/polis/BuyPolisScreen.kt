@@ -33,15 +33,15 @@ class BuyPolisScreen : Fragment() {
             .stepsNumber(4)
             .commit()
         nextStep()
+
     }
 
 
     private fun nextStep() {
         a++
-        lifecycleScope.launch {
+        lifecycleScope.launchWhenResumed {
             delay(1550)
             step_view.go(a,true)
         }
-        nextStep()
     }
 }

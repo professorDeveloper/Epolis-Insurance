@@ -103,4 +103,9 @@
         android:id="@+id/profileLanguage"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.language.ProfileLanguage"
         android:label="ProfileLanguage" />
+    <fragment
+        android:id="@+id/buyPolisScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.BuyPolisScreen"
+        android:label="fragment_buy_polis_screen"
+        tools:layout="@layout/fragment_buy_polis_screen" />
 </navigation>
