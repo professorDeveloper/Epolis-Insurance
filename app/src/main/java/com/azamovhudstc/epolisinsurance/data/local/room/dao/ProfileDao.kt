@@ -14,6 +14,6 @@ interface ProfileDao {
     @Update
     suspend fun editProfileData(profileEntity: ProfileEntity)
 
-//    @Query("SELECT * from profileEntity ")
-//    suspend fun getProfile
-}///
+    @Query("SELECT * from profileEntity ")
+    suspend fun getProfiles():List<ProfileEntity>
+}

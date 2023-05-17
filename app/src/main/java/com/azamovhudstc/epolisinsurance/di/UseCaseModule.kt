@@ -1,8 +1,10 @@
 package com.azamovhudstc.epolisinsurance.di
 
 import com.azamovhudstc.epolisinsurance.usecase.AuthUseCase
+import com.azamovhudstc.epolisinsurance.usecase.EditProfileUseCase
 import com.azamovhudstc.epolisinsurance.usecase.ProfileUseCase
 import com.azamovhudstc.epolisinsurance.usecase.imp.AuthUseCaseImp
+import com.azamovhudstc.epolisinsurance.usecase.imp.EditProfileUseCaseImp
 import com.azamovhudstc.epolisinsurance.usecase.imp.ProfileUseCaseImp
 import dagger.Binds
 import dagger.Module
@@ -21,6 +23,9 @@ interface UseCaseModule {
 
     @Binds
     fun getProfileUseCase(imp:ProfileUseCaseImp):ProfileUseCase
+
+    @Binds
+    fun getEditProfileUseCase(imp:EditProfileUseCaseImp):EditProfileUseCase
 
 
 }
