@@ -15,7 +15,7 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back">
+        app:navigationIcon="@drawable/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,12 +49,12 @@
         android:id="@+id/pick_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="?selectableItemBackground"
         android:fontFamily="@font/gilory_bold"
         android:text="@string/add_profile_picture_txt"
         android:textColor="@color/black"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidPer"
         app:layout_constraintEnd_toEndOf="@+id/profile_picture"
         app:layout_constraintStart_toStartOf="@+id/profile_picture"
         app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
@@ -64,12 +64,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
         android:fontFamily="@font/gilory_bold"
         android:text="@string/name"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pick_profile" />
+        app:layout_constraintTop_toTopOf="@+id/guidPer" />
 
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -158,20 +157,67 @@
                 />
         </FrameLayout>
     </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/check_code_otp_btn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:layout_marginHorizontal="20dp"
-        android:textSize="16sp"
+        android:backgroundTint="@color/btn_color"
+        android:clickable="true"
 
-        android:textColor="@color/white"
-        android:fontFamily="@font/gilory_bold"
-        android:text="@string/save_profile"
-        android:layout_marginBottom="50dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_bg"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/btn_Register_Txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilory_bold"
+                android:text="@string/save_profile"
+                android:textAllCaps="true"
+                android:textColor="@color/white_500"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/visible_otp_progress"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidPer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
