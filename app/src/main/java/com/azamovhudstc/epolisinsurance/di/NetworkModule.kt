@@ -2,8 +2,8 @@ package com.azamovhudstc.epolisinsurance.di
 
 import android.content.Context
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
+import com.azamovhudstc.epolisinsurance.data.remote.api.GrossUzApi
 import com.azamovhudstc.epolisinsurance.utils.converter.CustomConverterFactory
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -19,19 +20,30 @@ import javax.inject.Singleton
 object NetworkModule {
     @[Provides Singleton]
     fun getOkHTTPClient(@ApplicationContext context: Context): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(ChuckerInterceptor.Builder(context).build())
         .build()
 
 
-    @[Provides Singleton]
-    fun getRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
+    @[Provides Singleton Named("ionlineApi")]
+    fun getIonlineRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl("https://ionline.uz/")
+        .client(client)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    @[Provides Singleton Named("grossuzApi")]
+    fun getGrossUzRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
+        .baseUrl("https://gross.uz//")
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
 
     @Provides
-    fun getAuthApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+    fun getAuthApi(@Named("ionlineApi") retrofit: Retrofit): AuthApi =
+        retrofit.create(AuthApi::class.java)
+
+    @Provides
+    fun getTechPassApi(@Named("grossuzApi") retrofit: Retrofit): GrossUzApi =
+        retrofit.create(GrossUzApi::class.java)
 
 }

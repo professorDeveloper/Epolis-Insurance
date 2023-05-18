@@ -5,31 +5,83 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.data.remote.request.SearchCarAndGetPassRequest
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.slideTop
 import com.azamovhudstc.epolisinsurance.utils.slideUp
 import com.azamovhudstc.epolisinsurance.utils.visible
+import com.azamovhudstc.epolisinsurance.viewmodel.AddPolisViewModel
+import com.azamovhudstc.epolisinsurance.viewmodel.BuyPolisScreenViewModel
+import com.azamovhudstc.epolisinsurance.viewmodel.imp.AddPolisViewModelImp
+import com.azamovhudstc.epolisinsurance.viewmodel.imp.BuyPolisScreenViewModelImp
 import com.shuhart.stepview.StepView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_buy_polis_screen.*
 import kotlinx.coroutines.delay
 
-class BuyPolisScreen : Fragment() {
+@AndroidEntryPoint
+class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     private var a = 0
-    private var openCollapse=true
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buy_polis_screen, container, false)
+    private var openCollapse = true
+    private val viewModel: BuyPolisScreenViewModel by viewModels<BuyPolisScreenViewModelImp>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.progressLiveData.observe(this) {
+            if (it) {
+                seach_car_progress.visible()
+                seach_car_txt.gone()
+            } else {
+
+                seach_car_txt.visible()
+                seach_car_progress.gone()
+            }
+        }
+        viewModel.responseLiveData.observe(this){
+            response_expanded.visible()
+            searched_car_named.text=it.name
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
         val stepView = view.findViewById<StepView>(R.id.step_view)
+        initStepView(stepView)
+        search_car.setOnClickListener {
+            if (searchCarNumber.text.toString().isEmpty() ||
+                searchCarTexSerie.text.toString().isEmpty() ||
+                searchCarTexNumber.text.toString().isEmpty()
+            ) {
+
+            } else {
+
+                viewModel.searchCar(
+                    SearchCarAndGetPassRequest(
+                        searchCarNumber.text.toString(),
+                        searchCarTexSerie.text.toString(),
+                        searchCarTexNumber.text.toString()
+                    )
+                )
+            }
+        }
+        nextStep()
+        openCloseCollapse.setOnClickListener {
+            if (openCollapse) {
+                expandedContainer.visible()
+                openCollapse = !openCollapse
+
+            } else {
+                expandedContainer.gone()
+                openCollapse = !openCollapse
+            }
+        }
+    }
+
+    private fun initStepView(stepView: StepView) {
 
         a = step_view.currentStep
         stepView.state
@@ -38,21 +90,7 @@ class BuyPolisScreen : Fragment() {
             .animationDuration(750)
             .stepsNumber(4)
             .commit()
-        nextStep()
-
-        openCloseCollapse.setOnClickListener {
-            if (openCollapse){
-                expandedContainer.visible()
-                openCollapse=!openCollapse
-
-            }
-            else{
-                expandedContainer.gone()
-                openCollapse=!openCollapse
-            }
-        }
     }
-
 
     private fun nextStep() {
         a++

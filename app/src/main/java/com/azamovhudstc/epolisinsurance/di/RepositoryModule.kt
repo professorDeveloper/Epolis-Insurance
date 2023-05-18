@@ -1,13 +1,7 @@
 package com.azamovhudstc.epolisinsurance.di
 
-import com.azamovhudstc.epolisinsurance.repo.AddPolisRepository
-import com.azamovhudstc.epolisinsurance.repo.AuthRepository
-import com.azamovhudstc.epolisinsurance.repo.EditProfileRepository
-import com.azamovhudstc.epolisinsurance.repo.ProfileRepository
-import com.azamovhudstc.epolisinsurance.repo.imp.AddPolisRepositoryImp
-import com.azamovhudstc.epolisinsurance.repo.imp.AuthRepositoryImp
-import com.azamovhudstc.epolisinsurance.repo.imp.EditProfileRepositoryImp
-import com.azamovhudstc.epolisinsurance.repo.imp.ProfileRepositoryImp
+import com.azamovhudstc.epolisinsurance.repo.*
+import com.azamovhudstc.epolisinsurance.repo.imp.*
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,7 +12,8 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
     @Binds
     fun getAddPolisRepo(imp: AddPolisRepositoryImp): AddPolisRepository
-
+    @Binds
+    fun getSearchCarRepo(imp: BuyPolisRepositoryImp):BuyPolisRepository
     @Binds
     fun getAuthRepo(imp: AuthRepositoryImp): AuthRepository
 
