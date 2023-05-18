@@ -12,4 +12,3 @@ data class ProfileEntity(
     val name: String,
     val lastName: String
 ) : Serializable
-//
