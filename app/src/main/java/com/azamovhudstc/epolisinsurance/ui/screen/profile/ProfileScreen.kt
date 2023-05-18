@@ -28,9 +28,13 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
         super.onCreate(savedInstanceState)
         viewModel.loadProfileData.observe(this, loadProfileDataObserver)
         viewModel.errorLoadProfileData.observe(this, errorLoadProfileData)
-        viewModel.successProfileData.observe(this,successProfileData)
-        viewModel.logoutSuccessLiveData.observe(this,){
-            findNavController().navigate(R.id.mainScreen,null,NavOptions.Builder().setPopUpTo(R.id.mainScreen,true).build())
+        viewModel.successProfileData.observe(this, successProfileData)
+        viewModel.logoutSuccessLiveData.observe(this) {
+            findNavController().navigate(
+                R.id.mainScreen,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.mainScreen, true).build()
+            )
         }
     }
 
@@ -77,7 +81,7 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
 
     @SuppressLint("SetTextI18n")
     private val successProfileData = Observer<ProfileEntity> {
-        if (it.lastName.isNotEmpty() &&it.name.isNotEmpty()){
+        if (it.lastName.isNotEmpty() && it.name.isNotEmpty()) {
             textView2.text = "${it.name} ${it.lastName}"
         }
         profile_circle_image.setImageBitmap(it.photoUri.stringToBitmap())
