@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.utils.gone
+import com.azamovhudstc.epolisinsurance.utils.slideTop
+import com.azamovhudstc.epolisinsurance.utils.slideUp
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.shuhart.stepview.StepView
 import kotlinx.android.synthetic.main.fragment_buy_polis_screen.*
@@ -15,7 +17,7 @@ import kotlinx.coroutines.delay
 
 class BuyPolisScreen : Fragment() {
     private var a = 0
-    private var openCollapse=false
+    private var openCollapse=true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +44,7 @@ class BuyPolisScreen : Fragment() {
             if (openCollapse){
                 expandedContainer.visible()
                 openCollapse=!openCollapse
+
             }
             else{
                 expandedContainer.gone()
