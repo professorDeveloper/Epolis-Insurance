@@ -22,6 +22,7 @@ import kotlinx.coroutines.delay
 @AndroidEntryPoint
 class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     private var a = 0
+
     private var openCollapse = true
     private val viewModel: BuyPolisScreenViewModel by viewModels<BuyPolisScreenViewModelImp>()
 
