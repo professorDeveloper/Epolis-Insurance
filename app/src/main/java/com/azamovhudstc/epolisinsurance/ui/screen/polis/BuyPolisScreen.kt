@@ -9,10 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.remote.request.SearchCarAndGetPassRequest
-import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.slideTop
-import com.azamovhudstc.epolisinsurance.utils.slideUp
-import com.azamovhudstc.epolisinsurance.utils.visible
+import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.viewmodel.AddPolisViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.BuyPolisScreenViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AddPolisViewModelImp
@@ -40,9 +37,18 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
                 seach_car_progress.gone()
             }
         }
-        viewModel.responseLiveData.observe(this){
+        viewModel.errorResponseLiveData.observe(this) {
+            searchCarNumber.setError()
+            errorTxt.visible()
+            response_expanded.gone()
+            searchCarTexNumber.setError()
+        }
+        viewModel.responseLiveData.observe(this) {
             response_expanded.visible()
-            searched_car_named.text=it.name
+
+            searched_car_named.text = it.techPassport.modelName
+            address_searched_car.text=it.techPassport.division.toString()
+            searched_issueYear.text=it.techPassport.issueYear.toString()
         }
     }
 
@@ -52,6 +58,10 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
         val stepView = view.findViewById<StepView>(R.id.step_view)
         initStepView(stepView)
         search_car.setOnClickListener {
+            searchCarNumber.setDefault()
+            errorTxt.gone()
+            searchCarTexNumber.setDefault()
+
             if (searchCarNumber.text.toString().isEmpty() ||
                 searchCarTexSerie.text.toString().isEmpty() ||
                 searchCarTexNumber.text.toString().isEmpty()
@@ -62,7 +72,7 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
                 viewModel.searchCar(
                     SearchCarAndGetPassRequest(
                         searchCarNumber.text.toString(),
-                        searchCarTexSerie.text.toString(),
+                        searchCarTexSerie.text.toString().uppercase(),
                         searchCarTexNumber.text.toString()
                     )
                 )

@@ -49,8 +49,8 @@
     <com.shuhart.stepview.StepView
         android:id="@+id/step_view"
         android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,28 +75,29 @@
         app:sv_typeface="@font/gilory_bold" />
 
     <androidx.cardview.widget.CardView
-        app:cardCornerRadius="12dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step_view">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/openCloseCollapse"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:elevation="1dp"
-
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/btn_color"
+                android:clickable="true"
+
+                android:elevation="1dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:gravity="start|center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,11 +114,11 @@
             </LinearLayout>
 
             <ImageView
-                android:elevation="1dp"
-
-                android:layout_marginEnd="20dp"
                 android:layout_width="25dp"
+
                 android:layout_height="25dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="1dp"
                 android:src="@drawable/form_icons"
                 app:layout_constraintBottom_toBottomOf="@+id/openCloseCollapse"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,17 +126,19 @@
 
             <LinearLayout
                 android:id="@+id/expandedContainer"
-                android:orientation="horizontal"
-                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/collapse_bg"
+                android:orientation="horizontal"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/openCloseCollapse" >
+                app:layout_constraintTop_toBottomOf="@+id/openCloseCollapse">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <LinearLayout
                         android:id="@+id/linearLayout5"
                         android:layout_width="match_parent"
@@ -160,26 +163,52 @@
                         <EditText
                             android:id="@+id/searchCarNumber"
                             android:layout_width="match_parent"
-                            android:fontFamily="@font/gilory_medium"
-                            android:textFontWeight="500"
-                            android:maxLines="1"
                             android:layout_height="48dp"
                             android:background="@drawable/bg_add_polis_edit"
+                            android:fontFamily="@font/gilory_medium"
                             android:hint="01 М 001 ХА"
+                            android:inputType="text"
+                            android:maxLength="8"
+                            android:maxLines="1"
                             android:paddingStart="15dp"
+                            android:textFontWeight="500"
                             android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/errorTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:src="@drawable/danger" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            android:text="Вы ввели неверный номер автомобиля"
+                            android:textColor="#FF4C6D"/>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linearLayout6"
                         android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="14dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+                        app:layout_constraintTop_toBottomOf="@+id/errorTxt">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -203,6 +232,8 @@
                                 android:background="@drawable/bg_ceria"
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="Серия"
+                                android:inputType="text"
+                                android:maxLength="3"
                                 android:maxLines="1"
                                 android:paddingStart="15dp"
                                 android:textFontWeight="500"
@@ -219,6 +250,7 @@
                                 android:background="@drawable/bg_nomer"
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="Номер"
+                                android:inputType="number"
                                 android:maxLines="1"
                                 android:paddingStart="15dp"
                                 android:textFontWeight="500"
@@ -234,22 +266,22 @@
                         android:id="@+id/linearLayout7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="16dp"
                         android:background="#E6E6E6"
+                        android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-                        android:orientation="horizontal" />
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/response_expanded"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_marginHorizontal="20dp"
-                        android:id="@+id/response_expanded"
-                        android:visibility="gone"
                         android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/linearLayout7">
 
@@ -373,7 +405,7 @@
 
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/search_car"
+        android:id="@+id/search_car"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginHorizontal="20dp"
