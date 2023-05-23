@@ -2,6 +2,7 @@ package com.azamovhudstc.epolisinsurance.di
 
 import android.content.Context
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
+import com.azamovhudstc.epolisinsurance.data.remote.api.BuyPollsApi
 import com.azamovhudstc.epolisinsurance.data.remote.api.GrossUzApi
 import com.azamovhudstc.epolisinsurance.utils.converter.CustomConverterFactory
 import dagger.Module
@@ -41,6 +42,9 @@ object NetworkModule {
     @Provides
     fun getAuthApi(@Named("ionlineApi") retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
+    @Provides
+    fun getBuyPolisAPI(@Named("ionlineApi") retrofit: Retrofit): BuyPollsApi =
+        retrofit.create(BuyPollsApi::class.java)
 
     @Provides
     fun getTechPassApi(@Named("grossuzApi") retrofit: Retrofit): GrossUzApi =

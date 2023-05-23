@@ -19,7 +19,7 @@ class AgreeScreen : Fragment(R.layout.fragment_agree_screen) {
             agree_btn.isEnabled = isChecked
         }
         agree_btn.setOnClickListener {
-            findNavController().navigate(R.id.mainScreen,null,NavOptions.Builder().setPopUpTo(R.id.agreeScreen,true).build())
+            findNavController().navigate(R.id.buyPolisScreen,null,NavOptions.Builder().setPopUpTo(R.id.agreeScreen,true).build())
         }
     }
 }

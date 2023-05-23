@@ -53,12 +53,12 @@ class OnboardScreen : Fragment(R.layout.onboarding_screen) {
                     }
                     1 -> {
                         skip_intro.visible()
-                        toolbar.setNavigationIcon(R.drawable.ic_back)
+                        toolbar.setNavigationIcon(R.drawable.back)
                         next_btn.visible()
                         last_btn.invisible()
                     }
                     2 -> {
-                        toolbar.setNavigationIcon(R.drawable.ic_back)
+                        toolbar.setNavigationIcon(R.drawable.back)
                         next_btn.invisible()
                         last_btn.visible()
                         skip_intro.invisible()

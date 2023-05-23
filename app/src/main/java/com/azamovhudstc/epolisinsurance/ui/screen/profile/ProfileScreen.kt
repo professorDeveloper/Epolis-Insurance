@@ -55,7 +55,7 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
             findNavController().navigate(R.id.registerScreen)
         }
         language_setting.setOnClickListener {
-            findNavController().navigate(R.id.buyPolisScreen)
+            findNavController().navigate(R.id.langaugeScreen)
         }
         logout_btn.setOnClickListener {
             viewModel.logout()

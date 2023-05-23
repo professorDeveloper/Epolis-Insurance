@@ -68,6 +68,12 @@
     <string name="profile_item4">Напоминания</string>
     <string name="profile_item5">О Нас</string>
     <string name="profile_item6">Центр помощи</string>
+    <string name="contact_us1">Какие виды страхования я могу приобрести через это приложение?</string>
+    <string name="contact_us_all_description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</string>
+    <string name="contact_us2">Как получить расчет по страховке?</string>
+    <string name="cotact_us3">Могу ли я приобрести страховку прямо через приложение?</string>
+    <string name="contact_us4">Какие способы оплаты принимаются?</string>
+    <string name="contact_us5">Как я могу отменить свой страховой полис?</string>
 
     <style name="no_internet">Интернет недоступен</style>
 

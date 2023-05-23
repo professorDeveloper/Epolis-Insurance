@@ -1,18 +1,15 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
-import com.azamovhudstc.epolisinsurance.data.remote.request.SearchCarAndGetPassRequest
+import com.azamovhudstc.epolisinsurance.data.remote.request.GetVehicleRequest
 import com.azamovhudstc.epolisinsurance.utils.*
-import com.azamovhudstc.epolisinsurance.viewmodel.AddPolisViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.BuyPolisScreenViewModel
-import com.azamovhudstc.epolisinsurance.viewmodel.imp.AddPolisViewModelImp
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.BuyPolisScreenViewModelImp
 import com.shuhart.stepview.StepView
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +20,7 @@ import kotlinx.coroutines.delay
 class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     private var a = 0
 
-    private var openCollapse = true
+    private var openCollapse = false
     private val viewModel: BuyPolisScreenViewModel by viewModels<BuyPolisScreenViewModelImp>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,15 +38,16 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
         viewModel.errorResponseLiveData.observe(this) {
             searchCarNumber.setError()
             errorTxt.visible()
+            error_text.text=it
             response_expanded.gone()
             searchCarTexNumber.setError()
         }
         viewModel.responseLiveData.observe(this) {
             response_expanded.visible()
 
-            searched_car_named.text = it.techPassport.modelName
-            address_searched_car.text=it.techPassport.division.toString()
-            searched_issueYear.text=it.techPassport.issueYear.toString()
+            searched_car_named.text = it.result.modelName
+            address_searched_car.text=it.result.division
+            searched_issueYear.text=it.result.issueYear.toString()
         }
     }
 
@@ -58,6 +56,9 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
         super.onViewCreated(view, savedInstanceState)
         val stepView = view.findViewById<StepView>(R.id.step_view)
         initStepView(stepView)
+        back_a.setOnClickListener {
+            findNavController().popBackStack()
+        }
         search_car.setOnClickListener {
             searchCarNumber.setDefault()
             errorTxt.gone()
@@ -71,11 +72,11 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
             } else {
 
                 viewModel.searchCar(
-                    SearchCarAndGetPassRequest(
-                        searchCarNumber.text.toString(),
+                    GetVehicleRequest(
                         searchCarTexSerie.text.toString().uppercase(),
-                        searchCarTexNumber.text.toString()
-                    )
+                        searchCarTexNumber.text.toString(),
+                        searchCarNumber.text.toString().uppercase(),
+                        )
                 )
             }
         }

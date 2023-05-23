@@ -1,13 +1,17 @@
 package com.azamovhudstc.epolisinsurance.utils
 
+import android.graphics.drawable.ShapeDrawable
 import com.azamovhudstc.epolisinsurance.R
-import com.azamovhudstc.epolisinsurance.app.App
-import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
+import com.azamovhudstc.epolisinsurance.app.App.Companion.instance
+import com.azamovhudstc.epolisinsurance.data.model.ContactUsItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
 import com.azamovhudstc.epolisinsurance.data.model.PolsItem
+import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 
 object LocalData {
+
+    lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
     var position = 0
 
     var currentPage = 0
@@ -58,8 +62,50 @@ object LocalData {
         return arrayList
     }
 
+    fun loadContactUs(): ArrayList<ContactUsItem> {
+        val arrayList = ArrayList<ContactUsItem>()
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us1),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us2),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.cotact_us3),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us4),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us5),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        return arrayList    
+    }
+
     fun addSpinnerCat(): ArrayList<String> {
         var arrayList = ArrayList<String>()
+        val arrayOf = arrayOf<ShapeDrawable>()
+
         arrayList.add("ОСАГО")
         arrayList.add("КАСКО")
         arrayList.add("ОСГО ВТС")
@@ -121,9 +167,6 @@ object LocalData {
         )
         return arrayList
     }
-
-
-
 
 
     fun loadBannerList(): ArrayList<HomeBanner> {

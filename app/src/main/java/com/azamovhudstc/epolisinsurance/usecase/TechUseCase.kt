@@ -1,10 +1,9 @@
 package com.azamovhudstc.epolisinsurance.usecase
 
-import com.azamovhudstc.epolisinsurance.data.remote.request.SearchCarAndGetPassRequest
-import com.azamovhudstc.epolisinsurance.data.remote.response.GetTechPassResoponse
+import com.azamovhudstc.epolisinsurance.data.remote.request.GetVehicleRequest
+import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 
 interface TechUseCase {
-    fun getTechDataByID(request: SearchCarAndGetPassRequest):Flow<Result<GetTechPassResoponse>>
+    fun getTechDataByID(request: GetVehicleRequest):Flow<Result<GetVehicleResponse>>
 }

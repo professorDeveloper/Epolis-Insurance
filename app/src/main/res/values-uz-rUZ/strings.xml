@@ -66,6 +66,7 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="agree_title">Men foydalanuvchi shartnomasi shartlariga to`liq roziman</string>
 
     <style name="no_internet">Internet Mavjud Emas</style>
+
     <string name="sms_code_error">SMS Code To`g`ri Kiriting !</string>
     <string name="error_phone">Telefon Raqam Noto`g`ri Kiritilgan !</string>
     <string name="code_error">Kod Notog`ri Kiritildi !</string>
@@ -75,5 +76,11 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="profile_item4">Bildirishnoma</string>
     <string name="profile_item5">Haqida</string>
     <string name="profile_item6">Yordam markazi</string>
+    <string name="contact_us1">Ushbu ilova orqali qanday sug`urta turlarini sotib olsam bo`ladi?</string>
+    <string name="contact_us_all_description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</string>
+    <string name="contact_us2">Sug`urta hisobini qanday olish mumkin?</string>
+    <string name="cotact_us3">Sug`urtani to`g`ridan-to`g`ri ilova orqali sotib olsam bo`ladimi?</string>
+    <string name="contact_us4">Qanday to`lov usullari qabul qilinadi?</string>
+    <string name="contact_us5">Qanday qilib sug`urta polisimni bekor qilishim mumkin ?</string>
 
 </resources>
