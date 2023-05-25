@@ -13,7 +13,10 @@
     <string name="otp_title">Подтвердить код</string>
     <string name="otp_des">Пожалуйста, введите код, который вы отправили на </string>
     <string name="logout">Выйти</string>
+    <string name="number_car">Номер авто</string>
+    <string name="about_user">Информация о владельце</string>
     <string name="skip_intro">Пропустить</string>
+    <string name="mark_and_model">Марка и модель</string>
     <string name="_998">+998 (##) ### ## ##</string>
     <string name="intro_page_one_title">Получить страховой полис онлайн за 5 минут</string>
     <string name="intro_page_two_ttle">Автоматически заполним данные</string>
@@ -24,8 +27,11 @@
     <string name="success_otp_title">Учетная запись подтверждена</string>
     <string name="success_otp_desc">Ваша учетная запись успешно подтверждена, теперь давайте наслаждаться функциями Epolis</string>
     <string name="edit_profile_title">Информация профиля</string>
+    <string name="clear_info">Очистить информацию</string>
     <string name="add_profile_picture_txt">Добавить изображение</string>
     <string name="name">Имя</string>
+    <string name="about_ca">Информация об автомобиле</string>
+
     <string name="last_name">Фамилия</string>
     <string name="phone">Номер телефона</string>
     <string name="save_profile">Сохранить изменения</string>
@@ -39,8 +45,15 @@
     <string name="register_txt">Регистрация</string>
     <string name="home">Главная</string>
     <string name="my_polis">Мои полисы</string>
+    <string name="error_api">Произошла ошибка. проверьте и попробуйте еще раз</string>
+    <string name="tex_pass_str">Техпаспорт</string>
+    <string name="seria">Серия</string>
     <string name="profile">Профиль</string>
+    <string name="passportoridcart">Паспорта/ID карта</string>
     <string name="all">Все</string>
+    <string name="fio">Ф.И.О</string>
+    <string name="number">Номер</string>
+    <string name="jshshr">ЖШШИР</string>
     <string name="agree_txt">Лицензионное соглашение</string>
     <string name="working">Действующие</string>
     <string name="add_polis_info">Вы можете добавить полис</string>

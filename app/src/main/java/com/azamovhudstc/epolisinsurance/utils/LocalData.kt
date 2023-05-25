@@ -7,10 +7,12 @@ import com.azamovhudstc.epolisinsurance.data.model.ContactUsItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
 import com.azamovhudstc.epolisinsurance.data.model.PolsItem
+import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 
 object LocalData {
 
+   lateinit var vehicleResponse:GetVehicleResponse
     lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
     var position = 0
 

@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.DisplayMetrics
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.addTextChangedListener
@@ -28,8 +29,8 @@ fun Fragment.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(requireContext(), message, duration).show()
 }
 
-fun Fragment.showSnack(message: String, duration: Int = Toast.LENGTH_SHORT) {
-    Snackbar.make(requireView(), message, duration).show()
+fun Fragment.showSnack(view: View=requireView(), message: String, duration: Int = Toast.LENGTH_SHORT) {
+    Snackbar.make(view, message, duration).show()
 }
 
 

@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.data.remote.api
 
+import com.azamovhudstc.epolisinsurance.data.remote.response.GetUserDataByIdResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 import retrofit2.Response
 import retrofit2.http.Field
@@ -17,5 +18,14 @@ interface BuyPollsApi {
         @Field("seria_number") seria_number: String,
         @Field("vehicle_number") vehicle_number: String,
     ): Response<GetVehicleResponse>
+    @FormUrlEncoded
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("ru/api/get_owner_data_by_pinfl/")
+    suspend fun getUserDataByPassId(
+        @Field("passportNumber") passportNumber: String,
+        @Field("passportSeries") passportSeries: String,
+        @Field("pinfl") pinfl: String,
+        @Field("vehicle_id") vehicle_id: String,
+    ): Response<GetUserDataByIdResponse>
 
 }
