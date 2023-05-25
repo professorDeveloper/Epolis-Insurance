@@ -23,7 +23,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
 
     private val viewModel: AllInfoPageViewModel by viewModels<AllInfoPageViewModelImp>()
     private var openCollapseCar = false
-    private  var nextBtnType:AllInfoBtnType=AllInfoBtnType.Car
+    private  var nextBtnType:AllInfoBtnType=AllInfoBtnType.User
     private var openCollapseUser = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,6 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             searchCarNumber.setError()
             searchCarTexNumber.setError()
             errorTxt.visible()
-            error_text.text = it
             response_expanded.gone()
             searchCarTexSerie.setErrorSmall()
 
@@ -60,7 +59,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             userContainer.visible()
             vehicleResponse=it
 
-            searched_user_named.text=userNameFormatter(it.result.owner)
+            searched_user_named.text=it.result.owner
             searched_car_named.text = it.result.modelName
             address_searched_car.text = it.result.division
             searched_jsshshr.text=it.result.pinfl
@@ -85,6 +84,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
     private fun clearCarData(){
         response_expanded.gone()
         userContainer.gone()
+        nextBtnType=AllInfoBtnType.Car
         searchCarNumber.text.clear()
         searchCarTexNumber.isClickable=true
         searchCarTexSerie.isClickable=true

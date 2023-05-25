@@ -51,7 +51,7 @@ class BuyPolisRepositoryImp @Inject constructor(private val buyPolisApi: BuyPoll
                 if (passData.body()?.error == 0) {
                     emit(Result.success(passData.body()!!))
                 } else {
-                    println(passData?.body()?.error_message.toString())
+                    println("asdasdadsasd"+passData?.body()?.error_message.toString())
                     emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
                 }
             } else {

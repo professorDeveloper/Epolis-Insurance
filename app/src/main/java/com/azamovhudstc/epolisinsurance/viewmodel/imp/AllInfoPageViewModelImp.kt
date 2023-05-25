@@ -32,7 +32,7 @@ class AllInfoPageViewModelImp @Inject constructor(private val techUseCase: TechU
                 progressLiveData.value = false
             }
             it.onFailure { exception: Throwable ->
-                delay(400)
+
                 errorByIdResponseLiveData.value = exception.message
                 progressLiveData.value = false
 
@@ -49,7 +49,6 @@ class AllInfoPageViewModelImp @Inject constructor(private val techUseCase: TechU
                 progressLiveData.value = false
             }
             result.onFailure { exception: Throwable ->
-                delay(600)
                 errorResponseLiveData.value = exception.message
                 progressLiveData.value = false
             }
