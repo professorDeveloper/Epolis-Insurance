@@ -16,7 +16,6 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.showToast
 import com.azamovhudstc.epolisinsurance.utils.showToastSuccess
@@ -35,6 +34,7 @@ import kotlinx.coroutines.delay
 class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
     private val viewModel: AuthViewModel by viewModels<AuthViewModelImp>()
     private lateinit var smsVerifyCatcher: SmsVerifyCatcher
+    private var isGranted: Boolean = false
     private val countDownLiveData = MutableLiveData<Int>()
 
     @SuppressLint("ResourceType")
@@ -44,7 +44,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
             val shared = AppReference(App.instance)
             shared.token = it?.data!!.token!!
             val phoneString = arguments?.getString("phone")
-            shared.phone="+"+phoneString.toString()
+            shared.phone = "+" + phoneString.toString()
             otp_txt.showSuccess()
             findNavController().navigate(
                 R.id.successOtpScreen,
@@ -107,10 +107,15 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
     }
 
     private fun initSmsVerifyCatcher() {
+        isGranted = arguments?.getBoolean("isPermission")!!
+        if (isGranted)
         smsVerifyCatcher = SmsVerifyCatcher(
             activity
         ) { message ->
             otp_txt.setOTP(message.parseCode())
+        }
+        else{
+            println("isnotGranted")
         }
     }
 
@@ -128,12 +133,18 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
 
     override fun onStart() {
         super.onStart()
+        if (isGranted)
         smsVerifyCatcher.onStart()
+        else {
+            println("isnotGranted")
+        }
     }
 
     override fun onStop() {
         super.onStop()
+        if (isGranted)
         smsVerifyCatcher.onStop()
+        else println("isnotGranted")
     }
 
     @SuppressLint("SetTextI18n")
@@ -150,12 +161,5 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String?>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        smsVerifyCatcher.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
+
 }

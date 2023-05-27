@@ -18,6 +18,7 @@ object LocalData {
 
     var currentPage = 0
     const val REQUEST_CODE = 0
+    var isBuyOrRegistered:Boolean=false
     const val PERIOD_MS: Long = 2000
     fun loadPollList(): ArrayList<PolsItem> {
         val arrayList = ArrayList<PolsItem>()

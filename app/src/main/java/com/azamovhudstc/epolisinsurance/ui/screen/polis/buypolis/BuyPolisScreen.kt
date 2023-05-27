@@ -3,6 +3,7 @@ package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.ui.adapter.BuyPolisAdapter
@@ -15,15 +16,18 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     private var a = 0
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
 //        val stepView = view.findViewById<StepView>(R.id.step_view)
 //        initStepView(stepView)
-        viewpager_buy.adapter=BuyPolisAdapter(requireActivity())
+        viewpager_buy.adapter = BuyPolisAdapter(requireActivity())
         back_a.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(
+                R.id.mainScreen,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.buyPolisScreen, true).build()
+            )
         }
     }
 

@@ -87,4 +87,8 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
         profile_circle_image.setImageBitmap(it.photoUri.stringToBitmap())
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadProfile()
+    }
 }

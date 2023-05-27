@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.register
 
+import android.Manifest
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -10,10 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.utils.*
+import com.azamovhudstc.epolisinsurance.utils.gone
+import com.azamovhudstc.epolisinsurance.utils.showToast
+import com.azamovhudstc.epolisinsurance.utils.slideUp
+import com.azamovhudstc.epolisinsurance.utils.visible
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AuthViewModelImp
 import com.azamovhudstc.sugurtaapp.utils.checkPhone
+import com.permissionx.guolindev.PermissionX
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_register_screen.*
 import kotlinx.android.synthetic.main.fragment_register_screen.view.*
@@ -29,9 +34,29 @@ class RegisterScreen :
             showToast(it.toString())
         }
         viewModel.registerResponseLiveData.observe(this) {
-            val bundle = Bundle()
-            bundle.putString("phone", "998${register_phone.unMaskedText.toString()}")
-            findNavController().navigate(R.id.otpScreen, bundle)
+
+            PermissionX.init(this)
+                .permissions(
+                    Manifest.permission.READ_SMS,
+                )
+                .request { allGranted, grantedList, deniedList ->
+                    if (allGranted) {
+                        val bundle = Bundle()
+                        bundle.putBoolean("isPermission", true)
+                        bundle.putString("phone", "998${register_phone.unMaskedText.toString()}")
+                        findNavController().navigate(R.id.otpScreen, bundle)
+
+
+                    } else {
+                        showToast("Ruxsat berilmadi  :(")
+                        val bundle = Bundle()
+                        bundle.putString("phone", "998${register_phone.unMaskedText.toString()}")
+                        bundle.putBoolean("isPermission", false)
+                        findNavController().navigate(R.id.otpScreen, bundle)
+
+                    }
+                }
+
         }
         viewModel.progressLiveData.observe(this) {
             if (it) {
