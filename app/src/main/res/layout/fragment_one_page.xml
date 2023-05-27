@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:scrollbars="vertical"
-    android:isScrollContainer="true"
     android:layout_height="match_parent"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical"
     tools:context=".ui.screen.polis.buypolis.pages.AllInfoPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingBottom="20dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -350,15 +350,15 @@
                             </LinearLayout>
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/clear_response"
                                 android:layout_width="match_parent"
                                 android:layout_height="45dp"
-                                android:elevation="0dp"
-                                android:id="@+id/clear_response"
-                                android:layout_marginBottom="4dp"
                                 android:layout_marginHorizontal="4dp"
                                 android:layout_marginTop="16dp"
+                                android:layout_marginBottom="4dp"
                                 android:background="@color/white"
                                 android:clickable="true"
+                                android:elevation="0dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -381,7 +381,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginEnd="10dp"
                                     android:src="@drawable/clear"
-                                     app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -393,11 +393,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/userContainer"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
+            android:visibility="visible"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -458,12 +458,12 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"
                             android:id="@+id/errorTxtUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="20dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
                             android:gravity="center_vertical"
                             android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -559,12 +559,12 @@
 
                         <LinearLayout
                             android:id="@+id/linearLayout14"
-                            android:paddingBottom="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginVertical="15dp"
                             android:orientation="vertical"
+                            android:paddingBottom="10dp"
                             android:visibility="visible"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -624,15 +624,16 @@
 
                         <LinearLayout
                             android:id="@+id/phone_verify_user"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/linearLayout14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:layout_marginHorizontal="10dp"
                             android:layout_marginVertical="5dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/linearLayout14">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -642,6 +643,7 @@
                                 android:textColor="@color/textColor"
                                 android:textFontWeight="700"
                                 android:textSize="15sp" />
+
                             <FrameLayout
                                 android:id="@+id/register_type_phone_container"
                                 android:layout_width="match_parent"
@@ -657,10 +659,10 @@
                                     android:drawableStart="@drawable/uz_flag"
                                     android:drawablePadding="20dp"
                                     android:hint="@string/_998"
-                                    android:textColorHint="#B3BCC2"
                                     android:inputType="number"
-
                                     android:paddingStart="15dp"
+
+                                    android:textColorHint="#B3BCC2"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -674,14 +676,14 @@
                             android:id="@+id/clear_response_user"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:layout_marginBottom="4dp"
                             android:layout_marginHorizontal="4dp"
                             android:layout_marginTop="16dp"
+                            android:layout_marginBottom="4dp"
                             android:background="@color/white"
-                            android:visibility="gone"
                             android:clickable="true"
                             android:elevation="0dp"
                             android:focusable="true"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -714,11 +716,77 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+
+        <LinearLayout
+            android:id="@+id/choose_polis_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+
+            app:layout_constraintTop_toBottomOf="@+id/userContainer"
+            tools:layout_editor_absoluteX="20dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/gilory_bold"
+                android:text="Количество водителей"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_polis_bg_selected_start"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilory_bold"
+                        android:text="До 5 человек"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/choose_polis_bg_unselected_end"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilory_bold"
+                        android:text="Не ограничен"
+                        android:textColor="#012033"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
         <androidx.cardview.widget.CardView
             android:id="@+id/search_car"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_bg"
             android:backgroundTint="@color/btn_color"
             android:clickable="true"
@@ -727,10 +795,9 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:visibility="visible"
             app:cardCornerRadius="14dp"
-            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView">
+            app:layout_constraintTop_toBottomOf="@+id/choose_polis_container">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -763,6 +830,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+    </ScrollView>

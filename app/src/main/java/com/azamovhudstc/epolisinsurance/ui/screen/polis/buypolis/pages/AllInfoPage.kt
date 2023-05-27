@@ -41,7 +41,9 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         }
         viewModel.userDataResponseLiveData.observe(this){
             phone_verify_user.visible()
+            choose_polis_container.visible()
             clear_response_user.visible()
+            nextBtnType=AllInfoBtnType.Next
         }
         viewModel.errorResponseLiveData.observe(this) {
             searchCarNumber.setError()
@@ -63,9 +65,6 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             response_expanded.visible()
             userContainer.visible()
             vehicleResponse=it
-            val layoutParams = search_car.layoutParams as ConstraintLayout.LayoutParams
-            layoutParams.topToBottom=userContainer.id
-            search_car.layoutParams=layoutParams
             searched_user_named.text=it.result.owner
             searched_car_named.text = it.result.modelName
             address_searched_car.text = it.result.division
@@ -96,6 +95,12 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (nextBtnType!=AllInfoBtnType.User){
+            userContainer.gone()
+            choose_polis_container.gone()
+
+        }
+
         search_car.setOnClickListener {
             if (nextBtnType==AllInfoBtnType.Car){
                 errorTxt.gone()
@@ -141,7 +146,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
                 !openCollapseUser
 
             } else {
-                open_car_info.setImageResource(R.drawable.form_icons)
+                open_user_info.setImageResource(R.drawable.form_icons)
                 expandedContainerUser.gone()
                 !openCollapseUser
             }
