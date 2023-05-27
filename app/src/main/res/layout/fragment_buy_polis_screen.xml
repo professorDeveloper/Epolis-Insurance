@@ -46,38 +46,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.shuhart.stepview.StepView
-        android:layout_marginTop="4dp"
-        android:id="@+id/step_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:sv_animationType="Circle"
-        app:sv_doneCircleColor="@color/btn_color"
-        app:sv_doneCircleRadius="12dp"
-        app:sv_doneStepLineColor="@color/btn_color"
-        app:sv_doneStepMarkColor="@color/white"
-        app:sv_nextStepCircleColor="#808F99"
-        app:sv_nextStepCircleEnabled="true"
-        app:sv_nextStepLineColor="#808F99"
-        app:sv_nextTextColor="#fff"
-        app:sv_selectedCircleColor="@color/btn_color"
-        app:sv_selectedCircleRadius="12dp"
-        app:sv_selectedStepNumberColor="@color/white"
-        app:sv_stepLineWidth="1dp"
-        app:sv_stepNumberTextSize="12sp"
-        app:sv_stepPadding="4dp"
-        app:sv_stepViewStyle="@style/StepView"
-        app:sv_stepsNumber="4"
-        app:sv_typeface="@font/gilory_bold" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
         android:id="@+id/viewpager_buy"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

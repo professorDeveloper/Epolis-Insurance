@@ -3,6 +3,8 @@ package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintAttribute
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.azamovhudstc.epolisinsurance.R
@@ -61,7 +63,9 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             response_expanded.visible()
             userContainer.visible()
             vehicleResponse=it
-
+            val layoutParams = search_car.layoutParams as ConstraintLayout.LayoutParams
+            layoutParams.topToBottom=userContainer.id
+            search_car.layoutParams=layoutParams
             searched_user_named.text=it.result.owner
             searched_car_named.text = it.result.modelName
             address_searched_car.text = it.result.division
@@ -85,11 +89,13 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         searchCarTexSerie.text.clear()
         searchCarTexNumber.text.clear()
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun  clearInitView(){
         clear_response.setOnClickListener {
             clearCarData()
         }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         search_car.setOnClickListener {
             if (nextBtnType==AllInfoBtnType.Car){
                 errorTxt.gone()
@@ -115,12 +121,19 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
                 }
             }
             else if (nextBtnType==AllInfoBtnType.User){
-                userPassSerie.setDefaultSmall()
-                userPassNumber.setDefault()
-                errorTxtUser.gone()
-                viewModel.getUserData(PassportIdDataRequest(passportNumber =userPassNumber.text.toString() , passportSeries = userPassSerie.text.toString(), pinfl =vehicleResponse.result.pinfl , vehicle_id =vehicleResponse.result.vehicle_id.toString()))
+                if (userPassNumber.text.isEmpty()||userPassSerie.text.isEmpty()){
+                    showSnack(userContainer,"Maydonlar bo`sh")
+                }
+                else{
+                    userPassSerie.setDefaultSmall()
+                    userPassNumber.setDefault()
+                    errorTxtUser.gone()
+                    viewModel.getUserData(PassportIdDataRequest(passportNumber =userPassNumber.text.toString() , passportSeries = userPassSerie.text.toString(), pinfl =vehicleResponse.result.pinfl , vehicle_id =vehicleResponse.result.vehicle_id.toString()))
+
+                }
             }
         }
+        clearInitView()
         openCloseCollapseUserContainer.setOnClickListener {
             openCollapseUser = if (openCollapseUser) {
                 open_user_info.setImageResource(R.drawable.collapse_open)

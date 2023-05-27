@@ -19,10 +19,9 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        val stepView = view.findViewById<StepView>(R.id.step_view)
-        initStepView(stepView)
+//        val stepView = view.findViewById<StepView>(R.id.step_view)
+//        initStepView(stepView)
         viewpager_buy.adapter=BuyPolisAdapter(requireActivity())
-        step_view.go(viewpager_buy.currentItem, true)
         back_a.setOnClickListener {
             findNavController().popBackStack()
         }
@@ -30,7 +29,6 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
 
     private fun initStepView(stepView: StepView) {
 
-        a = step_view.currentStep
         stepView.state
             .steps(arrayListOf("Step1", "Step2", "Step3", "Step4"))
             .animationType(StepView.ANIMATION_CIRCLE)
