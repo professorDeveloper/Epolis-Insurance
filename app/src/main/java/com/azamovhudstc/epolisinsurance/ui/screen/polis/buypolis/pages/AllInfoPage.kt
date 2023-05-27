@@ -23,7 +23,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
 
     private val viewModel: AllInfoPageViewModel by viewModels<AllInfoPageViewModelImp>()
     private var openCollapseCar = false
-    private  var nextBtnType:AllInfoBtnType=AllInfoBtnType.User
+    private  var nextBtnType:AllInfoBtnType=AllInfoBtnType.Car
     private var openCollapseUser = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,8 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             }
         }
         viewModel.userDataResponseLiveData.observe(this){
-            showSnack(message = "asdad")
+            phone_verify_user.visible()
+            clear_response_user.visible()
         }
         viewModel.errorResponseLiveData.observe(this) {
             searchCarNumber.setError()
@@ -52,6 +53,8 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             userPassSerie.setErrorSmall()
             userPassNumber.setError()
             errorTxtUser.visible()
+            phone_verify_user.gone()
+            clear_response_user.gone()
 
         }
         viewModel.responseLiveData.observe(this) {
@@ -66,20 +69,6 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             searched_issueYear.text = it.result.issueYear.toString()
             nextBtnType=AllInfoBtnType.User
         }
-    }
-    private fun  userNameFormatter(string: String):String{
-        val words = string.split(" ")
-        val result = StringBuilder()
-
-        for (word in words) {
-            val firstChar = word[0]
-            val restOfWord = word.substring(1).toLowerCase()
-            val modifiedWord = firstChar.toLowerCase() + restOfWord
-            result.append(modifiedWord).append(" ")
-        }
-
-        return  result.toString().trim()
-
     }
     private fun clearCarData(){
         response_expanded.gone()
@@ -111,6 +100,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
                 if (searchCarNumber.text.toString().isEmpty() ||
                     searchCarTexSerie.text.toString().isEmpty() ||
                     searchCarTexNumber.text.toString().isEmpty()
+
                 ) {
                     showSnack(expandedContainer,"Maydonlar bo`sh", Toast.LENGTH_SHORT)
                 } else {
