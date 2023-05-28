@@ -46,11 +46,58 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager_buy"
+    <ScrollView
+        android:id="@+id/buyPolisMainScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.shuhart.stepview.StepView
+                android:id="@+id/step_view"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="10dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                app:sv_textPadding="4dp"
+                android:textAlignment="center"
+                app:sv_textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:sv_animationType="Line"
+                app:sv_doneCircleColor="@color/btn_color"
+                app:sv_doneCircleRadius="12dp"
+                app:sv_doneStepLineColor="@color/btn_color"
+
+                app:sv_doneStepMarkColor="@color/btn_color"
+                app:sv_doneTextColor="@color/textColor"
+                app:sv_nextStepCircleEnabled="true"
+                app:sv_nextStepLineColor="#808F99"
+
+                app:sv_nextTextColor="#808F99"
+                app:sv_selectedCircleColor="@color/btn_color"
+                app:sv_selectedCircleRadius="12dp"
+                app:sv_selectedStepNumberColor="@color/white"
+                app:sv_selectedTextColor="@color/textColor"
+                app:sv_stepLineWidth="1dp"
+                app:sv_stepNumberTextSize="14sp"
+                app:sv_stepPadding="4dp"
+                app:sv_stepViewStyle="@style/StepView"
+                app:sv_stepsNumber="4"
+                app:sv_typeface="@font/gilory_medium" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager_buy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/step_view" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,11 +13,23 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AllInfoPageViewModelImp @Inject constructor(private val techUseCase: TechUseCase) :
     AllInfoPageViewModel, ViewModel() {
+    override val nextLiveData: MutableLiveData<Unit> = MutableLiveData()
+
+    override fun nextClick() {
+        viewModelScope.launch {
+            progressLiveData.value=true
+            delay(600)
+            nextLiveData.value=Unit
+
+        }
+    }
+
     override val responseLiveData: MutableLiveData<GetVehicleResponse> = MutableLiveData()
     override val errorResponseLiveData: MutableLiveData<String> = MutableLiveData()
     override val errorByIdResponseLiveData: MutableLiveData<String> = MutableLiveData()

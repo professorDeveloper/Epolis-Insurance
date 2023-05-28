@@ -53,6 +53,9 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             searchCarTexSerie.setErrorSmall()
 
         }
+        viewModel.nextLiveData.observe(this){
+            viewpagerChangeListener.invoke(1)
+        }
         viewModel.errorByIdResponseLiveData.observe(this){
             userPassSerie.setErrorSmall()
             userPassNumber.setError()
@@ -64,6 +67,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         viewModel.responseLiveData.observe(this) {
             response_expanded.visible()
             userContainer.visible()
+            disableCarInputs()
             vehicleResponse=it
             searched_user_named.text=it.result.owner
             searched_car_named.text = it.result.modelName
@@ -73,8 +77,20 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             nextBtnType=AllInfoBtnType.User
         }
     }
+    private  fun  disableCarInputs(){
+        searchCarNumber.isEnabled = false;
+        searchCarTexNumber.isEnabled = false;
+        searchCarTexSerie.isEnabled = false;
+    }
+    private fun  enableCarInputs(){
+        searchCarNumber.isEnabled = true;
+        searchCarTexNumber.isEnabled = true;
+        searchCarTexSerie.isEnabled = true;
+
+    }
     private fun clearCarData(){
         response_expanded.gone()
+        enableCarInputs()
         userContainer.gone()
         nextBtnType=AllInfoBtnType.Car
         searchCarNumber.text.clear()
@@ -93,52 +109,47 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             clearCarData()
         }
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (nextBtnType!=AllInfoBtnType.User){
-            userContainer.gone()
-            choose_polis_container.gone()
+    private fun nextClick(){
+        if (nextBtnType==AllInfoBtnType.Car){
+            errorTxt.gone()
+            searchCarTexSerie.setDefaultSmall()
+            searchCarNumber.setDefault()
+            searchCarTexNumber.setDefault()
 
-        }
+            if (searchCarNumber.text.toString().isEmpty() ||
+                searchCarTexSerie.text.toString().isEmpty() ||
+                searchCarTexNumber.text.toString().isEmpty()
 
-        search_car.setOnClickListener {
-            if (nextBtnType==AllInfoBtnType.Car){
-                errorTxt.gone()
-                searchCarTexSerie.setDefaultSmall()
-                searchCarNumber.setDefault()
-                searchCarTexNumber.setDefault()
+            ) {
+                showSnack(expandedContainer,"Maydonlar bo`sh", Toast.LENGTH_SHORT)
+            } else {
 
-                if (searchCarNumber.text.toString().isEmpty() ||
-                    searchCarTexSerie.text.toString().isEmpty() ||
-                    searchCarTexNumber.text.toString().isEmpty()
-
-                ) {
-                    showSnack(expandedContainer,"Maydonlar bo`sh", Toast.LENGTH_SHORT)
-                } else {
-
-                    viewModel.searchCar(
-                        GetVehicleRequest(
-                            searchCarTexSerie.text.toString().uppercase(),
-                            searchCarTexNumber.text.toString(),
-                            searchCarNumber.text.toString().uppercase(),
-                        )
+                viewModel.searchCar(
+                    GetVehicleRequest(
+                        searchCarTexSerie.text.toString().uppercase(),
+                        searchCarTexNumber.text.toString(),
+                        searchCarNumber.text.toString().uppercase(),
                     )
-                }
-            }
-            else if (nextBtnType==AllInfoBtnType.User){
-                if (userPassNumber.text.isEmpty()||userPassSerie.text.isEmpty()){
-                    showSnack(userContainer,"Maydonlar bo`sh")
-                }
-                else{
-                    userPassSerie.setDefaultSmall()
-                    userPassNumber.setDefault()
-                    errorTxtUser.gone()
-                    viewModel.getUserData(PassportIdDataRequest(passportNumber =userPassNumber.text.toString() , passportSeries = userPassSerie.text.toString(), pinfl =vehicleResponse.result.pinfl , vehicle_id =vehicleResponse.result.vehicle_id.toString()))
-
-                }
+                )
             }
         }
-        clearInitView()
+        else if (nextBtnType==AllInfoBtnType.User){
+            if (userPassNumber.text.isEmpty()||userPassSerie.text.isEmpty()){
+                showSnack(userContainer,"Maydonlar bo`sh")
+            }
+            else{
+                userPassSerie.setDefaultSmall()
+                userPassNumber.setDefault()
+                errorTxtUser.gone()
+                viewModel.getUserData(PassportIdDataRequest(passportNumber =userPassNumber.text.toString() , passportSeries = userPassSerie.text.toString(), pinfl =vehicleResponse.result.pinfl , vehicle_id =vehicleResponse.result.vehicle_id.toString()))
+
+            }
+        }
+        else if(nextBtnType==AllInfoBtnType.Next){
+            viewModel.nextClick()
+        }
+    }
+    private fun initContainers(){
         openCloseCollapseUserContainer.setOnClickListener {
             openCollapseUser = if (openCollapseUser) {
                 open_user_info.setImageResource(R.drawable.collapse_open)
@@ -164,6 +175,15 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
                 !openCollapseCar
             }
         }
+
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        search_car.setOnClickListener {
+            nextClick()
+        }
+        clearInitView()
+        initContainers()
     }
 
 }

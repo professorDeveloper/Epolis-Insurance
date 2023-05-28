@@ -4,8 +4,12 @@
     <string name="language_choose_desc">Добро пожаловать в приложение Impex Insurance, выберите свой язык.</string>
     <string name="language_button_title">Продолжить</string>
     <string name="hello_blank_fragment">""</string>
+    <string name="step_four">Оплата</string>
     <string name="category_item1">Все</string>
+    <string name="step_third">Информация \n о контракте</string>
     <string name="category_item2">Авто</string>
+    <string name="step_one">Общая \n информация</string>
+    <string name="step_two">Инфомация \n Водителя</string>
     <string name="category_item3">Путешествия</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>

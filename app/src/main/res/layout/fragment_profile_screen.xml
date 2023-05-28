@@ -195,7 +195,6 @@
         android:id="@+id/language_setting"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
@@ -207,6 +206,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/languagesetting"
+            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -88,8 +88,8 @@ class EditProfileScreen : Fragment(R.layout.edi_profile_screen) {
                 viewModel.editProfile(
                     ProfileEntity(
                         photoUri = bitmap.toStringWithBitmap(),
-                        name = edit_profile_name_txt.text.toString(),
-                        lastName = edit_profile_last_name_txt.text.toString()
+                        name = edit_profile_name_txt.text.toString().trim(),
+                        lastName = edit_profile_last_name_txt.text.toString().trim()
                     )
                 )
             } else {

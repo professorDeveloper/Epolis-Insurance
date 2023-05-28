@@ -5,6 +5,10 @@
     <string name="language_button_title">Keyingisi</string>
     <string name="seria">Seriya</string>
     <string name="send_otp">Kodni Yuborish</string>
+    <string name="step_third">Shartnoma\nMalumotlari</string>
+        <string name="step_four">To`lov</string>
+    <string name="step_one">Umumiy\nMalumot</string>
+    <string name="step_two">Haydovchi\nMalumoti</string>
     <string name="category_item1">Hammasi</string>
     <string name="category_item2">Avtomatik</string>
     <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash \nkodi yuboramiz</string>

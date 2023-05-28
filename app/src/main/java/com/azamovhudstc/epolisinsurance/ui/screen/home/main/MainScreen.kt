@@ -49,8 +49,6 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
 
     override fun onResume() {
         super.onResume()
-        val categoryAdapter = BottomNavAdapter(requireActivity())
-        mainViewPager.adapter = categoryAdapter
 
     }
 

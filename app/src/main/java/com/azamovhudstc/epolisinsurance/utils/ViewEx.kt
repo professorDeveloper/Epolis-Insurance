@@ -15,7 +15,12 @@ import android.renderscript.Allocation
 import android.renderscript.Element
 import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
+import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 
+ lateinit var viewpagerChangeListener: ((Int) -> Unit)
+    fun setPositionListener(listener:(Int)->Unit){
+    viewpagerChangeListener=listener
+}
 
 fun View.alphaAnim() {
     val anim = AnimationUtils.loadAnimation(App.instance, R.anim.alpha_anim).apply {

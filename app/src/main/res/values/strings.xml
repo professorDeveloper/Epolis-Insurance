@@ -5,6 +5,10 @@
     <string name="language_button_title">Продолжить</string>
     <string name="hello_blank_fragment" translatable="false">""</string>
     <string name="category_item1">Все</string>
+    <string name="step_one">Общая \n информация</string>
+    <string name="step_four">Оплата</string>
+    <string name="step_third">Информация \n о контракте</string>
+    <string name="step_two">Инфомация \n Водителя</string>
     <string name="category_item2">Авто</string>
     <string name="category_item3">Путешествия</string>
     <string name="send_otp">Отправить код</string>

@@ -7,6 +7,8 @@ import com.azamovhudstc.epolisinsurance.data.remote.response.GetUserDataByIdResp
 import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 
 interface AllInfoPageViewModel {
+    val nextLiveData:MutableLiveData<Unit>
+    fun nextClick()
     val responseLiveData:MutableLiveData<GetVehicleResponse>
     val errorResponseLiveData:MutableLiveData<String>
     val errorByIdResponseLiveData:MutableLiveData<String>

@@ -143,31 +143,7 @@ object LocalData {
                 R.drawable.home_rv_item_image_four
             )
         )
-        arrayList.add(
-            HomeBottomItem(
-                "Обязательное \n" +
-                        "Э-ОСАГО", R.drawable.bottom_home_one
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Не обязательное \n" +
-                        "Каско",
-                R.drawable.home_rv_item_image_default_two
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Туристическая страховка по Узбекистану",
-                R.drawable.rv_bottom_home_example
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Туристическая \n страховка по Узбекистану",
-                R.drawable.home_rv_item_image_four
-            )
-        )
+
         return arrayList
     }
 
