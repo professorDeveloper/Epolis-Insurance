@@ -681,6 +681,74 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginVertical="15dp"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/phone_verify_user">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="6dp"
+                                    android:fontFamily="@font/montserrat_medium"
+                                    android:text="@string/data_write"
+                                    android:textColor="@color/textColor"
+                                    android:textFontWeight="700"
+                                    android:textSize="15sp" />
+
+                                <LinearLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <EditText
+                                        android:layout_weight="1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="48dp"
+                                        android:layout_margin="2dp"
+                                        android:background="@drawable/bg_ceria"
+                                        android:fontFamily="@font/gilory_medium"
+                                        android:hint="@string/seria"
+                                        android:inputType="text"
+                                        android:maxLength="3"
+                                        android:maxLines="1"
+                                        android:paddingStart="15dp"
+                                        android:textFontWeight="500"
+                                        android:textSize="16sp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <EditText
+                                        android:layout_weight="1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="48dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="2dp"
+                                        android:background="@drawable/bg_nomer"
+                                        android:fontFamily="@font/gilory_medium"
+                                        android:hint="@string/number"
+                                        android:inputType="number"
+                                        android:maxLines="1"
+                                        android:paddingStart="15dp"
+                                        android:textFontWeight="500"
+                                        android:textSize="16sp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toEndOf="@+id/userPassSerie"
+                                        app:layout_constraintTop_toTopOf="parent" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/clear_response_user"
                                 android:layout_width="match_parent"

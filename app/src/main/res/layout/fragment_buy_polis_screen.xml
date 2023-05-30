@@ -59,13 +59,12 @@
 
             <com.shuhart.stepview.StepView
                 android:id="@+id/step_view"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="10dp"
+                android:b  ="5dp"
+                android:layout_marginStart="5dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
-                app:sv_textPadding="4dp"
-                android:textAlignment="center"
-                app:sv_textSize="14sp"
+                app:sv_textPadding="3dp"
+                app:sv_textSize="13sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
