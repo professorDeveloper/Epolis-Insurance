@@ -10,13 +10,16 @@
     <string name="category_item2">Авто</string>
     <string name="step_one">Общая информация</string>
     <string name="step_two">Инфомация Водителя</string>
+    <string name="date_end">Дата окончания</string>
     <string name="category_item3">Путешествия</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>
     <string name="send_otp">Отправить код</string>
+    <string name="date_start">Дата начала</string>
     <string name="otp_title">Подтвердить код</string>
     <string name="otp_des">Пожалуйста, введите код, который вы отправили на </string>
     <string name="logout">Выйти</string>
+    <string name="data_write">Период страхования</string>
     <string name="number_car">Номер авто</string>
     <string name="about_user">Информация о владельце</string>
     <string name="skip_intro">Пропустить</string>

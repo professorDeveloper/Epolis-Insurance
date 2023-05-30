@@ -87,6 +87,8 @@
     <string name="number_car">Номер авто</string>
     <string name="tex_pass_str">Техпаспорт</string>
     <string name="seria">Серия</string>
+    <string name="date_start">Дата начала</string>
+    <string name="date_end">Дата окончания</string>
     <string name="number">Номер</string>
     <string name="jshshr">ЖШШИР</string>
     <string name="passportoridcart">Паспорта/ID карта</string>

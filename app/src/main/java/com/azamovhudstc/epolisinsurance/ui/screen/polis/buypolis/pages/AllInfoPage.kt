@@ -43,6 +43,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         viewModel.userDataResponseLiveData.observe(this) {
             phone_verify_user.visible()
             choose_polis_container.visible()
+            date_polis.visible()
             clear_response_user.visible()
             nextBtnType = AllInfoBtnType.Next
         }
