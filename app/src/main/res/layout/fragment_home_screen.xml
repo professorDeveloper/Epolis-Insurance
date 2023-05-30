@@ -10,135 +10,138 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:elevation="0dp"
+        android:elevation="0dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:background="@color/white"
         android:layout_height="wrap_content">
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/container_home_profile"
             android:layout_width="match_parent"
+            android:background="@color/white"
+            app:elevation="1.5dp"
+
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="noScroll|enterAlwaysCollapsed">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:visibility="gone"
+                android:layout_marginVertical="2dp"
+                android:layout_height="match_parent">
 
-                <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/container_home_profile"
-                    android:layout_width="match_parent"
-                    android:background="@color/white"
-                    app:elevation="1.5dp"
-
+                <ImageView
+                    android:elevation="2dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/notification"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#f58634" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:visibility="gone"
-                        android:layout_marginVertical="2dp"
-                        android:layout_height="match_parent">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_profile_image" />
 
-                        <ImageView
-                            android:elevation="2dp"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/notification"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:tint="#f58634" />
-                        <LinearLayout
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="5dp"
-                            android:visibility="invisible"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/gilory_bold"
+                            android:text="Имя Фамилия"
+                            android:textColor="#012033"
+                            android:textSize="16sp" />
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/circleImageView"
-                                android:layout_width="56dp"
-                                android:layout_height="56dp"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="15dp"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/default_profile_image" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+998 90 123 45 67"
+                            android:textColor="#4D6370"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:visibility="visible"
+                android:layout_marginVertical="1dp"
+                android:layout_height="60dp">
 
-                                android:layout_marginStart="10dp"
-                                android:orientation="vertical">
+                <ImageView
+                    android:elevation="2dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/notification"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#f58634" />
 
-                                <TextView
-                                    android:id="@+id/textView2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:fontFamily="@font/gilory_bold"
-                                    android:text="Имя Фамилия"
-                                    android:textColor="#012033"
-                                    android:textSize="16sp" />
-
-                                <TextView
-                                    android:id="@+id/textView3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="+998 90 123 45 67"
-                                    android:textColor="#4D6370"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:visibility="visible"
-                        android:layout_marginVertical="1dp"
-                        android:layout_height="60dp">
-
-                        <ImageView
-                            android:elevation="2dp"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/notification"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:tint="#f58634" />
-
-                        <ImageView
-                            android:id="@+id/register_txt"
-                            android:layout_width="120dp"
-                            android:layout_height="30dp"
-                            android:layout_marginStart="16dp"
-                            android:src="@drawable/impeks_g"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/register_txt"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/impeks_g"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.appbar.AppBarLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/banner_home_top"
                     android:layout_width="match_parent"
                     android:layout_height="190dp"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintHorizontal_weight="1"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/banner_bg"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/container_home_profile" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.zhpan.indicator.IndicatorView
                     android:id="@+id/home_banner_indicator"

@@ -59,7 +59,7 @@
 
             <com.shuhart.stepview.StepView
                 android:id="@+id/step_view"
-                android:b  ="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginStart="5dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"

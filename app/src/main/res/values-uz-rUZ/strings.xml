@@ -26,6 +26,7 @@
     <string name="passportoridcart">Passport/ID karta</string>
     <string name="number">No`mer</string>
     <string name="_998">+998 (##) ### ## ##</string>
+    <string name="date_end">Tugash muddati</string>
     <string name="skip_intro">Oʻtkazib yuborish</string>
     <string name="intro_page_one_title">5 daqiqada onlayn sug`urta polisini oling</string>
     <string name="intro_page_one_desc">20 ta turli sug`urta kompaniyalari narxlarini solishtiring va eng pastini tanlashga yordam bering</string>
@@ -37,6 +38,7 @@
     <string name="mark_and_model">Marka va Model</string>
     <string name="success_otp_desc">Hisobingiz muvaffaqiyatli tekshirildi, keling, Impex xususiyatlaridan bahramand bo`laylik</string>
     <string name="edit_profile_title">Profil ma`lumotlari</string>
+    <string name="date_start">boshlanish sanasi</string>
     <string name="add_profile_picture_txt">Rasm Qo`shish</string>
     <string name="clear_info">Ma`lumotni tozalash</string>
     <string name="about_user">Egasi haqida ma`lumot</string>
