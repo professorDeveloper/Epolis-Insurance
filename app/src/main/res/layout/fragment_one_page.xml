@@ -8,12 +8,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:isScrollContainer="true"
-        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
+        android:fadingEdge="none"
 
         android:fillViewport="false"
-        android:fadingEdge="none"
-        android:layout_height="wrap_content">
+        android:isScrollContainer="true"
+        android:scrollbars="vertical">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,8 +30,7 @@
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                         android:layout_height="25dp"
                         android:layout_marginEnd="20dp"
                         android:elevation="1dp"
-                        android:src="@drawable/form_icons"
+                        android:src="@drawable/collapse_open"
                         app:layout_constraintBottom_toBottomOf="@+id/openAboutCarCollapse"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -444,7 +444,7 @@
                         android:layout_height="25dp"
                         android:layout_marginEnd="20dp"
                         android:elevation="1dp"
-                        android:src="@drawable/form_icons"
+                        android:src="@drawable/collapse_open"
                         app:layout_constraintBottom_toBottomOf="@+id/openCloseCollapseUserContainer"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -588,9 +588,9 @@
 
                                 <LinearLayout
 
-                                    android:orientation="horizontal"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
 
                                     <EditText
                                         android:id="@+id/userPassSerie"
@@ -601,7 +601,7 @@
                                         android:fontFamily="@font/gilory_medium"
                                         android:hint="@string/seria"
                                         android:inputType="text"
-                                        android:maxLength="3"
+                                        android:maxLength="2"
                                         android:maxLines="1"
                                         android:paddingStart="15dp"
                                         android:textFontWeight="500"
@@ -615,11 +615,11 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="48dp"
                                         android:layout_marginStart="8dp"
+                                        android:layout_marginTop="2dp"
                                         android:background="@drawable/bg_nomer"
                                         android:fontFamily="@font/gilory_medium"
                                         android:hint="@string/number"
                                         android:inputType="number"
-                                        android:layout_marginTop="2dp"
                                         android:maxLines="1"
                                         android:paddingStart="15dp"
                                         android:textFontWeight="500"
@@ -826,6 +826,7 @@
                     android:weightSum="2">
 
                     <LinearLayout
+                        android:id="@+id/do5PeopleContainer"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="1"
@@ -833,6 +834,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/do5Peopletxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/gilory_bold"
@@ -842,6 +844,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/do1PeopleContainer"
                         android:layout_width="0dp"
                         android:layout_height="45dp"
                         android:layout_weight="1"
@@ -849,6 +852,7 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/do1Peopletxt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/gilory_bold"
@@ -863,9 +867,9 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/search_car"
                 android:layout_width="match_parent"
-                android:layout_marginTop="30dp"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/button_bg"
                 android:backgroundTint="@color/btn_color"
                 android:clickable="true"
@@ -912,4 +916,4 @@
 
     </ScrollView>
 
-    </LinearLayout>
+</LinearLayout>
