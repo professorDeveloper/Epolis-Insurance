@@ -31,6 +31,8 @@ class DriverInfoPageItemAdapter(
         for (i in index + 1 until size) {
             pages[i - 1] = pages[i]
         }
+        pages[size-1]=DriverItemPage()
+
         pages.forEachIndexed { index, driverItemPage ->
             driverItemPage.apply {
                 setOnSuccess { onSuccess(index) }

@@ -1,7 +1,7 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages
 
-import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.core.view.children
@@ -16,8 +16,7 @@ import com.azamovhudstc.epolisinsurance.utils.within
 import com.azamovhudstc.epolisinsurance.viewmodel.InfoDriversPageViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.InfoDriversPageViewModelImp
 import com.azamovhudstc.sugurtaapp.utils.showSnack
-import kotlinx.android.synthetic.main.fragment_info_drivers_page.driver_viewPager
-import kotlinx.android.synthetic.main.fragment_info_drivers_page.index_container
+import kotlinx.android.synthetic.main.fragment_info_drivers_page.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -80,8 +79,9 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
             viewModel.showDriver.collectLatest {
                 driver_viewPager.currentItem = it
             }
-            viewModel.showSuccess.collect {
-                indexLabels?.get(it)?.setBackgroundColor(Color.GREEN)
+            viewModel.showSuccess.onEach {
+                Log.d("ShowSuccess", "observeViewModel: Success")
+                indexLabels?.get(it)?.text="Success"
             }
         }
     }
