@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -70,18 +71,23 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
                 }
             }
             viewModel.removedPage.onEach {
-                driverDetailsAdapter.removePage(it)
-
+                if (it >= 0) {
+                    driverDetailsAdapter.removePage(it)
+                }
             }
             viewModel.errorMessage.collectLatest {
                 showSnack(message = it)
             }
             viewModel.showDriver.collectLatest {
-                driver_viewPager.currentItem = it
+                if(it >= 0) {
+                    Log.d("TTT", it.toString())
+                    driver_viewPager.currentItem = it
+                }
             }
-            viewModel.showSuccess.onEach {
-                Log.d("ShowSuccess", "observeViewModel: Success")
-                indexLabels?.get(it)?.text="Success"
+            viewModel.showSuccess.collectLatest {
+                if (it >= 0) {
+                    indexLabels?.get(it)?.setBackgroundColor(Color.GREEN)
+                }
             }
         }
     }

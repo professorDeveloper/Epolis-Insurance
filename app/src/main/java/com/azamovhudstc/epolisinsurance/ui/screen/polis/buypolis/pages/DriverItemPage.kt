@@ -10,14 +10,15 @@ import kotlinx.android.synthetic.main.drive_item.*
 class DriverItemPage : Fragment(R.layout.drive_item) {
     private var onSuccess: (() -> Unit)? = null
     private var onRemove: (() -> Unit)? = null
+    private var index = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        successBtn.text = "Success"
+        successBtn.text = "Success $index"
         successBtn.setOnClickListener {
             Log.d("TTT", "success clicked")
             onSuccess?.invoke()
         }
-        successBtn.text = "Remove"
+        removeBtn.text = "Remove $index"
         removeBtn.setOnClickListener {
             onRemove?.invoke()
         }
@@ -29,5 +30,9 @@ class DriverItemPage : Fragment(R.layout.drive_item) {
 
     fun setOnRemove(action: () -> Unit) {
         onRemove = action
+    }
+
+    fun setIndex(index: Int) {
+        this.index = index
     }
 }

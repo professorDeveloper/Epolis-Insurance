@@ -1,12 +1,12 @@
 package com.azamovhudstc.epolisinsurance.viewmodel.imp
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.azamovhudstc.epolisinsurance.viewmodel.InfoDriversPageViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class InfoDriversPageViewModelImp @Inject constructor() : InfoDriversPageViewMod
     private val SIZE = 5
     override val driverIndices = MutableStateFlow(1)
     override val removedPage = MutableStateFlow(-1)
-    override val showDriver = MutableStateFlow(-1)
+    override val showDriver = MutableStateFlow(0)
     override val showSuccess = MutableStateFlow(-1)
     override val errorMessage = MutableSharedFlow<String>()
 
@@ -45,6 +45,7 @@ class InfoDriversPageViewModelImp @Inject constructor() : InfoDriversPageViewMod
     }
 
     override fun showSuccess(index: Int) {
+        Log.d("TTT", "showSuccess: kelypatimi ?")
         showSuccess.value = index
     }
 

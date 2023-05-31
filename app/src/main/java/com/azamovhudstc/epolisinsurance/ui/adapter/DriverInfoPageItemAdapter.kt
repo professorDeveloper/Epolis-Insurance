@@ -18,6 +18,7 @@ class DriverInfoPageItemAdapter(
         DriverItemPage().apply {
             setOnSuccess { onSuccess(it) }
             setOnRemove { onRemove(it) }
+            setIndex(it)
         }
     }
 
@@ -37,6 +38,7 @@ class DriverInfoPageItemAdapter(
             driverItemPage.apply {
                 setOnSuccess { onSuccess(index) }
                 setOnRemove { onRemove(index) }
+                setIndex(index)
             }
         }
         notifyDataSetChanged()
