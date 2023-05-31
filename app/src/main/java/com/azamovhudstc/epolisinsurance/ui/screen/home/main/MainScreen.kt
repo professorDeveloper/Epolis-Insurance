@@ -66,32 +66,32 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        val menu = bottom_navigation.menu
-        val data=AppReference(requireContext())
-        val item1 =menu.getItem(0)!!
-        val item2 =menu.getItem(1)!!
-        val item3 =menu.getItem(2)!!
-        when(data.currentLanguage){
-            LanguageType.uz -> {
-                item1.title ="Uy"
-                item3.title ="Profil"
-                item2.title ="Mening Polislarim"
-            }
-            LanguageType.ru -> {
-                item1.title ="Главная"
-                item3.title ="Профиль"
-                item2.title ="Мои полисы"
-
-            }
-        }
-        val categoryAdapter = BottomNavAdapter(requireActivity())
-        mainViewPager.adapter = categoryAdapter
-        mainViewPager.isUserInputEnabled = false
-
-
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        val menu = bottom_navigation.menu
+//        val data=AppReference(requireContext())
+//        val item1 =menu.getItem(0)!!
+//        val item2 =menu.getItem(1)!!
+//        val item3 =menu.getItem(2)!!
+//        when(data.currentLanguage){
+//            LanguageType.uz -> {
+//                item1.title ="Uy"
+//                item3.title ="Profil"
+//                item2.title ="Mening Polislarim"
+//            }
+//            LanguageType.ru -> {
+//                item1.title ="Главная"
+//                item3.title ="Профиль"
+//                item2.title ="Мои полисы"
+//
+//            }
+//        }
+//        val categoryAdapter = BottomNavAdapter(requireActivity())
+//        mainViewPager.adapter = categoryAdapter
+//        mainViewPager.isUserInputEnabled = false
+//
+//
+//    }
 
 
 }

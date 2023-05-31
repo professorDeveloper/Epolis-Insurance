@@ -86,8 +86,12 @@
     <string name="fio">Ф.И.О</string>
     <string name="number_car">Номер авто</string>
     <string name="tex_pass_str">Техпаспорт</string>
+    <string name="driver_passport">Водительские права</string>
+    <string name="passport_date">Водительские дата</string>
     <string name="seria">Серия</string>
+    <string name="data_born">Дата рождения</string>
     <string name="date_start">Дата начала</string>
+    <string name="kinship">Родство</string>
     <string name="date_end">Дата окончания</string>
     <string name="number">Номер</string>
     <string name="jshshr">ЖШШИР</string>

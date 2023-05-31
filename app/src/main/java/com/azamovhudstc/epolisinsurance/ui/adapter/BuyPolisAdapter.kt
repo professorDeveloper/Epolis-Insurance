@@ -22,10 +22,10 @@ class BuyPolisAdapter(fragmentManager: FragmentActivity) :
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
-                AllInfoPage()
+                InfoDriversPage()
             }
             1 -> {
-                InfoDriversPage()
+                AllInfoPage()
             }
 
             2 -> {

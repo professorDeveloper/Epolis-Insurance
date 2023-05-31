@@ -1,7 +1,6 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
@@ -11,7 +10,6 @@ import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.ui.adapter.BuyPolisAdapter
 import com.azamovhudstc.epolisinsurance.utils.setPositionListener
-import com.azamovhudstc.epolisinsurance.utils.viewpagerChangeListener
 import com.shuhart.stepview.StepView
 import com.shuhart.stepview.StepView.ANIMATION_ALL
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +47,6 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
 
         })
         setPositionListener{
-            buyPolisMainScrollView.pageScroll(View.FOCUS_UP);
 
             viewpager_buy.setCurrentItem(it,true)
         }

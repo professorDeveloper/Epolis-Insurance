@@ -44,9 +44,13 @@
     <string name="about_user">Egasi haqida ma`lumot</string>
     <string name="name">Ism</string>
     <string name="about_ca">Avtomobil haqida ma`lumot</string>
+    <string name="kinship">Qarindoshlik</string>
+    <string name="driver_passport">Haydovchi guvohnomasi</string>
+    <string name="passport_date">Guvohnoma sanasi</string>
     <string name="last_name">Familya</string>
     <string name="phone">Telefon Raqam</string>
     <string name="success_otp_btn_title">Tasdiqlang</string>
+    <string name="data_born">Tug`ilgan sana</string>
     <string name="save_profile">O`zgartirishlarni Saqlash</string>
     <string name="intro_btn_txt">Foydalanishni boshlang</string>
     <string name="title_contact_us">Yordam markazi</string>
