@@ -6,20 +6,24 @@ import com.azamovhudstc.epolisinsurance.viewmodel.InfoDriversPageViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class InfoDriversPageViewModelImp @Inject constructor() : InfoDriversPageViewModel, ViewModel() {
+    private val SIZE = 5
     override val driverIndices = MutableStateFlow(1)
-    override val removedPage = MutableStateFlow<Int>(-1)
+    override val removedPage = MutableStateFlow(-1)
+    override val showDriver = MutableStateFlow(-1)
+    override val showSuccess = MutableStateFlow(-1)
     override val errorMessage = MutableSharedFlow<String>()
 
     override fun loadInitData() {
     }
 
     override fun addDriver() {
-        if(driverIndices.value < 5) {
+        if(driverIndices.value < SIZE) {
             driverIndices.value ++
             showDriver(driverIndices.value - 1)
         }
@@ -32,12 +36,16 @@ class InfoDriversPageViewModelImp @Inject constructor() : InfoDriversPageViewMod
             }
             return
         }
-        removedPage.value = driverIndex
         driverIndices.value --
+        removedPage.value = driverIndex
     }
 
     override fun showDriver(index: Int) {
+        showDriver.value = index
+    }
 
+    override fun showSuccess(index: Int) {
+        showSuccess.value = index
     }
 
 }

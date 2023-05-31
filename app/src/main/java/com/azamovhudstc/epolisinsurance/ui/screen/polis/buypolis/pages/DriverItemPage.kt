@@ -6,10 +6,24 @@ import androidx.fragment.app.Fragment
 import com.azamovhudstc.epolisinsurance.R
 import kotlinx.android.synthetic.main.drive_item.*
 
-class DriverItemPage(
-    private val onRemoveItem: () -> Unit
-):Fragment(R.layout.drive_item) {
+class DriverItemPage : Fragment(R.layout.drive_item) {
+    private var onSuccess: (() -> Unit)? = null
+    private var onRemove: (() -> Unit)? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        clear_response.setOnClickListener { onRemoveItem() }
+        successBtn.setOnClickListener {
+            onSuccess?.invoke()
+        }
+        removeBtn.setOnClickListener {
+            onRemove?.invoke()
+        }
+    }
+
+    fun setOnSuccess(action: () -> Unit) {
+        onSuccess = action
+    }
+
+    fun setOnRemove(action: () -> Unit) {
+        onRemove = action
     }
 }
