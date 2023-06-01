@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,10 +36,18 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
         }.attach()
         driverTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                val customView = tab?.customView
+                customView?.tabContainer?.setBackgroundResource(R.drawable.bg_dirver_tab_selected)
+                customView?.driver_tab_text?.setTextColor(Color.WHITE)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
+                val customView = tab?.customView
+                customView?.driver_tab_text?.setTextColor(Color.BLACK)
+                customView?.tabContainer?.setBackgroundResource(R.drawable.bg_driver_tab_unselected)
             }
+
+
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
@@ -54,23 +63,25 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setTab() {
         val tabCount = driverTab.tabCount
+        println("tab count $tabCount")
+        println("categoryList ${categoryList.size}")
         for (i in 0 until tabCount) {
-            if (categoryList[i].name=="5"){
-                val tabView =
-                    LayoutInflater.from(requireActivity()).inflate(R.layout.tab_item_driver, null, false)
-                val tab = driverTab.getTabAt(i)
 
-                tab?.customView = tabView
-                tabView.driver_tab_text.text ="+"
-            }
-            else{
                 val tabView =
                     LayoutInflater.from(requireActivity()).inflate(R.layout.tab_item_driver, null, false)
                 val tab = driverTab.getTabAt(i)
 
                 tab?.customView = tabView
                 tabView.driver_tab_text.text = categoryList[i].name
-            }
+                if (i == 0) {
+                    tabView?.tabContainer?.setBackgroundResource(R.drawable.bg_dirver_tab_selected)
+                    tabView?.driver_tab_text?.setTextColor(Color.WHITE)
+                }
+                else {
+                    tabView?.driver_tab_text?.setTextColor(Color.BLACK)
+                    tabView?.tabContainer?.setBackgroundResource(R.drawable.bg_driver_tab_unselected)
+                }
+
         }
 
     }

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="68dp"
+    android:layout_width="80dp"
     android:layout_gravity="start"
     android:gravity="center"
-    android:layout_margin="0dp"
+    android:layout_margin="2dp"
     android:id="@+id/tabContainer"
-    android:background="@drawable/bg_driver_tab"
-    android:layout_height="45dp">
+    android:background="@drawable/bg_driver_tab_unselected"
+    android:layout_height="wrap_content">
     <TextView
         android:text="1"
         android:id="@+id/driver_tab_text"
+        android:layout_marginVertical="10dp"
         android:fontFamily="@font/gilory_bold"
         android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_width="wrap_content"

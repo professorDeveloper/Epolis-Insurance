@@ -15,19 +15,18 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/driverTab"
 
-        android:paddingHorizontal="10dp"
-        app:tabMode="scrollable"
-        app:tabPaddingStart="10dp"
-
-        app:tabPaddingEnd="10dp"
-    app:tabGravity="start"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicatorHeight="0dp"
-        app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorHeight="0dp"
+        app:tabIndicatorColor="@color/white"
+        app:tabGravity="center"
+
+        app:tabMode="scrollable"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
