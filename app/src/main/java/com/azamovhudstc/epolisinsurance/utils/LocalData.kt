@@ -150,10 +150,9 @@ object LocalData {
 
     fun loadBannerList(): ArrayList<HomeBanner> {
         var bannerList = ArrayList<HomeBanner>()
-        bannerList.add(HomeBanner(R.drawable.banner_four))
         bannerList.add(HomeBanner(R.drawable.banner_one))
-        bannerList.add(HomeBanner(R.drawable.banner_two))
-        bannerList.add(HomeBanner(R.drawable.banner_third))
+        bannerList.add(HomeBanner(R.drawable.app_banner))
+        bannerList.add(HomeBanner(R.drawable.banner_2))
         return bannerList
     }
 }

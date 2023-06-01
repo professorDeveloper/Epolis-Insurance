@@ -15,4 +15,8 @@ dependencyResolutionManagement {
         jcenter() }
 }
 rootProject.name = "EpolisInsurance"
+
+
+
+
 include ':app'
