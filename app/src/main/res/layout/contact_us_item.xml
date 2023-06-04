@@ -69,9 +69,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contact_us_item1_container_big"
         android:layout_width="match_parent"
-        android:visibility="gone"
         android:layout_height="wrap_content"
-        android:background="@drawable/expandable_bg">
+        android:background="@drawable/expandable_bg"
+        android:visibility="visible">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline16"

@@ -5,36 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.screen.polis.buypolis.pages.InfoDriversPage">
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/index_container"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/driver_viewPager"
-        app:layout_constraintTop_toBottomOf="@id/index_container"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/driverPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/driverTab" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/driverTab"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="center"
+        app:tabIndicatorColor="@color/white"
+
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable" />
+
+    <ImageButton
+        android:id="@+id/add_Drivers"
+        android:layout_width="40dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/add"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_driver_tab_unselected"
+        app:layout_constraintBottom_toBottomOf="@+id/driverTab"
+        app:layout_constraintStart_toEndOf="@+id/driverTab"
+        app:layout_constraintTop_toTopOf="@+id/driverTab" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

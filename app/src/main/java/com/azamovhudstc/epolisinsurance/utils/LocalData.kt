@@ -11,7 +11,10 @@ import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 
 object LocalData {
-
+    lateinit var setDriverCountListener: ((Int) -> Unit)
+    fun setDriverCountListener(listener:(Int)->Unit){
+        setDriverCountListener=listener
+    }
    lateinit var vehicleResponse:GetVehicleResponse
     lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
     var position = 0
@@ -150,10 +153,9 @@ object LocalData {
 
     fun loadBannerList(): ArrayList<HomeBanner> {
         var bannerList = ArrayList<HomeBanner>()
-        bannerList.add(HomeBanner(R.drawable.banner_four))
         bannerList.add(HomeBanner(R.drawable.banner_one))
-        bannerList.add(HomeBanner(R.drawable.banner_two))
-        bannerList.add(HomeBanner(R.drawable.banner_third))
+        bannerList.add(HomeBanner(R.drawable.app_banner))
+        bannerList.add(HomeBanner(R.drawable.banner_2))
         return bannerList
     }
 }
