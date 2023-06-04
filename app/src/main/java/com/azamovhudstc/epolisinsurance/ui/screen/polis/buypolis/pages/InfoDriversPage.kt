@@ -8,21 +8,17 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.data.model.Driver
 import com.azamovhudstc.epolisinsurance.data.model.TabModel
 import com.azamovhudstc.epolisinsurance.ui.adapter.DriverAdapter
-import com.azamovhudstc.epolisinsurance.utils.LocalData.setDriverCountListener
-import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.visible
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_info_drivers_page.*
 import kotlinx.android.synthetic.main.tab_item_driver.view.*
 
-
 class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
     private lateinit var categoryList: ArrayList<TabModel>
     private lateinit var categoryAdapter: DriverAdapter
-
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
