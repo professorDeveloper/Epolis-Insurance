@@ -11,7 +11,10 @@ import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 
 object LocalData {
-
+    lateinit var setDriverCountListener: ((Int) -> Unit)
+    fun setDriverCountListener(listener:(Int)->Unit){
+        setDriverCountListener=listener
+    }
    lateinit var vehicleResponse:GetVehicleResponse
     lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
     var position = 0

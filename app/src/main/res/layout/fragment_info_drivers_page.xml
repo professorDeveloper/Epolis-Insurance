@@ -14,19 +14,27 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/driverTab"
-
-        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorHeight="0dp"
-        app:tabIndicatorColor="@color/white"
         app:tabGravity="center"
+        app:tabIndicatorColor="@color/white"
 
-        app:tabMode="scrollable"
-        />
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable" />
+
+    <ImageButton
+        android:id="@+id/add_Drivers"
+        android:layout_width="40dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/add"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_driver_tab_unselected"
+        app:layout_constraintBottom_toBottomOf="@+id/driverTab"
+        app:layout_constraintStart_toEndOf="@+id/driverTab"
+        app:layout_constraintTop_toTopOf="@+id/driverTab" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

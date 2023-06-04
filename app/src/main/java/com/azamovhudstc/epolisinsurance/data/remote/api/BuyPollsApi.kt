@@ -28,4 +28,14 @@ interface BuyPollsApi {
         @Field("vehicle_id") vehicle_id: String,
     ): Response<GetUserDataByIdResponse>
 
+    @FormUrlEncoded
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("ru/api/set-driver-license/")
+    suspend fun addDriver(
+        @Field("passport_series") driverPassportSeries:String,
+        @Field("passport_number") driverPassportNumber:String,
+
+    )
+
+
 }
