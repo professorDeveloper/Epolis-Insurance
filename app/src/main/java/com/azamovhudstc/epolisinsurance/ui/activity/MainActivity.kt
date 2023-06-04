@@ -1,5 +1,6 @@
 package com.azamovhudstc.epolisinsurance.ui.activity
 
+import android.Manifest
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle

@@ -10,10 +10,15 @@
         android:id="@+id/contact_us_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        app:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStartWithNavigation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back">
+        app:navigationIcon="@drawable/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,6 +26,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilory_bold"
                 android:text="@string/title_contact_us"
@@ -32,7 +38,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="170dp"
@@ -47,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/contact_us_toolbar">
 
         <TextView
+            android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -54,49 +61,82 @@
             android:fontFamily="@font/gilory_bold"
             android:text="@string/contact_us_title"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginHorizontal="23dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/gilory_medium"
             android:text="@string/contact_us_desc"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:gravity="top"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/web_contact"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_web" />
+                android:layout_marginEnd="100dp"
+                android:src="@drawable/ic_web"
+                app:layout_constraintBottom_toBottomOf="@+id/mail_contact"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mail_contact"
+                app:layout_constraintVertical_bias="0.0" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/mail_contact"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
-                android:src="@drawable/ic_mail" />
+                android:src="@drawable/ic_mail"
+                app:layout_constraintBottom_toBottomOf="@+id/call_contact"
+                app:layout_constraintEnd_toStartOf="@+id/web_contact"
+                app:layout_constraintStart_toEndOf="@+id/call_contact"
+                app:layout_constraintTop_toTopOf="@+id/call_contact" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/call_contact"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/ic_call" />
 
+                android:layout_marginStart="100dp"
+                android:src="@drawable/ic_call"
 
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.533" />
 
-    </LinearLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/contact_question_title"
@@ -110,33 +150,15 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <LinearLayout
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="vertical"
+        tools:listitem="@layout/contact_us_item"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="@+id/contact_question_title"
-        app:layout_constraintTop_toBottomOf="@+id/contact_question_title">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/expandable_bg"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="20dp"
-                android:text="Какие виды страхования я могу приобрести через это приложение?"
-                android:textAlignment="textStart"
-                tools:ignore="RtlCompat" />
-
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/contact_question_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

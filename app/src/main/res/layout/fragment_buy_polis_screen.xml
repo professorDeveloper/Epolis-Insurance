@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.polis.BuyPolisScreen">
+    tools:context=".ui.screen.polis.buypolis.BuyPolisScreen">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar2"
@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/back_a"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="15dp"
@@ -41,423 +41,49 @@
                 android:textColor="@color/textColor"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/back_a"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <com.shuhart.stepview.StepView
         android:id="@+id/step_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="16dp"
+        android:layout_marginHorizontal="5dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:sv_animationType="Circle"
+        app:sv_animationType="Line"
         app:sv_doneCircleColor="@color/btn_color"
         app:sv_doneCircleRadius="12dp"
         app:sv_doneStepLineColor="@color/btn_color"
-        app:sv_doneStepMarkColor="@color/white"
-        app:sv_nextStepCircleColor="#808F99"
+        app:sv_doneStepMarkColor="@color/btn_color"
+
+        app:sv_doneTextColor="@color/textColor"
         app:sv_nextStepCircleEnabled="true"
         app:sv_nextStepLineColor="#808F99"
-        app:sv_nextTextColor="#fff"
+        app:sv_nextTextColor="#808F99"
+
         app:sv_selectedCircleColor="@color/btn_color"
         app:sv_selectedCircleRadius="12dp"
         app:sv_selectedStepNumberColor="@color/white"
+        app:sv_selectedTextColor="@color/textColor"
         app:sv_stepLineWidth="1dp"
-        app:sv_stepNumberTextSize="12sp"
+        app:sv_stepNumberTextSize="14sp"
         app:sv_stepPadding="4dp"
         app:sv_stepViewStyle="@style/StepView"
         app:sv_stepsNumber="4"
-        app:sv_typeface="@font/gilory_bold" />
+        app:sv_textPadding="5dp"
+        app:sv_textSize="13sp"
+        app:sv_typeface="@font/gilory_medium" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/openCloseCollapse"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/btn_color"
-                android:clickable="true"
-
-                android:elevation="1dp"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:gravity="start|center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/gilory_bold"
-                    android:text="Информация об автомобиле"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="25dp"
-
-                android:layout_height="25dp"
-                android:layout_marginEnd="20dp"
-                android:elevation="1dp"
-                android:src="@drawable/form_icons"
-                app:layout_constraintBottom_toBottomOf="@+id/openCloseCollapse"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/expandedContainer"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager_buy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/collapse_bg"
-                android:orientation="horizontal"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/openCloseCollapse">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Номер авто"
-                            android:textColor="@color/textColor"
-                            android:textFontWeight="700"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/searchCarNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:background="@drawable/bg_add_polis_edit"
-                            android:fontFamily="@font/gilory_medium"
-                            android:hint="01 М 001 ХА"
-                            android:inputType="text"
-                            android:maxLength="8"
-                            android:maxLines="1"
-                            android:paddingStart="15dp"
-                            android:textFontWeight="500"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/errorTxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-                        <ImageView
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:src="@drawable/danger" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:layout_marginStart="10dp"
-                            android:text="Вы ввели неверный номер автомобиля"
-                            android:textColor="#FF4C6D"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout6"
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/errorTxt">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="6dp"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Техпаспорт"
-                            android:textColor="@color/textColor"
-                            android:textFontWeight="700"
-                            android:textSize="15sp" />
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/searchCarTexSerie"
-                                android:layout_width="100dp"
-                                android:layout_height="48dp"
-                                android:layout_margin="2dp"
-                                android:background="@drawable/bg_ceria"
-                                android:fontFamily="@font/gilory_medium"
-                                android:hint="Серия"
-                                android:inputType="text"
-                                android:maxLength="3"
-                                android:maxLines="1"
-                                android:paddingStart="15dp"
-                                android:textFontWeight="500"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <EditText
-                                android:id="@+id/searchCarTexNumber"
-                                android:layout_width="0dp"
-                                android:layout_height="48dp"
-                                android:layout_marginStart="8dp"
-                                android:background="@drawable/bg_nomer"
-                                android:fontFamily="@font/gilory_medium"
-                                android:hint="Номер"
-                                android:inputType="number"
-                                android:maxLines="1"
-                                android:paddingStart="15dp"
-                                android:textFontWeight="500"
-                                android:textSize="16sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/searchCarTexSerie"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="16dp"
-                        android:background="#E6E6E6"
-                        android:orientation="horizontal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/response_expanded"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="16dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/linearLayout7">
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Марка и модель"
-                                android:textColor="#99A6AD"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/searched_car_named"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="CHEVROLET , COBALT"
-                                android:textColor="@color/textColor"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Год выпуска автомобиля"
-                                android:textColor="#99A6AD"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/searched_issueYear"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="2014"
-                                android:textColor="@color/textColor"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Тип автомобиля"
-                                android:textColor="#99A6AD"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Легковые"
-                                android:textColor="@color/textColor"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="16dp"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Регион регистрации автомобиля"
-                                android:textColor="#99A6AD"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/address_searched_car"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/gilory_bold"
-                                android:text="Город Ташкент"
-                                android:textColor="@color/textColor"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/search_car"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="20dp"
-        android:background="@drawable/button_bg"
-        android:backgroundTint="@color/btn_color"
-        android:clickable="true"
-
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/seach_car_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilory_bold"
-                android:text="@string/next"
-                android:textAllCaps="true"
-                android:textColor="@color/white_500"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ProgressBar
-                android:id="@+id/seach_car_progress"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.83" />
-
-
+                app:layout_constraintTop_toBottomOf="@+id/step_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

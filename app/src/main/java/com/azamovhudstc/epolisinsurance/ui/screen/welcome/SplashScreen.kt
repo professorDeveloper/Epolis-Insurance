@@ -42,6 +42,7 @@ class SplashScreen : Fragment(R.layout.splash_screen) {
                         NavOptions.Builder().setPopUpTo(R.id.splashScreen, true).build()
                     )
                 }
+                else -> {}
             }
         }
     }

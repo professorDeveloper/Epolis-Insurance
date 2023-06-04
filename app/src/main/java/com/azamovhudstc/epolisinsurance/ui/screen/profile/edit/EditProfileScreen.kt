@@ -17,11 +17,14 @@ import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.room.entity.ProfileEntity
 import com.azamovhudstc.epolisinsurance.utils.LocalData.REQUEST_CODE
+import com.azamovhudstc.epolisinsurance.utils.gone
+import com.azamovhudstc.epolisinsurance.utils.visible
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.EditProfileScreenViewModelImp
 import com.azamovhudstc.sugurtaapp.utils.stringToBitmap
 import com.azamovhudstc.sugurtaapp.utils.toStringWithBitmap
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.edi_profile_screen.*
+import kotlinx.android.synthetic.main.succes_otp_screen.*
 
 
 @AndroidEntryPoint
@@ -34,6 +37,16 @@ class EditProfileScreen : Fragment(R.layout.edi_profile_screen) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.progressLiveData.observe(this){
+            if (it) {
+                btn_save_profile_progress.visible()
+                btn_save_profile.gone()
+            }
+            else {
+                btn_save_profile_progress.gone()
+                btn_save_profile.visible()
+            }
+        }
         viewModel.phoneLiveData.observe(this, phoneLoadObserver)
         viewModel.successEditLiveData.observe(this, successEditProfileObserver)
         viewModel.successProfileLiveData.observe(this, successProfileObserver)
@@ -75,8 +88,8 @@ class EditProfileScreen : Fragment(R.layout.edi_profile_screen) {
                 viewModel.editProfile(
                     ProfileEntity(
                         photoUri = bitmap.toStringWithBitmap(),
-                        name = edit_profile_name_txt.text.toString(),
-                        lastName = edit_profile_last_name_txt.text.toString()
+                        name = edit_profile_name_txt.text.toString().trim(),
+                        lastName = edit_profile_last_name_txt.text.toString().trim()
                     )
                 )
             } else {

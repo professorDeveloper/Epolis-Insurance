@@ -11,18 +11,25 @@
         android:id="@+id/edit_profile_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        app:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStartWithNavigation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-
+        android:elevation="1dp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back">
+        app:navigationIcon="@drawable/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+
             android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilory_bold"
                 android:text="@string/edit_profile_title"
@@ -154,20 +161,51 @@
         </FrameLayout>
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <androidx.cardview.widget.CardView
         android:id="@+id/save_profile"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_height="55dp"
         android:background="@drawable/button_bg"
-        android:fontFamily="@font/gilory_bold"
-        android:text="@string/save_profile"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+        android:backgroundTint="@color/btn_color"
+        android:clickable="true"
+
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="14dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
-        app:layout_constraintStart_toStartOf="@+id/guideline10" />
+        app:layout_constraintStart_toStartOf="@+id/guideline10">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/btn_save_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilory_bold"
+                android:text="@string/save_profile"
+                android:textAllCaps="true"
+                android:textColor="@color/white_500"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/btn_save_profile_progress"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
         android:layout_width="wrap_content"

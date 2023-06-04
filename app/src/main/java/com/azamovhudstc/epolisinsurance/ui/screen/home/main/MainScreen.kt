@@ -6,7 +6,9 @@ import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.ui.adapter.BottomNavAdapter
+import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import kotlinx.android.synthetic.main.fragment_main_screen.*
 
 class MainScreen : Fragment(R.layout.fragment_main_screen) {
@@ -25,7 +27,24 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
             val categoryAdapter = BottomNavAdapter(requireActivity())
             mainViewPager.adapter = categoryAdapter
             mainViewPager.isUserInputEnabled = false
+            val menu = bottom_navigation.menu
+            val data=AppReference(requireContext())
+            val item1 =menu.getItem(0)!!
+            val item2 =menu.getItem(1)!!
+            val item3 =menu.getItem(2)!!
+            when(data.currentLanguage){
+                LanguageType.uz -> {
+                    item1.title ="Uy"
+                    item3.title ="Profil"
+                    item2.title ="Mening Polislarim"
+                }
+                LanguageType.ru -> {
+                    item1.title ="Главная"
+                    item3.title ="Профиль"
+                    item2.title ="Мои полисы"
 
+                }
+            }
             bottom_navigation.setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.home -> {
@@ -46,6 +65,33 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
 
         }
     }
+
+//    override fun onResume() {
+//        super.onResume()
+//        val menu = bottom_navigation.menu
+//        val data=AppReference(requireContext())
+//        val item1 =menu.getItem(0)!!
+//        val item2 =menu.getItem(1)!!
+//        val item3 =menu.getItem(2)!!
+//        when(data.currentLanguage){
+//            LanguageType.uz -> {
+//                item1.title ="Uy"
+//                item3.title ="Profil"
+//                item2.title ="Mening Polislarim"
+//            }
+//            LanguageType.ru -> {
+//                item1.title ="Главная"
+//                item3.title ="Профиль"
+//                item2.title ="Мои полисы"
+//
+//            }
+//        }
+//        val categoryAdapter = BottomNavAdapter(requireActivity())
+//        mainViewPager.adapter = categoryAdapter
+//        mainViewPager.isUserInputEnabled = false
+//
+//
+//    }
 
 
 }

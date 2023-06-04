@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.utils.LocalData.isBuyOrRegistered
 import kotlinx.android.synthetic.main.fragment_agree_screen.*
 
 class AgreeScreen : Fragment(R.layout.fragment_agree_screen) {
@@ -19,7 +20,19 @@ class AgreeScreen : Fragment(R.layout.fragment_agree_screen) {
             agree_btn.isEnabled = isChecked
         }
         agree_btn.setOnClickListener {
-            findNavController().navigate(R.id.mainScreen,null,NavOptions.Builder().setPopUpTo(R.id.agreeScreen,true).build())
+            if (isBuyOrRegistered) {
+                findNavController().navigate(
+                    R.id.buyPolisScreen,
+                    null, NavOptions.Builder().setPopUpTo(R.id.agreeScreen, true).build()
+                )
+            } else {
+                findNavController().navigate(
+                    R.id.mainScreen,
+                    null, NavOptions.Builder().setPopUpTo(R.id.agreeScreen, true).build()
+                )
+
+            }
+            isBuyOrRegistered = false
         }
     }
 }

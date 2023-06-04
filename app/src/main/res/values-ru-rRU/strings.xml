@@ -4,16 +4,32 @@
     <string name="language_choose_desc">Добро пожаловать в приложение Impex Insurance, выберите свой язык.</string>
     <string name="language_button_title">Продолжить</string>
     <string name="hello_blank_fragment">""</string>
+    <string name="step_four">Оплата</string>
     <string name="category_item1">Все</string>
+    <string name="step_third">Информация о контракте</string>
+    <string name="passport_date">Водительские дата</string>
+
+
+    <string name="driver_passport">Водительские права</string>
     <string name="category_item2">Авто</string>
+    <string name="step_one">Общая информация</string>
+    <string name="kinship">Родство</string>
+    <string name="step_two">Инфомация Водителя</string>
+    <string name="data_born">Дата рождения</string>
+    <string name="date_end">Дата окончания</string>
     <string name="category_item3">Путешествия</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>
     <string name="send_otp">Отправить код</string>
+    <string name="date_start">Дата начала</string>
     <string name="otp_title">Подтвердить код</string>
     <string name="otp_des">Пожалуйста, введите код, который вы отправили на </string>
     <string name="logout">Выйти</string>
+    <string name="data_write">Период страхования</string>
+    <string name="number_car">Номер авто</string>
+    <string name="about_user">Информация о владельце</string>
     <string name="skip_intro">Пропустить</string>
+    <string name="mark_and_model">Марка и модель</string>
     <string name="_998">+998 (##) ### ## ##</string>
     <string name="intro_page_one_title">Получить страховой полис онлайн за 5 минут</string>
     <string name="intro_page_two_ttle">Автоматически заполним данные</string>
@@ -24,8 +40,11 @@
     <string name="success_otp_title">Учетная запись подтверждена</string>
     <string name="success_otp_desc">Ваша учетная запись успешно подтверждена, теперь давайте наслаждаться функциями Epolis</string>
     <string name="edit_profile_title">Информация профиля</string>
+    <string name="clear_info">Очистить информацию</string>
     <string name="add_profile_picture_txt">Добавить изображение</string>
     <string name="name">Имя</string>
+    <string name="about_ca">Информация об автомобиле</string>
+
     <string name="last_name">Фамилия</string>
     <string name="phone">Номер телефона</string>
     <string name="save_profile">Сохранить изменения</string>
@@ -39,8 +58,15 @@
     <string name="register_txt">Регистрация</string>
     <string name="home">Главная</string>
     <string name="my_polis">Мои полисы</string>
+    <string name="error_api">Произошла ошибка. проверьте и попробуйте еще раз</string>
+    <string name="tex_pass_str">Техпаспорт</string>
+    <string name="seria">Серия</string>
     <string name="profile">Профиль</string>
+    <string name="passportoridcart">Паспорта/ID карта</string>
     <string name="all">Все</string>
+    <string name="fio">Ф.И.О</string>
+    <string name="number">Номер</string>
+    <string name="jshshr">ЖШШИР</string>
     <string name="agree_txt">Лицензионное соглашение</string>
     <string name="working">Действующие</string>
     <string name="add_polis_info">Вы можете добавить полис</string>
@@ -69,5 +95,11 @@
     <string name="profile_item4">Напоминания</string>
     <string name="profile_item5">О Нас</string>
     <string name="profile_item6">Центр помощи</string>
+    <string name="contact_us1">Какие виды страхования я могу приобрести через это приложение?</string>
+    <string name="contact_us_all_description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</string>
+    <string name="contact_us2">Как получить расчет по страховке?</string>
+    <string name="cotact_us3">Могу ли я приобрести страховку прямо через приложение?</string>
+    <string name="contact_us4">Какие способы оплаты принимаются?</string>
+    <string name="contact_us5">Как я могу отменить свой страховой полис?</string>
 
 </resources>

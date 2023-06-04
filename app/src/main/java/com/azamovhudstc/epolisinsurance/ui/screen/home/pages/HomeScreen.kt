@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_home_screen.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 class HomeScreen : Fragment(R.layout.fragment_home_screen) {
@@ -68,6 +70,16 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         homeBottomRecycleAdapter.submitList(loadGridData())
         home_bottom_rv.adapter = homeBottomRecycleAdapter
         cateAdapter.setItemClickListener {
+        }
+
+        homeBottomRecycleAdapter.setItemClickListener {
+            var appReference=AppReference(requireContext());
+            if (appReference.token!=null){
+                findNavController().navigate(R.id.buyPolisScreen)
+            }
+            else{
+                findNavController().navigate(R.id.registerScreen)
+            }
         }
         banner_home_top.addItemDecoration(itemDecoration)
         lifecycleScope.launch {

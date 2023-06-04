@@ -7,6 +7,7 @@ import com.azamovhudstc.epolisinsurance.data.local.room.entity.ProfileEntity
 import com.azamovhudstc.epolisinsurance.usecase.EditProfileUseCase
 import com.azamovhudstc.epolisinsurance.viewmodel.EditProfileScreenViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -16,6 +17,7 @@ class EditProfileScreenViewModelImp @Inject constructor(private val useCase: Edi
     ViewModel(),
     EditProfileScreenViewModel {
     override val phoneLiveData: MutableLiveData<String> = MutableLiveData()
+    override val progressLiveData: MutableLiveData<Boolean> = MutableLiveData()
     override val successEditLiveData: MutableLiveData<Unit> = MutableLiveData()
     override val successProfileLiveData: MutableLiveData<ProfileEntity> = MutableLiveData()
 
@@ -29,12 +31,17 @@ class EditProfileScreenViewModelImp @Inject constructor(private val useCase: Edi
     }
 
     override fun editProfile(profileEntity: ProfileEntity) {
+        progressLiveData.value=true
         useCase.updateProfile(profileEntity).onEach { it ->
             it.onSuccess {
+                delay(800)
                 successEditLiveData.value = it
+                progressLiveData.value=false
             }
             it.onFailure {
+                delay(800)
                 println(it.message)
+                progressLiveData.value=false
             }
         }.launchIn(viewModelScope)
     }

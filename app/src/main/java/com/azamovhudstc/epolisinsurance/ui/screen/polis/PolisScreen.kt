@@ -13,6 +13,7 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.databinding.FragmentPolisScreenBinding
 import com.azamovhudstc.epolisinsurance.ui.adapter.PolisCategoryAdapter
+import com.azamovhudstc.epolisinsurance.utils.LocalData.isBuyOrRegistered
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.visible
@@ -70,6 +71,7 @@ class PolisScreen : Fragment() {
 
         }
         binding.checkCodeOtpBtn.setOnClickListener {
+            isBuyOrRegistered=true
             findNavController().navigate(R.id.registerScreen)
         }
 

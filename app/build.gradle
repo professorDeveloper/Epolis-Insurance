@@ -217,4 +217,10 @@ dependencies {
     implementation 'net.theluckycoder.expandablecardview:expandablecardview:1.2.0'
     implementation 'com.alespero:expandable-cardview:0.8'
 
+
+    /**
+     * PermissionX
+     ***/
+    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
+
 }

@@ -5,6 +5,10 @@
     <string name="language_button_title">Продолжить</string>
     <string name="hello_blank_fragment" translatable="false">""</string>
     <string name="category_item1">Все</string>
+    <string name="step_one">Общая информация</string>
+    <string name="step_four">Оплата</string>
+    <string name="step_third">Информация о контракте</string>
+    <string name="step_two">Инфомация  Водителя</string>
     <string name="category_item2">Авто</string>
     <string name="category_item3">Путешествия</string>
     <string name="send_otp">Отправить код</string>
@@ -58,6 +62,7 @@
     <string name="dont_have_code">Повторно отправить код</string>
     <string name="error_">Нет соединения</string>
     <string name="error_code">Введена ошибка кода!</string>
+    <string name="error_api">Произошла ошибка. проверьте и попробуйте еще раз</string>
     <string name="code_resend">Код повторно отправлен!</string>
     <string name="sms_code_error">Введите SMS-код правильно!</string>
     <string name="error_phone">Номер телефона был введен неверно!</string>
@@ -68,6 +73,30 @@
     <string name="profile_item4">Напоминания</string>
     <string name="profile_item5">О Нас</string>
     <string name="profile_item6">Центр помощи</string>
+    <string name="contact_us1">Какие виды страхования я могу приобрести через это приложение?</string>
+    <string name="contact_us_all_description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</string>
+    <string name="contact_us2">Как получить расчет по страховке?</string>
+    <string name="cotact_us3">Могу ли я приобрести страховку прямо через приложение?</string>
+    <string name="contact_us4">Какие способы оплаты принимаются?</string>
+    <string name="contact_us5">Как я могу отменить свой страховой полис?</string>
+    <string name="clear_info">Очистить информацию</string>
+    <string name="about_ca">Информация об автомобиле</string>
+    <string name="about_user">Информация о владельце</string>
+    <string name="mark_and_model">Марка и модель</string>
+    <string name="fio">Ф.И.О</string>
+    <string name="number_car">Номер авто</string>
+    <string name="tex_pass_str">Техпаспорт</string>
+    <string name="driver_passport">Водительские права</string>
+    <string name="passport_date">Водительские дата</string>
+    <string name="seria">Серия</string>
+    <string name="data_born">Дата рождения</string>
+    <string name="date_start">Дата начала</string>
+    <string name="kinship">Родство</string>
+    <string name="date_end">Дата окончания</string>
+    <string name="number">Номер</string>
+    <string name="jshshr">ЖШШИР</string>
+    <string name="passportoridcart">Паспорта/ID карта</string>
+    <string name="data_write">Период страхования</string>
 
     <style name="no_internet">Интернет недоступен</style>
 

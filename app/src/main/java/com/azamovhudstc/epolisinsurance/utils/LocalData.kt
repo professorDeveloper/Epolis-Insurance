@@ -1,17 +1,24 @@
 package com.azamovhudstc.epolisinsurance.utils
 
+import android.graphics.drawable.ShapeDrawable
 import com.azamovhudstc.epolisinsurance.R
-import com.azamovhudstc.epolisinsurance.app.App
-import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
+import com.azamovhudstc.epolisinsurance.app.App.Companion.instance
+import com.azamovhudstc.epolisinsurance.data.model.ContactUsItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
 import com.azamovhudstc.epolisinsurance.data.model.PolsItem
+import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
+import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 
 object LocalData {
+
+   lateinit var vehicleResponse:GetVehicleResponse
+    lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
     var position = 0
 
     var currentPage = 0
     const val REQUEST_CODE = 0
+    var isBuyOrRegistered:Boolean=false
     const val PERIOD_MS: Long = 2000
     fun loadPollList(): ArrayList<PolsItem> {
         val arrayList = ArrayList<PolsItem>()
@@ -58,8 +65,50 @@ object LocalData {
         return arrayList
     }
 
+    fun loadContactUs(): ArrayList<ContactUsItem> {
+        val arrayList = ArrayList<ContactUsItem>()
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us1),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us2),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.cotact_us3),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us4),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        arrayList.add(
+            ContactUsItem(
+                instance.getString(R.string.contact_us5),
+                instance.getString(R.string.contact_us_all_description),
+                false
+            )
+        )
+        return arrayList    
+    }
+
     fun addSpinnerCat(): ArrayList<String> {
         var arrayList = ArrayList<String>()
+        val arrayOf = arrayOf<ShapeDrawable>()
+
         arrayList.add("ОСАГО")
         arrayList.add("КАСКО")
         arrayList.add("ОСГО ВТС")
@@ -94,36 +143,9 @@ object LocalData {
                 R.drawable.home_rv_item_image_four
             )
         )
-        arrayList.add(
-            HomeBottomItem(
-                "Обязательное \n" +
-                        "Э-ОСАГО", R.drawable.bottom_home_one
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Не обязательное \n" +
-                        "Каско",
-                R.drawable.home_rv_item_image_default_two
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Туристическая страховка по Узбекистану",
-                R.drawable.rv_bottom_home_example
-            )
-        )
-        arrayList.add(
-            HomeBottomItem(
-                "Туристическая \n страховка по Узбекистану",
-                R.drawable.home_rv_item_image_four
-            )
-        )
+
         return arrayList
     }
-
-
-
 
 
     fun loadBannerList(): ArrayList<HomeBanner> {

@@ -113,7 +113,10 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/agree_btn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_bg"

@@ -3,16 +3,30 @@
     <string name="language_choose_title">Tilni Tanlang</string>
     <string name="language_choose_desc">Impex Ilovasiga xush kelibsiz, tilni tanlang .</string>
     <string name="language_button_title">Keyingisi</string>
+    <string name="seria">Seriya</string>
     <string name="send_otp">Kodni Yuborish</string>
+    <string name="step_third">Shartnoma Malumotlari</string>
+        <string name="step_four">To`lov</string>
+    <string name="step_one">Umumiy Malumot</string>
+    <string name="step_two">Haydovchi Malumoti</string>
     <string name="category_item1">Hammasi</string>
     <string name="category_item2">Avtomatik</string>
     <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash \nkodi yuboramiz</string>
     <string name="register_title">Telefon raqamingiz</string>
     <string name="category_item3">Sayohat</string>
+    <string name="tex_pass_str">Texpassport</string>
     <string name="otp_title">Kodni tekshirish</string>
+    <string name="fio">F.I.O</string>
+    <string name="error_api">Xato ro`y berdi. tekshiring va qayta urinib ko`ring</string>
     <string name="otp_des"> raqamiga yuborgan kodingizni kiriting</string>
     <string name="logout">Tashqariga chiqish</string>
+    <string name="data_write">Sug`urta muddati</string>
+    <string name="number_car">Avtomobil Raqami</string>
+    <string name="jshshr">JSHSHIR</string>
+    <string name="passportoridcart">Passport/ID karta</string>
+    <string name="number">No`mer</string>
     <string name="_998">+998 (##) ### ## ##</string>
+    <string name="date_end">Tugash muddati</string>
     <string name="skip_intro">Oʻtkazib yuborish</string>
     <string name="intro_page_one_title">5 daqiqada onlayn sug`urta polisini oling</string>
     <string name="intro_page_one_desc">20 ta turli sug`urta kompaniyalari narxlarini solishtiring va eng pastini tanlashga yordam bering</string>
@@ -21,13 +35,22 @@
     <string name="intropage_third_title">Jonli va do`stona 24/7 texnik yordam</string>
     <string name="intropage_third_desc">Biz tezda yordamga kelamiz va barcha muammolarni hal qilishga yordam beramiz</string>
     <string name="success_otp_title">Hisob tasdiqlandi</string>
+    <string name="mark_and_model">Marka va Model</string>
     <string name="success_otp_desc">Hisobingiz muvaffaqiyatli tekshirildi, keling, Impex xususiyatlaridan bahramand bo`laylik</string>
     <string name="edit_profile_title">Profil ma`lumotlari</string>
+    <string name="date_start">boshlanish sanasi</string>
     <string name="add_profile_picture_txt">Rasm Qo`shish</string>
+    <string name="clear_info">Ma`lumotni tozalash</string>
+    <string name="about_user">Egasi haqida ma`lumot</string>
     <string name="name">Ism</string>
+    <string name="about_ca">Avtomobil haqida ma`lumot</string>
+    <string name="kinship">Qarindoshlik</string>
+    <string name="driver_passport">Haydovchi guvohnomasi</string>
+    <string name="passport_date">Guvohnoma sanasi</string>
     <string name="last_name">Familya</string>
     <string name="phone">Telefon Raqam</string>
     <string name="success_otp_btn_title">Tasdiqlang</string>
+    <string name="data_born">Tug`ilgan sana</string>
     <string name="save_profile">O`zgartirishlarni Saqlash</string>
     <string name="intro_btn_txt">Foydalanishni boshlang</string>
     <string name="title_contact_us">Yordam markazi</string>
@@ -66,6 +89,7 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="agree_title">Men foydalanuvchi shartnomasi shartlariga to`liq roziman</string>
 
     <style name="no_internet">Internet Mavjud Emas</style>
+
     <string name="sms_code_error">SMS Code To`g`ri Kiriting !</string>
     <string name="error_phone">Telefon Raqam Noto`g`ri Kiritilgan !</string>
     <string name="code_error">Kod Notog`ri Kiritildi !</string>
@@ -75,5 +99,11 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="profile_item4">Bildirishnoma</string>
     <string name="profile_item5">Haqida</string>
     <string name="profile_item6">Yordam markazi</string>
+    <string name="contact_us1">Ushbu ilova orqali qanday sug`urta turlarini sotib olsam bo`ladi?</string>
+    <string name="contact_us_all_description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</string>
+    <string name="contact_us2">Sug`urta hisobini qanday olish mumkin?</string>
+    <string name="cotact_us3">Sug`urtani to`g`ridan-to`g`ri ilova orqali sotib olsam bo`ladimi?</string>
+    <string name="contact_us4">Qanday to`lov usullari qabul qilinadi?</string>
+    <string name="contact_us5">Qanday qilib sug`urta polisimni bekor qilishim mumkin ?</string>
 
 </resources>

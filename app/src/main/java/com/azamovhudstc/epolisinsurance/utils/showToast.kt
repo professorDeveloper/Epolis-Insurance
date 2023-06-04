@@ -24,3 +24,6 @@ fun Fragment.state(bool: Boolean) {
         WaitDialog.dismiss()
     }
 }
+
+
+

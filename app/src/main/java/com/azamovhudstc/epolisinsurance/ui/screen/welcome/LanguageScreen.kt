@@ -44,24 +44,24 @@ class LanguageScreen : Fragment(R.layout.langauge_screen) {
     private fun initView() {
         val appReference = AppReference(requireContext())
         next_btn_language.setOnClickListener {
-                appReference.currentScreenEnum = CurrentScreenEnum.HOME
-                findNavController().navigate(
-                    R.id.mainScreen,
-                    null,
-                    NavOptions.Builder().setPopUpTo(R.id.langaugeScreen, true).build()
-                )
+            appReference.currentScreenEnum = CurrentScreenEnum.HOME
+            findNavController().navigate(
+                R.id.mainScreen,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.langaugeScreen, true).build()
+            )
         }
         uz_language_btn.setOnClickListener {
             clearWithPosition(1)
-            setLocate("uz")
             appReference.currentLanguage = LanguageType.uz
+            setLocate("uz")
             position = 1
 
         }
         ru_language_btn.setOnClickListener {
             clearWithPosition(2)
-            setLocate("ru")
             appReference.currentLanguage = LanguageType.ru
+            setLocate("ru")
             position = 2
         }
     }

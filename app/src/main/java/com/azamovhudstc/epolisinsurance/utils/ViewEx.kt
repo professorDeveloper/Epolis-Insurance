@@ -15,7 +15,12 @@ import android.renderscript.Allocation
 import android.renderscript.Element
 import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
+import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 
+ lateinit var viewpagerChangeListener: ((Int) -> Unit)
+    fun setPositionListener(listener:(Int)->Unit){
+    viewpagerChangeListener=listener
+}
 
 fun View.alphaAnim() {
     val anim = AnimationUtils.loadAnimation(App.instance, R.anim.alpha_anim).apply {
@@ -28,12 +33,17 @@ fun View.alphaAnim() {
 
 }
 
-
+fun View.setErrorSmall(){
+    setBackgroundResource(R.drawable.bg_ceria_error)
+}
 fun  View.setError(){
     setBackgroundResource(R.drawable.bg_error)
 }
 fun  View.setDefault(){
     setBackgroundResource(R.drawable.bg_add_polis_edit)
+}
+fun  View.setDefaultSmall(){
+    setBackgroundResource(R.drawable.bg_ceria)
 }
 fun View.slideTop(animTime: Long, startOffset: Long){
     val slideUp = AnimationUtils.loadAnimation(App.instance, R.anim.slide_top).apply {
