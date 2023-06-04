@@ -1,68 +1,65 @@
 package com.azamovhudstc.epolisinsurance.ui.adapter
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.viewpager2.adapter.FragmentStateAdapter
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.model.TabModel
-import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item.DriverPageItem
+import kotlinx.android.synthetic.main.fragment_driver_page_item.view.*
 
-class DriverAdapter(fragmentActivity: FragmentActivity,) : FragmentStateAdapter(fragmentActivity) {
-    private lateinit var arrayList:ArrayList<TabModel>
-    fun loadData(loadNewList:ArrayList<TabModel>){
-        if (::arrayList.isInitialized){
-            arrayList.clear()
-            arrayList.addAll(loadNewList)
-            notifyDataSetChanged()
-            return
-        }
-        arrayList= ArrayList()
-        arrayList.clear()
-        arrayList.addAll(loadNewList)
-        notifyDataSetChanged()
-    }
-    fun  addTab(tabModel: TabModel){
-        if (::arrayList.isInitialized){
-            arrayList.add(tabModel)
-            notifyDataSetChanged()
-        }
+class DriverAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    val items = mutableListOf<TabModel>()
+    private lateinit var itemClickListener: ((TabModel, Int) -> Unit)
+    fun setRemoveViewPager(listener: (TabModel, Int) -> Unit) {
+        itemClickListener = listener
     }
 
-    fun setTab(tabModel: TabModel,position: Int){
-        if (::arrayList.isInitialized){
-            arrayList.set(position,tabModel)
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_driver_page_item, parent, false)
+        return ViewHolder(view)
     }
-    fun removeTab(tabModel: TabModel){
-        if (::arrayList.isInitialized){
-            arrayList.remove(tabModel)
-            notifyDataSetChanged()
-        }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item = items[position]
+        val viewHolder = holder as ViewHolder
+        viewHolder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        return arrayList.size
+        return items.size
+    }
+
+    fun addItem(item: TabModel) {
+        items.add(item)
+        notifyItemInserted(items.size - 1)
+    }
+
+    fun removeItem(position: Int) {
+        if (position in 0 until items.size) {
+            items.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, items.size)
+        }
+    }
+
+    fun submitList(newList: ArrayList<TabModel>) {
+        items.clear()
+        items.addAll(newList)
 
     }
 
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: TabModel) {
+            itemView.apply {
+                driver_id_title.text = "${item.name}-Водитель"
+                delete_item.setOnClickListener {
+                    itemClickListener.invoke(item, adapterPosition)
+                }
+            }
 
-    override fun createFragment(position: Int): Fragment {
-        var bundle=Bundle()
-        bundle.putSerializable("dataDriver",arrayList[position])
-        var fragment=DriverPageItem()
-        fragment.arguments=bundle
-        return fragment
 
-    }
-
-    fun addFragment(driver: TabModel) {
-        arrayList.add(driver)
-        notifyItemChanged(arrayList.size)
-        notifyDataSetChanged()
-    }
-
-    fun removeFragment(position: Int) {
-        arrayList.removeAt(position)
-        notifyDataSetChanged()
+        }
     }
 }

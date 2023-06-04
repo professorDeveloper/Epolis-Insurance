@@ -222,7 +222,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/delete_item"
+                            android:id="@+id/delete_item"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_margin="3.5dp"

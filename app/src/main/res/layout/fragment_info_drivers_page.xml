@@ -12,25 +12,25 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/driverTab" />
 
-    <com.google.android.material.tabs.TabLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/driverTab"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="45dp"
+        tools:itemCount="4"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/tab_item_driver"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabGravity="center"
-        app:tabIndicatorColor="@color/white"
-
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/add_Drivers"
-        android:layout_width="40dp"
+        android:layout_width="45dp"
         android:layout_marginStart="5dp"
         android:src="@drawable/add"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:background="@drawable/bg_driver_tab_unselected"
         app:layout_constraintBottom_toBottomOf="@+id/driverTab"
         app:layout_constraintStart_toEndOf="@+id/driverTab"
