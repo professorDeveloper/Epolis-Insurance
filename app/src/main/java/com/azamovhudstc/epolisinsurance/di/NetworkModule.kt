@@ -4,6 +4,7 @@ import android.content.Context
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
 import com.azamovhudstc.epolisinsurance.data.remote.api.BuyPollsApi
 import com.azamovhudstc.epolisinsurance.data.remote.api.GrossUzApi
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +22,7 @@ import javax.inject.Singleton
 object NetworkModule {
     @[Provides Singleton]
     fun getOkHTTPClient(@ApplicationContext context: Context): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(ChuckerInterceptor(context))
         .readTimeout(60, TimeUnit.SECONDS)
         .connectTimeout(60, TimeUnit.SECONDS)
         .build()

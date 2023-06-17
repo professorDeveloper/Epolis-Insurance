@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.data.remote.response.ConfirmResponse
-import com.azamovhudstc.epolisinsurance.data.remote.response.RegisterResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.RegisterResponse
 import com.azamovhudstc.epolisinsurance.usecase.AuthUseCase
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

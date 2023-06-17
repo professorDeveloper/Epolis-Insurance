@@ -5,8 +5,8 @@ import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.remote.api.AuthApi
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.data.remote.response.ConfirmResponse
-import com.azamovhudstc.epolisinsurance.data.remote.response.RegisterResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.RegisterResponse
 import com.azamovhudstc.epolisinsurance.repo.AuthRepository
 import com.azamovhudstc.epolisinsurance.utils.hasConnection
 import kotlinx.coroutines.Dispatchers

@@ -7,21 +7,40 @@ import com.azamovhudstc.epolisinsurance.data.model.ContactUsItem
 import com.azamovhudstc.epolisinsurance.data.model.HomeBanner
 import com.azamovhudstc.epolisinsurance.data.model.HomeBottomItem
 import com.azamovhudstc.epolisinsurance.data.model.PolsItem
-import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
+import com.azamovhudstc.epolisinsurance.utils.enums.PollsPeopleType
+import com.azamovhudstc.epolisinsurance.utils.enums.ScrollType
 
 object LocalData {
+     var pollsPeopleType: PollsPeopleType=PollsPeopleType.CustomPolis
     lateinit var setDriverCountListener: ((Int) -> Unit)
-    fun setDriverCountListener(listener:(Int)->Unit){
-        setDriverCountListener=listener
+    lateinit var removeDisableListener: (Boolean) -> Unit
+    lateinit var change: (ScrollType) -> Unit
+    lateinit var listenAddProgress:(Boolean) ->Unit
+    fun setListenedProgress(listener: (Boolean) -> Unit){
+        listenAddProgress=listener
     }
-   lateinit var vehicleResponse:GetVehicleResponse
-    lateinit var currentScreenEnumRegisterLogin:CurrentScreenEnum
+
+    var removeDisable =true
+
+    fun setDriverCountListener(listener: (Int) -> Unit) {
+        setDriverCountListener = listener
+    }
+
+    fun setChangeListener(listener: (ScrollType) -> Unit){
+        change=listener
+    }
+    fun setRemoveDisableListeners(listener: (Boolean) -> Unit) {
+        removeDisableListener = listener
+    }
+    lateinit var vehicleResponse: GetVehicleResponse
+    lateinit var currentScreenEnumRegisterLogin: CurrentScreenEnum
     var position = 0
 
     var currentPage = 0
     const val REQUEST_CODE = 0
-    var isBuyOrRegistered:Boolean=false
+    var isBuyOrRegistered: Boolean = false
     const val PERIOD_MS: Long = 2000
     fun loadPollList(): ArrayList<PolsItem> {
         val arrayList = ArrayList<PolsItem>()
@@ -105,7 +124,7 @@ object LocalData {
                 false
             )
         )
-        return arrayList    
+        return arrayList
     }
 
     fun addSpinnerCat(): ArrayList<String> {

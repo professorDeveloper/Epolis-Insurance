@@ -1,4 +1,4 @@
-package com.azamovhudstc.epolisinsurance.data.remote.response
+package com.azamovhudstc.epolisinsurance.data.remote.response.vehical
 
 data class Result(
     val bodyNumber: String,

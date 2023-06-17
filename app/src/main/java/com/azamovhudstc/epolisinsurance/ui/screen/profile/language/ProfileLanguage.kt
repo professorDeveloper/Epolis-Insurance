@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.ui.activity.MainActivity
@@ -89,7 +90,11 @@ class ProfileLanguage : Fragment(R.layout.fragment_profile_language) {
     }
 
     private val successLanguageChangeObserver = Observer<Unit> {
-        findNavController().popBackStack()
+        findNavController().navigate(
+            R.id.mainScreen,
+            null,
+            navOptions = NavOptions.Builder().setPopUpTo(R.id.profileLanguage, true).build()
+        )
     }
 
 }

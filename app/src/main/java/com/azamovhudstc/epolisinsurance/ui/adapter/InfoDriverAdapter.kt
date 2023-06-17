@@ -15,7 +15,7 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
     val list = ArrayList<TabModel>()
     private var checkedPosition = 0
     private lateinit var itemClickListener: ((TabModel, Int) -> Unit)
-    fun setDeleteItemClickListener(listener: (TabModel, Int) -> Unit) {
+    fun     setDeleteItemClickListener(listener: (TabModel, Int) -> Unit) {
         itemClickListener = listener
     }
 
@@ -23,7 +23,7 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
         fun onBind(data: TabModel) {
             itemView.apply {
                 setDriverCountListener {
-                    checkedPosition=it
+                    checkedPosition = it
                     notifyDataSetChanged()
                 }
                 driver_tab_text.text = data.name
@@ -73,6 +73,7 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
                     data.name = (data.name.toInt() - 1).toString()
                 }
             }
+            setDriverCountListener.invoke(position)
             notifyDataSetChanged()
         }
     }

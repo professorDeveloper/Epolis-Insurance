@@ -1,6 +1,6 @@
 package com.azamovhudstc.epolisinsurance.utils.converter
 
-import com.azamovhudstc.epolisinsurance.data.remote.response.ErrorVehicleResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.ErrorVehicleResponse
 import com.azamovhudstc.epolisinsurance.repo.imp.BuyPolisRepositoryImp
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

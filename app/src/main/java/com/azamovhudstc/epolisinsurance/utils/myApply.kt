@@ -99,3 +99,5 @@ fun String.stringToBitmap(): Bitmap {
     val inputStream: InputStream = ByteArrayInputStream(encodeByte)
     return BitmapFactory.decodeStream(inputStream)
 }
+
+

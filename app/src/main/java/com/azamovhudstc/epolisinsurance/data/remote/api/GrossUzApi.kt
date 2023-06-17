@@ -1,6 +1,6 @@
 package com.azamovhudstc.epolisinsurance.data.remote.api
 
-import com.azamovhudstc.epolisinsurance.data.remote.response.GetVehicleResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.GetVehicleResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

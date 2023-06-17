@@ -50,6 +50,8 @@
     <string name="last_name">Familya</string>
     <string name="phone">Telefon Raqam</string>
     <string name="success_otp_btn_title">Tasdiqlang</string>
+    <string name="add_driver">Haydovchi qo`shish</string>
+
     <string name="data_born">Tug`ilgan sana</string>
     <string name="save_profile">O`zgartirishlarni Saqlash</string>
     <string name="intro_btn_txt">Foydalanishni boshlang</string>
@@ -105,5 +107,12 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="cotact_us3">Sug`urtani to`g`ridan-to`g`ri ilova orqali sotib olsam bo`ladimi?</string>
     <string name="contact_us4">Qanday to`lov usullari qabul qilinadi?</string>
     <string name="contact_us5">Qanday qilib sug`urta polisimni bekor qilishim mumkin ?</string>
+    <string name="incorrect_auto_number">\"Avtomobil Raqami Noto`g`ri ko`rinishda kiritilgan \"</string>
+    <string name="maydon_empty">Maydonlar bo`sh</string>
+    <string name="car_number">Mashina passport raqami </string>
+    <string name="car_passport_seria">Avtomobil passport Seriyasi</string>
+    <string name="passport_seria">Passport Seriani kiriting</string>
+    <string name="passport_number">Passport raqamni kiriting</string>
+    <string name="empty_born_date">Tug`ulgan sanani kiriting</string>
 
 </resources>

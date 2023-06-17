@@ -1,0 +1,50 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:aapt="http://schemas.android.com/aapt"
+            android:width="120dp"
+            android:height="40dp"
+            android:viewportWidth="207"
+            android:viewportHeight="40"
+            >
+            <group>
+                <clip-path
+                    android:pathData="M8 0H199C203.418 0 207 3.58172 207 8V32C207 36.4183 203.418 40 199 40H8C3.58172 40 0 36.4183 0 32V8C0 3.58172 3.58172 0 8 0Z"
+                    />
+                <path
+                    android:pathData="M0 0V40H207V0"
+                    android:fillColor="#FFFFFF"
+                    />
+                <path
+                    android:pathData="M8 0H199C203.418 0 207 3.58172 207 8V32C207 36.4183 203.418 40 199 40H8C3.58172 40 0 36.4183 0 32V8C0 3.58172 3.58172 0 8 0Z"
+                    android:strokeWidth="2"
+                    android:strokeColor="@color/btn_color"
+                    />
+            </group>
+        </vector>    </item>
+    <item android:state_focused="false">
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:aapt="http://schemas.android.com/aapt"
+            android:width="207dp"
+            android:height="40dp"
+            android:viewportWidth="207"
+            android:viewportHeight="40"
+            >
+            <group>
+                <clip-path
+                    android:pathData="M8 0H199C203.418 0 207 3.58172 207 8V32C207 36.4183 203.418 40 199 40H8C3.58172 40 0 36.4183 0 32V8C0 3.58172 3.58172 0 8 0Z"
+                    />
+                <path
+                    android:pathData="M0 0V40H207V0"
+                    android:fillColor="#FFFFFF"
+                    />
+                <path
+                    android:pathData="M8 0H199C203.418 0 207 3.58172 207 8V32C207 36.4183 203.418 40 199 40H8C3.58172 40 0 36.4183 0 32V8C0 3.58172 3.58172 0 8 0Z"
+                    android:strokeWidth="2"
+                    android:strokeColor="#99A6AD"
+                    />
+            </group>
+        </vector>    </item>
+</selector>

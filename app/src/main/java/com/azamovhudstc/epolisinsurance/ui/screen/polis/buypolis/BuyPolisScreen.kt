@@ -2,13 +2,14 @@ package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.ui.adapter.BuyPolisAdapter
+import com.azamovhudstc.epolisinsurance.utils.LocalData
+import com.azamovhudstc.epolisinsurance.utils.enums.ScrollType
 import com.azamovhudstc.epolisinsurance.utils.setPositionListener
 import com.shuhart.stepview.StepView
 import com.shuhart.stepview.StepView.ANIMATION_ALL
@@ -24,40 +25,43 @@ class BuyPolisScreen : Fragment(R.layout.fragment_buy_polis_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-//        val stepView = view.findViewById<StepView>(R.id.step_view)
         initStepView(step_view)
         viewpager_buy.adapter = BuyPolisAdapter(requireActivity())
+        LocalData.setChangeListener {
+            if (it == ScrollType.FULL_HEIGHT) {
+
+            }
+            else{
+            }
+        }
 
         viewpager_buy.isUserInputEnabled = false
         viewpager_buy.registerOnPageChangeCallback(object : OnPageChangeCallback() {
-
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position!=0){
+                if (position != 0) {
                     step_view.animate().start()
                     step_view.done(false)
-                    step_view.go(position,true)
+                    step_view.go(position, true)
                     step_view.currentStep
                     println("Viewpager On Changed !!! : $position")
                     println("Viewpager On Changed !!! : $position")
 
                 }
             }
-
-
         })
-        setPositionListener{
-
-            viewpager_buy.setCurrentItem(it,true)
+        setPositionListener {
+            scrollDriver.fullScroll(ScrollView.FOCUS_UP);
+            viewpager_buy.setCurrentItem(it, true)
         }
         viewpager_buy.setOnTouchListener(null);
-        back_a.setOnClickListener {
-            findNavController().navigate(
-                R.id.mainScreen,
-                null,
-                NavOptions.Builder().setPopUpTo(R.id.buyPolisScreen, true).build()
-            )
-        }
+//        back_a.setOnClickListener {
+//            findNavController().navigate(
+//                R.id.mainScreen,
+//                null,
+//                NavOptions.Builder().setPopUpTo(R.id.buyPolisScreen, true).build()
+//            )
+//        }
     }
 
     private fun initStepView(stepView: StepView) {

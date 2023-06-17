@@ -48,6 +48,7 @@
     <string name="last_name">Фамилия</string>
     <string name="phone">Номер телефона</string>
     <string name="save_profile">Сохранить изменения</string>
+    <string name="add_driver">Добавить водителя</string>
     <string name="success_otp_btn_title">Подтвердить</string>
     <string name="intro_btn_txt">Начать пользоваться</string>
     <string name="title_contact_us">Центр помощи</string>
@@ -101,5 +102,12 @@
     <string name="cotact_us3">Могу ли я приобрести страховку прямо через приложение?</string>
     <string name="contact_us4">Какие способы оплаты принимаются?</string>
     <string name="contact_us5">Как я могу отменить свой страховой полис?</string>
+    <string name="incorrect_auto_number">Неправильно введен номер автомобиля </string>
+    <string name="maydon_empty">Поля пусты</string>
+    <string name="car_number">Номер паспорта автомобиля</string>
+    <string name="car_passport_seria">Паспорт автомобиля Серия</string>
+    <string name="passport_seria">Введите серийный номер паспорта</string>
+    <string name="passport_number">Введите номер паспорта</string>
+    <string name="empty_born_date">введите вашу дату рождения</string>
 
 </resources>

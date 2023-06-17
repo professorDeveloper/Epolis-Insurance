@@ -157,6 +157,12 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categoryRv"
             android:layout_width="match_parent"
@@ -165,7 +171,6 @@
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:layout_marginHorizontal="20dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/home_category_item" />
 
@@ -176,7 +181,7 @@
             android:layout_marginHorizontal="10dp"
 
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="10dp"
 
             android:orientation="vertical"
             tools:itemCount="10"
@@ -187,5 +192,6 @@
             app:layout_constraintTop_toBottomOf="@+id/categoryRv"
             app:spanCount="2"
             tools:listitem="@layout/home_bottom_product_item" />
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

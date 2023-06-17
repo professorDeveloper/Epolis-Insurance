@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/openAboutCarCollapse"
+                android:id="@+id/infoDriverCollapse"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/btn_color"
@@ -48,20 +45,9 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/open_car_info"
-                android:layout_width="25dp"
-
-                android:layout_height="25dp"
-                android:layout_marginEnd="20dp"
-                android:elevation="1dp"
-                android:src="@drawable/collapse_open"
-                app:layout_constraintBottom_toBottomOf="@+id/openAboutCarCollapse"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/expandedContainer"
+                android:id="@+id/expandedDriverContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/collapse_bg"
@@ -70,7 +56,7 @@
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/openAboutCarCollapse">
+                app:layout_constraintTop_toBottomOf="@+id/infoDriverCollapse">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -78,7 +64,7 @@
 
 
                     <LinearLayout
-                        android:id="@+id/errorTxt"
+                        android:id="@+id/errorDriverTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
@@ -95,7 +81,7 @@
                             android:src="@drawable/danger" />
 
                         <TextView
-                            android:id="@+id/error_text"
+                            android:id="@+id/error_text_driver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
@@ -109,7 +95,7 @@
                         android:id="@+id/linearLayout6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginHorizontal="11dp"
                         android:layout_marginTop="14dp"
 
                         android:orientation="vertical"
@@ -139,10 +125,11 @@
                                 android:background="@drawable/bg_ceria"
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="@string/seria"
-                                android:inputType="text"
-                                android:maxLength="3"
+                                android:inputType="textPostalAddress"
+                                android:maxLength="2"
                                 android:maxLines="1"
                                 android:paddingStart="15dp"
+                                android:textAllCaps="true"
                                 android:textFontWeight="500"
                                 android:textSize="16sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -158,6 +145,7 @@
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="@string/number"
                                 android:inputType="number"
+                                android:maxLength="7"
                                 android:maxLines="1"
                                 android:paddingStart="15dp"
                                 android:textFontWeight="500"
@@ -175,12 +163,12 @@
                         android:id="@+id/linearLayout5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginHorizontal="11dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/errorTxt">
+                        app:layout_constraintTop_toBottomOf="@+id/kinshipContainer">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -200,36 +188,103 @@
                             android:drawableEnd="@drawable/calendar"
                             android:fontFamily="@font/gilory_medium"
                             android:hint="03/11/1986"
-                            android:inputType="text"
-                            android:maxLength="8"
+                            android:inputType="number"
                             android:maxLines="1"
                             android:paddingStart="15dp"
                             android:paddingEnd="20dp"
                             android:textFontWeight="500"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:mask="##.##.####" />
+
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/linearLayout7"
+
+                        android:id="@+id/kinshipContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="11dp"
+                        android:layout_marginTop="14dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/errorDriverTxt">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@string/kinship"
+                            android:textColor="@color/textColor"
+                            android:textFontWeight="700"
+                            android:textSize="15sp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/driverKinship"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:background="@drawable/bg_add_polis_edit"
+                                android:entries="@array/kinship_ru"
+                                android:fontFamily="@font/gilory_medium"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingStart="15dp"
+
+                                android:paddingEnd="20dp"
+                                android:textFontWeight="500"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/show"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|end"
+                                android:layout_marginEnd="15dp"
+                                android:background="?selectableItemBackgroundBorderless"
+                                android:elevation="11dp"
+                                android:src="@drawable/form_icons"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/driverKinship"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="#99A6AD" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/line_driver_response_top"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="16dp"
-                        android:background="#E6E6E6"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/delete_item"
+                        android:id="@+id/delete_item"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_margin="3.5dp"
+                        android:layout_margin="3.8dp"
+
                         android:background="@color/white"
                         android:clickable="true"
                         android:elevation="0dp"
                         android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/response_expanded_driver_item">
@@ -264,7 +319,7 @@
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+                        app:layout_constraintTop_toBottomOf="@+id/line_driver_response_top">
 
                         <LinearLayout
                             android:id="@+id/linearLayout12"
@@ -318,8 +373,11 @@
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="48dp"
+
                                 android:background="@drawable/bg_add_polis_edit"
-                                android:drawableEnd="@drawable/calendar"
+                                android:drawableEnd="@drawable/form_icons"
+                                android:drawableTint="#99A6AD"
+                                android:enabled="false"
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="Брат"
                                 android:inputType="text"
@@ -360,11 +418,12 @@
                                 android:orientation="horizontal">
 
                                 <EditText
-                                    android:id="@+id/driver_passportResponseSerie"
+                                    android:id="@+id/driverLicenseSeries"
                                     android:layout_width="100dp"
                                     android:layout_height="48dp"
                                     android:layout_margin="2dp"
                                     android:background="@drawable/bg_ceria"
+                                    android:enabled="false"
                                     android:fontFamily="@font/gilory_medium"
                                     android:hint="@string/seria"
 
@@ -379,12 +438,13 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <EditText
-                                    android:id="@+id/driver_passportResponseNumber"
+                                    android:id="@+id/driverLicenseNumber"
                                     android:layout_width="match_parent"
                                     android:layout_height="48dp"
                                     android:layout_marginStart="8dp"
                                     android:layout_marginTop="2dp"
                                     android:background="@drawable/bg_nomer"
+                                    android:enabled="false"
                                     android:fontFamily="@font/gilory_medium"
                                     android:hint="@string/number"
                                     android:inputType="number"
@@ -422,14 +482,15 @@
                                 android:textSize="15sp" />
 
                             <EditText
+                                android:id="@+id/driverLicenseDate"
                                 android:layout_width="match_parent"
                                 android:layout_height="48dp"
                                 android:background="@drawable/bg_add_polis_edit"
                                 android:drawableEnd="@drawable/calendar"
+                                android:enabled="false"
                                 android:fontFamily="@font/gilory_medium"
                                 android:hint="04/05/2018"
                                 android:inputType="text"
-                                android:maxLength="8"
                                 android:maxLines="1"
                                 android:paddingStart="15dp"
                                 android:paddingEnd="20dp"
@@ -444,54 +505,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/next_driver"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="15dp"
-        android:background="@drawable/button_bg"
-        android:backgroundTint="@color/btn_color"
-        android:clickable="true"
 
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/btn_Register_Txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilory_bold"
-                android:text="@string/next"
-                android:textAllCaps="true"
-                android:textColor="@color/white_500"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ProgressBar
-                android:id="@+id/visible_registeR_progress"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

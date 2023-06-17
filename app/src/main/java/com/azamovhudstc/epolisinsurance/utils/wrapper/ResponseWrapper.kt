@@ -1,9 +1,7 @@
 package com.azamovhudstc.epolisinsurance.utils.wrapper
 
-import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
-import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.data.remote.response.ConfirmResponse
-import com.azamovhudstc.epolisinsurance.data.remote.response.ErrorResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.ErrorResponse
 
 sealed class ResponseWrapper {
     data class Success(val data: ConfirmResponse) : ResponseWrapper()

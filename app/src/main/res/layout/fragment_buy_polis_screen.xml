@@ -1,93 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.polis.buypolis.BuyPolisScreen">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/white"
-            android:elevation="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
+            android:animateLayoutChanges="true"
+            app:layout_scrollFlags="noScroll|enterAlways|snap"
+            android:layout_height="wrap_content">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/back_a"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="15dp"
-                    android:background="?selectableItemBackgroundBorderless"
-                    android:src="@drawable/back"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:fontFamily="@font/gilory_bold"
-                    android:text="Оформление страховки"
-                    android:textColor="@color/textColor"
-                    android:textSize="17sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/back_a"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:elevation="1dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="@drawable/back"
+                    app:title="Оформление страховки"
+                    app:titleTextAppearance="@style/ToolbarTitleStyle"
+                    app:titleTextColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout17"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                    <com.shuhart.stepview.StepView
+                        android:id="@+id/step_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:nestedScrollingEnabled="true"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"
+                        app:sv_animationType="Line"
+                        app:sv_doneCircleColor="@color/btn_color"
+                        app:sv_doneCircleRadius="12dp"
+                        app:sv_doneStepLineColor="@color/btn_color"
+                        app:sv_doneStepMarkColor="@color/btn_color"
+                        app:sv_doneTextColor="@color/textColor"
+                        app:sv_nextStepCircleEnabled="true"
+                        app:sv_nextStepLineColor="#808F99"
+                        app:sv_nextTextColor="#808F99"
+                        app:sv_selectedCircleColor="@color/btn_color"
+                        app:sv_selectedCircleRadius="12dp"
+                        app:sv_selectedStepNumberColor="@color/white"
+                        app:sv_selectedTextColor="@color/textColor"
+                        app:sv_stepLineWidth="1dp"
+                        app:sv_stepNumberTextSize="14sp"
+                        app:sv_stepPadding="4dp"
+                        app:sv_stepViewStyle="@style/StepView"
+                        app:sv_stepsNumber="4"
+                        app:sv_textPadding="5dp"
+                        app:sv_textSize="14sp"
+                        app:sv_typeface="@font/gilory_medium" />
+
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrollDriver"
+        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager_buy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
 
-        <com.shuhart.stepview.StepView
-            android:id="@+id/step_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-            app:sv_animationType="Line"
+    </androidx.core.widget.NestedScrollView>
 
-            app:sv_doneCircleColor="@color/btn_color"
-            app:sv_doneCircleRadius="12dp"
-            app:sv_doneStepLineColor="@color/btn_color"
-            app:sv_doneStepMarkColor="@color/btn_color"
-
-            app:sv_doneTextColor="@color/textColor"
-            app:sv_nextStepCircleEnabled="true"
-            app:sv_nextStepLineColor="#808F99"
-            app:sv_nextTextColor="#808F99"
-            app:sv_selectedCircleColor="@color/btn_color"
-            app:sv_selectedCircleRadius="12dp"
-            app:sv_selectedStepNumberColor="@color/white"
-            app:sv_selectedTextColor="@color/textColor"
-            app:sv_stepLineWidth="1dp"
-            app:sv_stepNumberTextSize="14sp"
-            app:sv_stepPadding="4dp"
-            app:sv_stepViewStyle="@style/StepView"
-            app:sv_stepsNumber="4"
-            app:sv_textPadding="5dp"
-            app:sv_textSize="13sp"
-            app:sv_typeface="@font/gilory_medium" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager_buy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/step_view" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

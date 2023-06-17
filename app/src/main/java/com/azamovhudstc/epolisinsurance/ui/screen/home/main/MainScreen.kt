@@ -17,10 +17,12 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.window?.setFlags(
-                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
+        );
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.apply {
@@ -28,20 +30,20 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
             mainViewPager.adapter = categoryAdapter
             mainViewPager.isUserInputEnabled = false
             val menu = bottom_navigation.menu
-            val data=AppReference(requireContext())
-            val item1 =menu.getItem(0)!!
-            val item2 =menu.getItem(1)!!
-            val item3 =menu.getItem(2)!!
-            when(data.currentLanguage){
+            val data = AppReference(requireContext())
+            val item1 = menu.getItem(0)!!
+            val item2 = menu.getItem(1)!!
+            val item3 = menu.getItem(2)!!
+            when (data.currentLanguage) {
                 LanguageType.uz -> {
-                    item1.title ="Uy"
-                    item3.title ="Profil"
-                    item2.title ="Mening Polislarim"
+                    item1.title = "Uy"
+                    item3.title = "Profil"
+                    item2.title = "Mening Polislarim"
                 }
                 LanguageType.ru -> {
-                    item1.title ="Главная"
-                    item3.title ="Профиль"
-                    item2.title ="Мои полисы"
+                    item1.title = "Главная"
+                    item3.title = "Профиль"
+                    item2.title = "Мои полисы"
 
                 }
             }
@@ -65,33 +67,6 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
 
         }
     }
-
-//    override fun onResume() {
-//        super.onResume()
-//        val menu = bottom_navigation.menu
-//        val data=AppReference(requireContext())
-//        val item1 =menu.getItem(0)!!
-//        val item2 =menu.getItem(1)!!
-//        val item3 =menu.getItem(2)!!
-//        when(data.currentLanguage){
-//            LanguageType.uz -> {
-//                item1.title ="Uy"
-//                item3.title ="Profil"
-//                item2.title ="Mening Polislarim"
-//            }
-//            LanguageType.ru -> {
-//                item1.title ="Главная"
-//                item3.title ="Профиль"
-//                item2.title ="Мои полисы"
-//
-//            }
-//        }
-//        val categoryAdapter = BottomNavAdapter(requireActivity())
-//        mainViewPager.adapter = categoryAdapter
-//        mainViewPager.isUserInputEnabled = false
-//
-//
-//    }
 
 
 }

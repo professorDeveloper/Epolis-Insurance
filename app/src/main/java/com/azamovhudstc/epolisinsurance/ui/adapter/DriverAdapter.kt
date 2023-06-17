@@ -1,47 +1,53 @@
 package com.azamovhudstc.epolisinsurance.ui.adapter
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.azamovhudstc.epolisinsurance.R
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.azamovhudstc.epolisinsurance.data.model.TabModel
-import kotlinx.android.synthetic.main.fragment_driver_page_item.view.*
+import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item.DriverPageItem
+import com.azamovhudstc.epolisinsurance.utils.LocalData.removeDisable
 
-class DriverAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager,lifecycle) {
     val items = mutableListOf<TabModel>()
+    val fragments = mutableListOf<Fragment>()
     private lateinit var itemClickListener: ((TabModel, Int) -> Unit)
     fun setRemoveViewPager(listener: (TabModel, Int) -> Unit) {
         itemClickListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_driver_page_item, parent, false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = items[position]
-        val viewHolder = holder as ViewHolder
-        viewHolder.bind(item)
-    }
-
     override fun getItemCount(): Int {
-        return items.size
+        return fragments.size
     }
 
-    fun addItem(item: TabModel) {
+    override fun createFragment(position: Int): Fragment {
+        val driver = fragments.get(position) as DriverPageItem
+        driver.setRemoveClickListener { tabModel, i ->
+            itemClickListener.invoke(tabModel, i)
+        }
+        val bundle = Bundle()
+        bundle.putSerializable("data", items.get(position))
+        bundle.putInt("position", position)
+        bundle.putBoolean("removed", removeDisable)
+        driver.arguments = bundle
+
+        return driver
+    }
+
+    fun addItem(item: TabModel, fragment: DriverPageItem) {
         items.add(item)
-        notifyItemInserted(items.size - 1)
+        fragments.add(fragment)
+        notifyDataSetChanged()
     }
 
     fun removeItem(position: Int) {
-        if (position in 0 until items.size) {
-            items.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, items.size)
-        }
+        println("Position:$position")
+        fragments.removeAt(position)
+        items.removeAt(position)
+        notifyItemRangeChanged(position, items.size)
+        notifyItemRemoved(position)
+        notifyDataSetChanged()
     }
 
     fun submitList(newList: ArrayList<TabModel>) {
@@ -50,16 +56,10 @@ class DriverAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: TabModel) {
-            itemView.apply {
-                driver_id_title.text = "${item.name}-Водитель"
-                delete_item.setOnClickListener {
-                    itemClickListener.invoke(item, adapterPosition)
-                }
-            }
+    fun submitListWithFragment(list: ArrayList<DriverPageItem>) {
+        fragments.clear()
+        fragments.addAll(list)
 
-
-        }
     }
+
 }

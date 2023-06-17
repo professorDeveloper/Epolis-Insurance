@@ -1,8 +1,8 @@
 package com.azamovhudstc.epolisinsurance.data.remote.api
 
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.data.remote.response.ConfirmResponse
-import com.azamovhudstc.epolisinsurance.data.remote.response.RegisterResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
+import com.azamovhudstc.epolisinsurance.data.remote.response.register.RegisterResponse
 import com.azamovhudstc.epolisinsurance.utils.wrapper.ResponseWrapper
 import okhttp3.RequestBody
 import retrofit2.Response
