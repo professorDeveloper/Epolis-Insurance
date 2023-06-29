@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
+import com.azamovhudstc.epolisinsurance.utils.animationTransactionClearStack
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.slideUp
 import com.azamovhudstc.epolisinsurance.utils.visible
@@ -33,7 +33,7 @@ class SuccessOtpScreen : Fragment(R.layout.succes_otp_screen) {
             findNavController().navigate(
                 R.id.agreeScreen,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.successOtpScreen, true).build()
+               animationTransactionClearStack(R.id.successOtpScreen).build()
             )
         }
     }

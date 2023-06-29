@@ -11,18 +11,17 @@ import com.azamovhudstc.epolisinsurance.utils.LocalData.removeDisable
 
 class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager,lifecycle) {
     val items = mutableListOf<TabModel>()
-    val fragments = mutableListOf<Fragment>()
     private lateinit var itemClickListener: ((TabModel, Int) -> Unit)
     fun setRemoveViewPager(listener: (TabModel, Int) -> Unit) {
         itemClickListener = listener
     }
 
     override fun getItemCount(): Int {
-        return fragments.size
+        return items.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        val driver = fragments.get(position) as DriverPageItem
+        val driver =  DriverPageItem()
         driver.setRemoveClickListener { tabModel, i ->
             itemClickListener.invoke(tabModel, i)
         }
@@ -37,13 +36,11 @@ class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : Fra
 
     fun addItem(item: TabModel, fragment: DriverPageItem) {
         items.add(item)
-        fragments.add(fragment)
         notifyDataSetChanged()
     }
 
     fun removeItem(position: Int) {
         println("Position:$position")
-        fragments.removeAt(position)
         items.removeAt(position)
         notifyItemRangeChanged(position, items.size)
         notifyItemRemoved(position)
@@ -57,8 +54,6 @@ class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : Fra
     }
 
     fun submitListWithFragment(list: ArrayList<DriverPageItem>) {
-        fragments.clear()
-        fragments.addAll(list)
 
     }
 

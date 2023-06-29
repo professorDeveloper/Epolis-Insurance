@@ -20,6 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/skip_intro"
+            android:maxLength="150"
+
             android:layout_gravity="end"
             android:fontFamily="@font/gilory_medium"
             android:layout_marginEnd="16dp"

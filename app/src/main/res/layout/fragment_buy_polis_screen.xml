@@ -16,7 +16,7 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:animateLayoutChanges="true"
-            app:layout_scrollFlags="noScroll|enterAlways|snap"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
             android:layout_height="wrap_content">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -51,11 +51,11 @@
                         android:nestedScrollingEnabled="true"
                         android:paddingTop="5dp"
                         android:paddingBottom="12dp"
-                        app:sv_animationType="Line"
+                        app:sv_animationType="All"
                         app:sv_doneCircleColor="@color/btn_color"
                         app:sv_doneCircleRadius="12dp"
                         app:sv_doneStepLineColor="@color/btn_color"
-                        app:sv_doneStepMarkColor="@color/btn_color"
+                        app:sv_doneStepMarkColor="@color/white"
                         app:sv_doneTextColor="@color/textColor"
                         app:sv_nextStepCircleEnabled="true"
                         app:sv_nextStepLineColor="#808F99"
@@ -79,20 +79,21 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
         android:layout_width="match_parent"
-        android:id="@+id/scrollDriver"
-        android:scrollbars="vertical"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/fragmentContainer"
+            android:scrollbars="vertical"
+            android:layout_height="match_parent">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewpager_buy"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-
+        </FrameLayout>
     </androidx.core.widget.NestedScrollView>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

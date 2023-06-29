@@ -43,14 +43,17 @@
     <string name="clear_info">Ma`lumotni tozalash</string>
     <string name="about_user">Egasi haqida ma`lumot</string>
     <string name="name">Ism</string>
+    <string name="info_contract">Kontrakt haqida ma`lumot</string>
     <string name="about_ca">Avtomobil haqida ma`lumot</string>
     <string name="kinship">Qarindoshlik</string>
     <string name="driver_passport">Haydovchi guvohnomasi</string>
     <string name="passport_date">Guvohnoma sanasi</string>
     <string name="last_name">Familya</string>
+    <string name="date_start_contract">Kantrakt boshlanish sanasi</string>
     <string name="phone">Telefon Raqam</string>
     <string name="success_otp_btn_title">Tasdiqlang</string>
     <string name="add_driver">Haydovchi qo`shish</string>
+    <string name="end_date_contract">Polisning Muddati </string>
 
     <string name="data_born">Tug`ilgan sana</string>
     <string name="save_profile">O`zgartirishlarni Saqlash</string>
@@ -110,7 +113,16 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="incorrect_auto_number">\"Avtomobil Raqami Noto`g`ri ko`rinishda kiritilgan \"</string>
     <string name="maydon_empty">Maydonlar bo`sh</string>
     <string name="car_number">Mashina passport raqami </string>
+    <string name="oplat_choose">To`lov usuli</string>
     <string name="car_passport_seria">Avtomobil passport Seriyasi</string>
+    <string name="soon">Tez kunda</string>
+    <string name="try_again">qayta urinish</string>
+    <string name="no_connection_title">Ulanish yo‘q</string>
+    <string name="no_connection_des">Tarmoqqa ulanish yo`q, tarmoq sozlamalarini tekshiring yoki qaytadan urinib ko`ring !</string>
+    <string name="summa_return">Sug`urta summasi</string>
+    <string name="cashbak">Keshbek</string>
+    <string name="price_polis">Polis narxi</string>
+    <string name="summa_info">To‘lov miqdori</string>
     <string name="passport_seria">Passport Seriani kiriting</string>
     <string name="passport_number">Passport raqamni kiriting</string>
     <string name="empty_born_date">Tug`ulgan sanani kiriting</string>

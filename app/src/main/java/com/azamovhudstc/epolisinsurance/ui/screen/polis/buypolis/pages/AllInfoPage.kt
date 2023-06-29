@@ -23,11 +23,12 @@ import com.azamovhudstc.epolisinsurance.viewmodel.AllInfoPageViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AllInfoPageViewModelImp
 import com.azamovhudstc.sugurtaapp.utils.showSnack
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_one_page.*
+import kotlinx.android.synthetic.main.all_info_page.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import www.sanju.motiontoast.MotionToastStyle
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -35,7 +36,7 @@ import java.util.*
 
 
 @AndroidEntryPoint
-class AllInfoPage : Fragment(R.layout.fragment_one_page) {
+class AllInfoPage : Fragment(R.layout.all_info_page) {
 
     private val viewModel: AllInfoPageViewModel by viewModels<AllInfoPageViewModelImp>()
     private var openCollapseCar = false
@@ -53,13 +54,14 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         val coroutineScope = CoroutineScope(Dispatchers.Main)
         viewModel.errorSubmitForm1Response.observe(this) {
             showSnack(message = it)
+            viewpagerChangeListener.invoke(1)
+
         }
         viewModel.progressLiveData.observe(this) {
             if (it) {
                 seach_car_progress.visible()
                 seach_car_txt.gone()
             } else {
-
                 seach_car_txt.visible()
                 seach_car_progress.gone()
             }
@@ -120,6 +122,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
         }
     }
 
+
     private fun initChoosePolls() {
         var peopleIsFive = false
         if (peopleIsFive) {
@@ -168,6 +171,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
     }
 
     private fun clearCarData() {
+        choose_polis_container.gone()
         response_expanded.gone()
         enableCarInputs()
         userContainer.gone()
@@ -186,6 +190,9 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
 
     private fun clearInitView() {
         clear_response.setOnClickListener {
+            clearCarData()
+        }
+        clear_response_user.setOnClickListener {
             clearCarData()
         }
     }
@@ -212,6 +219,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
                 searchCarTexNumber.vibrationAnimation()
                 errorTxt.visible()
                 error_text.text = getString(R.string.car_number)
+                showToastError(title="API Error", description = "", style = MotionToastStyle.ERROR )
 
             } else {
                 viewModel.searchCar(
@@ -246,7 +254,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
             } else {
                 viewModel.submitForm1(
                     SubmitRequest(
-                        phone = polis_phone.unMaskedText.toString(),
+                        phone = "998${polis_phone.unMaskedText.toString()}",
                         beginDate = start_polis_Date.text.toString(),
                         policyId.toString(),
                         pollsPeopleType.polisType.toString()
@@ -259,7 +267,7 @@ class AllInfoPage : Fragment(R.layout.fragment_one_page) {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initStartDate() {
         var localDateTime = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
         val format = formatter.format(localDateTime)
         start_polis_Date.setText(format.toString())
         start_polis_Date.setOnClickListener {

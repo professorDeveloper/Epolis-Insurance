@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingVertical="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -279,9 +280,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_margin="3.8dp"
-
                         android:background="@color/white"
                         android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?selectableItemBackgroundBorderless"
                         android:elevation="0dp"
                         android:visibility="visible"
                         app:layout_constraintBottom_toBottomOf="parent"

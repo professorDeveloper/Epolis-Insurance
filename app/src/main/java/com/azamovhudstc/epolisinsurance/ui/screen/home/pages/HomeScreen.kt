@@ -12,8 +12,7 @@ import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
 import com.azamovhudstc.epolisinsurance.ui.adapter.CategoryAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBannerAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBottomRecycleAdapter
-import com.azamovhudstc.epolisinsurance.utils.CardTransformer
-import com.azamovhudstc.epolisinsurance.utils.HorizontalMarginItemDecoration
+import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.utils.LocalData.PERIOD_MS
 import com.azamovhudstc.epolisinsurance.utils.LocalData.currentPage
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadBannerList
@@ -24,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_home_screen.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 
 class HomeScreen : Fragment(R.layout.fragment_home_screen) {
@@ -50,6 +48,9 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startAutoSlide()
+        if (!hasConnection()){
+            showNetworkDialog(requireActivity(),container_home)
+        }
         initIndicator()
     }
 
@@ -75,10 +76,10 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         homeBottomRecycleAdapter.setItemClickListener {
             var appReference=AppReference(requireContext());
             if (appReference.token!=null){
-                findNavController().navigate(R.id.buyPolisScreen)
+                findNavController().navigate(R.id.buyPolisScreen,null,animationTransaction().build())
             }
             else{
-                findNavController().navigate(R.id.registerScreen)
+                findNavController().navigate(R.id.registerScreen,null,animationTransaction().build())
             }
         }
         banner_home_top.addItemDecoration(itemDecoration)

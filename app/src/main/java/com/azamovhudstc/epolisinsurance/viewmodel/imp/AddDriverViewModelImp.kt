@@ -42,9 +42,12 @@ class AddDriverViewModelImp @Inject constructor(private val addDriverUseCase: Ad
             result ->
             result.onSuccess {
                 removeDriverResponse.value=it
+                progressLiveData.value=false
             }
             result.onFailure {
                 println(it.message)
+                progressLiveData.value=false
+
             }
         }.launchIn(viewModelScope)
     }

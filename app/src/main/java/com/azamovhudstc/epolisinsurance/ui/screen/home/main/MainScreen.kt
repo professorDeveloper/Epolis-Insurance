@@ -25,6 +25,7 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         view.apply {
             val categoryAdapter = BottomNavAdapter(requireActivity())
             mainViewPager.adapter = categoryAdapter

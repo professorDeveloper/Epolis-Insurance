@@ -17,6 +17,9 @@
     <string name="step_two">Инфомация Водителя</string>
     <string name="data_born">Дата рождения</string>
     <string name="date_end">Дата окончания</string>
+    <string name="date_start_contract">Дата начало контракта</string>
+    <string name="end_date_contract">Дата окончания срока действия контракта</string>
+
     <string name="category_item3">Путешествия</string>
     <string name="phone_des_register">Введите свой номер телефона, мы отправим код \nподтверждения на вашу телефон</string>
     <string name="register_title">Номер телефона</string>
@@ -30,6 +33,7 @@
     <string name="about_user">Информация о владельце</string>
     <string name="skip_intro">Пропустить</string>
     <string name="mark_and_model">Марка и модель</string>
+    <string name="info_contract">Информация о контракте</string>
     <string name="_998">+998 (##) ### ## ##</string>
     <string name="intro_page_one_title">Получить страховой полис онлайн за 5 минут</string>
     <string name="intro_page_two_ttle">Автоматически заполним данные</string>
@@ -105,7 +109,16 @@
     <string name="incorrect_auto_number">Неправильно введен номер автомобиля </string>
     <string name="maydon_empty">Поля пусты</string>
     <string name="car_number">Номер паспорта автомобиля</string>
+    <string name="soon">Скоро</string>
+    <string name="oplat_choose">Способ оплаты</string>
+    <string name="cashbak">Кешбэк</string>
+        <string name="no_connection_title">Нет соединения</string>
+    <string name="summa_return">Страховая сумма</string>
+    <string name="summa_info">Сумма оплаты</string>
+    <string name="no_connection_des">Нет подключения к сети, проверьте настройки сети или повторите попытку!</string>
+    <string name="price_polis">Цена полиса</string>
     <string name="car_passport_seria">Паспорт автомобиля Серия</string>
+    <string name="try_again">повторить попытку</string>
     <string name="passport_seria">Введите серийный номер паспорта</string>
     <string name="passport_number">Введите номер паспорта</string>
     <string name="empty_born_date">введите вашу дату рождения</string>

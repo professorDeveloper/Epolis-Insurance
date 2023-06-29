@@ -46,6 +46,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.databinding:viewbinding:8.0.0'
     implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -86,7 +87,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
-
     /**
      * LottieAnimation
      * */
@@ -104,8 +104,6 @@ dependencies {
      * */
     implementation("com.tbuonomo:dotsindicator:4.3")
     implementation 'com.github.zhpanvip:viewpagerindicator:1.2.2'
-
-
 
 
     /**
@@ -163,7 +161,7 @@ dependencies {
     implementation 'com.chaos.view:pinview:1.4.4'
 
     /**
-     *Waiting Dialog Animate Dialog
+     * Waiting Dialog Animate Dialog
      **/
     def dialogx_version = "0.0.47.beta15"
     implementation "com.kongzue.dialogx:DialogX:${dialogx_version}"
@@ -172,7 +170,8 @@ dependencies {
      * Splash
      **/
     implementation 'androidx.core:core-splashscreen:1.0.1'
-
+    /**
+     **/
     /**
      * Language With Fragment
      **/
@@ -193,7 +192,7 @@ dependencies {
     implementation 'com.chaos.view:pinview:1.4.4'
 
     /**
-     *Expandable Layout
+     * Expandable Layout
      ***/
 
     implementation 'com.github.iammert:ExpandableLayout:1.4.1'
@@ -218,6 +217,7 @@ dependencies {
     implementation 'com.github.mahimrocky:ExpandableCardView:1.0.1'
     implementation 'net.theluckycoder.expandablecardview:expandablecardview:1.2.0'
     implementation 'com.alespero:expandable-cardview:0.8'
+    implementation 'com.github.Spikeysanju:MotionToast:1.4'
 
 
     /**

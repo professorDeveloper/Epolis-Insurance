@@ -10,13 +10,11 @@ import com.azamovhudstc.epolisinsurance.data.model.PolsItem
 import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.enums.PollsPeopleType
-import com.azamovhudstc.epolisinsurance.utils.enums.ScrollType
 
 object LocalData {
      var pollsPeopleType: PollsPeopleType=PollsPeopleType.CustomPolis
     lateinit var setDriverCountListener: ((Int) -> Unit)
     lateinit var removeDisableListener: (Boolean) -> Unit
-    lateinit var change: (ScrollType) -> Unit
     lateinit var listenAddProgress:(Boolean) ->Unit
     fun setListenedProgress(listener: (Boolean) -> Unit){
         listenAddProgress=listener
@@ -28,9 +26,7 @@ object LocalData {
         setDriverCountListener = listener
     }
 
-    fun setChangeListener(listener: (ScrollType) -> Unit){
-        change=listener
-    }
+
     fun setRemoveDisableListeners(listener: (Boolean) -> Unit) {
         removeDisableListener = listener
     }

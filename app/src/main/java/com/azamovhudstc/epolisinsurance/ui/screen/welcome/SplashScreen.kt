@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.utils.alphaAnim
+import com.azamovhudstc.epolisinsurance.utils.animationTransactionClearStack
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.slideUp
 import kotlinx.android.synthetic.main.splash_screen.*
@@ -28,17 +29,18 @@ class SplashScreen : Fragment(R.layout.splash_screen) {
             val appReference = AppReference(requireContext())
             when (appReference.currentScreenEnum) {
                 CurrentScreenEnum.HOME -> {
+
                     findNavController().navigate(
                         R.id.mainScreen,
                         null,
-                        NavOptions.Builder().setPopUpTo(R.id.splashScreen, true).build()
+                        animationTransactionClearStack(R.id.splashScreen).build()
                     )
                 }
                 CurrentScreenEnum.LANGUAGE -> {
                     findNavController().navigate(
                         R.id.onboardScreen,
                         null,
-                        NavOptions.Builder().setPopUpTo(R.id.splashScreen, true).build()
+                        animationTransactionClearStack(R.id.splashScreen).build()
                     )
                 }
                 else -> {}

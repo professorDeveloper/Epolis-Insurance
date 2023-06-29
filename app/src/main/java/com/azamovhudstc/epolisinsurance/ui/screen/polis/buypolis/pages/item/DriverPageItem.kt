@@ -15,11 +15,9 @@ import com.azamovhudstc.epolisinsurance.data.model.TabModel
 import com.azamovhudstc.epolisinsurance.data.remote.request.DriverRemoveRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.DriverRequest
 import com.azamovhudstc.epolisinsurance.utils.*
-import com.azamovhudstc.epolisinsurance.utils.LocalData.change
 import com.azamovhudstc.epolisinsurance.utils.LocalData.listenAddProgress
 import com.azamovhudstc.epolisinsurance.utils.LocalData.position
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
-import com.azamovhudstc.epolisinsurance.utils.enums.ScrollType
 import com.azamovhudstc.epolisinsurance.viewmodel.AddDriverViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AddDriverViewModelImp
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_driver_page_item.*
 class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
     private var passportSere = false
     private var passportNumber = false
-    private var successDriver=false
+    private var successDriver = false
     private var date = false
     private var selectedItemPosition = 0
     private var openCollapseDriver = false
@@ -42,7 +40,7 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.progressLiveData.observe(this){
+        viewModel.progressLiveData.observe(this) {
             listenAddProgress.invoke(it)
         }
         viewModel.errorResponseLiveData.observe(this) {
@@ -64,16 +62,15 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
         }
         viewModel.driverResponseLiveData.observe(this) {
             disableDriverInputs()
-            successDriver=true
+            successDriver = true
             listenAddProgress.invoke(false)
             driverLicenseSeries.setText(it.licenseSeria)
             line_driver_response_top.setBackgroundResource(R.drawable.line_bg)
             kinshipContainer.gone()
             driverLicenseNumber.setText(it.licenseNumber)
-            change.invoke(ScrollType.FULL_HEIGHT)
             val layoutParams = delete_item.layoutParams as ConstraintLayout.LayoutParams
-            layoutParams.topToBottom=response_expanded_driver_item.id
-            delete_item.layoutParams=layoutParams
+            layoutParams.topToBottom = response_expanded_driver_item.id
+            delete_item.layoutParams = layoutParams
             driverLicenseDate.setText(it.licenseDate)
             driver_fio.text =
                 "${it.firstNameLatin.firstLetterUpper()} ${it.lastNameLatin.firstLetterUpper()} ${it.middleNameLatin.firstLetterUpper()}"
@@ -84,7 +81,7 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
             errorDriverTxt.gone()
 
         }
-        viewModel.removeDriverResponse.observe(this){
+        viewModel.removeDriverResponse.observe(this) {
             println(it.removed)
             val data = arguments?.getSerializable("data") as TabModel
             removeItemClickListener.invoke(data, position!!)
@@ -96,7 +93,6 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         driver_passSere.setText("")
-        change.invoke(ScrollType.WRAP_HEIGHT)
         driver_passNumber.setText("")
         driver_passSere.inputType =
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
@@ -195,45 +191,7 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
 
             }
         }
-//        send_driver.setOnClickListener {
-//            println("qweqweqwe")
-//            if (driver_passSere.text.toString().isEmpty()) {
-//                errorDriverTxt.visible()
-//                error_text_driver.text = getString(R.string.passport_seria)
-//                driver_passSere.vibrationAnimation()
-//            } else if (driver_passNumber.text.toString().isEmpty()) {
-//                driver_passNumber.vibrationAnimation()
-//                errorDriverTxt.visible()
-//                error_text_driver.text = getString(R.string.passport_number)
-//
-//            } else if (driver_bornDate.text.toString().isEmpty()) {
-//                driver_bornDate.vibrationAnimation()
-//                errorDriverTxt.visible()
-//                error_text_driver.text = getString(R.string.empty_born_date)
-//
-//
-//            } else {
-//                if (selectedItemPosition > 0) {
-//                    val position = arguments?.getInt("position", 0)!! + 1
-//                    val driverRequest = DriverRequest(
-//                        driver_bornDate.text.toString(),
-//                        driver_passSere.text.toString(),
-//                        driver_passNumber.text.toString(),
-//                        vehicleId = "297",
-//                        position.toString()
-//                    )
-//                    viewModel.addDriver(driverRequest)
-//                } else {
-//                    errorDriverTxt.visible()
-//                    kinshipContainer.vibrationAnimation()
-//                    error_text_driver.text = requireActivity().getString(R.string.maydon_empty)
-//
-//                }
-//            }
-//
-//        }
         initView()
-
     }
 
     private fun disableDriverInputs() {
@@ -299,10 +257,12 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
 //        delete_item.gone()
 
 
-        delete_item.setOnClickListener {
-            if (successDriver){
+        delete_item.setSafeOnClickListener {
+            if (successDriver) {
                 clearData()
-                delete_item.gone()
+                delete_item.onlyOneClick()
+                removeItemClickListener.invoke(data, LocalData.position!!)
+                delete_item.onlyOneClick()
                 viewModel.removeDriver(
                     DriverRemoveRequest(
                         driver_passNumber.text.toString(),
@@ -311,9 +271,10 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
                         position.toString()
                     )
                 )
-            }
-            else{
-
+            } else {
+                removeItemClickListener.invoke(data, LocalData.position!!)
+                clearData()
+                delete_item.onlyOneClick()
             }
         }
     }

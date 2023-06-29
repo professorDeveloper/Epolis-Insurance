@@ -11,19 +11,16 @@ import com.azamovhudstc.epolisinsurance.data.model.TabModel
 import com.azamovhudstc.epolisinsurance.ui.adapter.DriverAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.InfoDriverAdapter
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item.DriverPageItem
-import com.azamovhudstc.epolisinsurance.utils.LocalData
+import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.utils.LocalData.position
 import com.azamovhudstc.epolisinsurance.utils.LocalData.removeDisable
 import com.azamovhudstc.epolisinsurance.utils.LocalData.setDriverCountListener
-import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_info_drivers_page.*
 
 @AndroidEntryPoint
 class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
     private lateinit var categoryList: ArrayList<TabModel>
-    private lateinit var fragmentList: ArrayList<DriverPageItem>
     private lateinit var categoryAdapter: DriverAdapter
     private lateinit var infoDriverAdapter: InfoDriverAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,20 +32,22 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
         super.onViewCreated(view, savedInstanceState)
         loadCatData()
         initViewpager()
+        next.setOnClickListener {
+            viewpagerChangeListener.invoke(2)
+        }
         nextBtnInit()
     }
 
     private fun initViewpager() {
         var count = 1
         infoDriverAdapter = InfoDriverAdapter()
-        categoryAdapter = DriverAdapter(childFragmentManager, lifecycle)
+        categoryAdapter = DriverAdapter(parentFragmentManager, lifecycle)
         infoDriverAdapter.submitList(categoryList)
         categoryAdapter.submitList(categoryList)
-        categoryAdapter.submitListWithFragment(fragmentList)
         driverTab.adapter = infoDriverAdapter
         driverPager.adapter = categoryAdapter
         driverPager.isUserInputEnabled = false
-        add_Drivers.setOnClickListener {
+        add_Drivers.setSafeOnClickListener {
             if (count <= 1) {
                 removeDisable = true
             } else {
@@ -62,7 +61,6 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
                 infoDriverAdapter.addItem(newDriver)
                 categoryList.add(newDriver)
                 val driverPageItem = DriverPageItem()
-                fragmentList.add(driverPageItem)
                 categoryAdapter.addItem(newDriver, driverPageItem)
                 driverPager.currentItem = count
             } else {
@@ -71,7 +69,6 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
                 val newDriver = TabModel("$count")
                 categoryList.add(newDriver)
                 val driverPageItem = DriverPageItem()
-                fragmentList.add(driverPageItem)
                 infoDriverAdapter.addItem(newDriver)
                 categoryAdapter.addItem(newDriver, driverPageItem)
                 driverPager.currentItem = count
@@ -113,8 +110,6 @@ class InfoDriversPage : Fragment(R.layout.fragment_info_drivers_page) {
     private fun loadCatData() {
         categoryList = ArrayList()
         categoryList.add(TabModel("1"))
-        fragmentList = ArrayList()
-        fragmentList.add(DriverPageItem())
     }
 
 //    @RequiresApi(Build.VERSION_CODES.M)

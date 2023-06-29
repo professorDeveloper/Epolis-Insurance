@@ -9,17 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.data.remote.request.ConfirmRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
-import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.showToast
-import com.azamovhudstc.epolisinsurance.utils.showToastSuccess
-import com.azamovhudstc.epolisinsurance.utils.visible
+import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AuthViewModelImp
 import com.azamovhudstc.sugurtaapp.utils.parseCode
@@ -49,7 +45,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
             findNavController().navigate(
                 R.id.successOtpScreen,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.otpScreen, true).build()
+                animationTransactionClearStack(R.id.otpScreen).build()
             )
         }
         viewModel.progressLiveData.observe(this) {

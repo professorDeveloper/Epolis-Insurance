@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/inner_graph"
+    app:startDestination="@id/buyPolisScreen2">
+
+    <fragment
+        android:id="@+id/buyPolisScreen2"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.BuyPolisScreen"
+        android:label="BuyPolisScreen" />
+</navigation>

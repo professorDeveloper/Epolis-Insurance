@@ -33,6 +33,7 @@ class AllInfoPageViewModelImp @Inject constructor(private val allInfoScreenUseCa
             it.onFailure {
                 exception: Throwable ->
                 errorSubmitForm1Response.value=exception.message
+                progressLiveData.value=false
             }
         }.launchIn(viewModelScope)
     }

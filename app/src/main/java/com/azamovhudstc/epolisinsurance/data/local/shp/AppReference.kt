@@ -32,7 +32,7 @@ class AppReference @Inject constructor(
         }
 
     var token: String
-        get() = sharedPref.getString("token", "")!!
+        get() = sharedPref.getString("token", "null")!!
         set(value) {
             sharedPref.edit().putString("token", value.toString()).apply()
         }

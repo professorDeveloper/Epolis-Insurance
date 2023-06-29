@@ -18,7 +18,7 @@ data class Result(
     val passport_number: String,
     val passport_seria: String,
     val pinfl: String,
-    val policy_id: Any,
+    val policy_id: String,
     val regionCode: String,
     val regionName: String,
     val seats: String,

@@ -82,6 +82,7 @@
     <string name="contact_us5">Как я могу отменить свой страховой полис?</string>
     <string name="clear_info">Очистить информацию</string>
     <string name="about_ca">Информация об автомобиле</string>
+    <string name="info_contract">Информация о контракте</string>
     <string name="about_user">Информация о владельце</string>
     <string name="mark_and_model">Марка и модель</string>
     <string name="fio">Ф.И.О</string>
@@ -93,9 +94,11 @@
     <string name="data_born">Дата рождения</string>
     <string name="date_start">Дата начала</string>
     <string name="kinship">Родство</string>
+    <string name="date_start_contract">Дата начало контракта</string>
     <string name="date_end">Дата окончания</string>
     <string name="number">Номер</string>
     <string name="jshshr">ЖШШИР</string>
+    <string name="end_date_contract">Дата окончания срока действия контракта</string>
     <string name="passportoridcart">Паспорта/ID карта</string>
     <string name="data_write">Период страхования</string>
     <string name="incorrect_auto_number">\"Неправильно введен номер автомобиля \"</string>
@@ -105,6 +108,15 @@
     <string name="passport_seria">Введите серийный номер паспорта</string>
     <string name="passport_number">Введите номер паспорта</string>
     <string name="empty_born_date">введите вашу дату рождения</string>
+    <string name="soon">Скоро</string>
+    <string name="oplat_choose">Способ оплаты</string>
+    <string name="cashbak">Кешбэк</string>
+    <string name="summa_info">Сумма оплаты</string>
+    <string name="price_polis">Цена полиса</string>
+    <string name="summa_return">Страховая сумма</string>
+    <string name="no_connection_des">Нет подключения к сети, проверьте настройки сети или повторите попытку!</string>
+    <string name="no_connection_title">Нет соединения</string>
+    <string name="try_again">повторить попытку</string>
 
     <style name="no_internet">Интернет недоступен</style>
 

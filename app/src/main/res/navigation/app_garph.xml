@@ -11,6 +11,10 @@
         android:label="langauge_screen"
         tools:layout="@layout/langauge_screen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_langaugeScreen_to_mainScreen"
             app:destination="@id/mainScreen" />
     </fragment>
@@ -20,9 +24,17 @@
         android:label="splash_screen"
         tools:layout="@layout/splash_screen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_splashScreen_to_onboardScreen"
             app:destination="@id/onboardScreen" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_splashScreen_to_mainScreen"
             app:destination="@id/mainScreen" />
     </fragment>
@@ -32,24 +44,52 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.home.main.MainScreen"
         android:label="MainScreen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_registerScreen"
             app:destination="@id/registerScreen" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_editProfileScreen"
             app:destination="@id/editProfileScreen" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_contactUsScreen"
             app:destination="@id/contactUsScreen" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_addPolis"
             app:destination="@id/addPolis" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_profileLanguage"
             app:destination="@id/profileLanguage" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_profileScreen"
             app:destination="@id/profileScreen" />
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_contactUsScreen2"
             app:destination="@id/contactUsScreen" />
     </fragment>
@@ -59,6 +99,10 @@
         android:label="fragment_register_screen"
         tools:layout="@layout/fragment_register_screen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_registerScreen_to_otpScreen"
             app:destination="@id/otpScreen" />
     </fragment>
@@ -68,6 +112,10 @@
         android:label="onboarding_screen"
         tools:layout="@layout/onboarding_screen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_onboardScreen_to_langaugeScreen"
             app:destination="@id/langaugeScreen" />
     </fragment>
@@ -77,6 +125,10 @@
         android:id="@+id/otpScreen"
         android:label="OtpScreen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_otpScreen_to_successOtpScreen"
             app:destination="@id/successOtpScreen" />
     </fragment>
@@ -86,6 +138,10 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.register.SuccessOtpScreen"
         android:label="SuccessOtpScreen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_successOtpScreen_to_agreeScreen"
             app:destination="@id/agreeScreen" />
     </fragment>
@@ -105,6 +161,10 @@
         android:label="fragment_agree_screen"
         tools:layout="@layout/fragment_agree_screen" >
         <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             android:id="@+id/action_agreeScreen_to_mainScreen"
             app:destination="@id/mainScreen" />
     </fragment>
@@ -118,13 +178,19 @@
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.language.ProfileLanguage"
         android:label="ProfileLanguage" />
     <fragment
-        android:id="@+id/buyPolisScreen"
-        android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.BuyPolisScreen"
-        android:label="fragment_buy_polis_screen"
-        tools:layout="@layout/fragment_buy_polis_screen" />
-    <fragment
         android:id="@+id/profileScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.profile.ProfileScreen"
         android:label="fragment_profile_screen"
         tools:layout="@layout/fragment_profile_screen" />
+    <fragment
+        android:id="@+id/buyPolisScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.BuyPolisScreen"
+        android:label="BuyPolisScreen" />
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/driverPageItem">
+        <fragment
+            android:id="@+id/driverPageItem"
+            android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item.DriverPageItem"
+            android:label="DriverPageItem" />
+    </navigation>
 </navigation>

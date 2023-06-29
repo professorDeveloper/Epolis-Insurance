@@ -1,6 +1,7 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.profile
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.room.entity.ProfileEntity
+import com.azamovhudstc.epolisinsurance.ui.screen.profile.language.LanguageActivity
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.invisible
 import com.azamovhudstc.epolisinsurance.utils.visible
@@ -55,7 +57,9 @@ class ProfileScreen : Fragment(R.layout.fragment_profile_screen) {
             findNavController().navigate(R.id.registerScreen)
         }
         language_setting.setOnClickListener {
-            findNavController().navigate(R.id.langaugeScreen)
+            val intent = Intent(requireActivity(), LanguageActivity::class.java)
+            startActivity(intent)
+
         }
         logout_btn.setOnClickListener {
             viewModel.logout()

@@ -6,18 +6,14 @@ import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.ui.activity.MainActivity
-import com.azamovhudstc.epolisinsurance.utils.LocalData
+import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.utils.LocalData.position
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
-import com.azamovhudstc.epolisinsurance.utils.gone
-import com.azamovhudstc.epolisinsurance.utils.slideUp
-import com.azamovhudstc.epolisinsurance.utils.visible
 import kotlinx.android.synthetic.main.langauge_screen.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -48,7 +44,7 @@ class LanguageScreen : Fragment(R.layout.langauge_screen) {
             findNavController().navigate(
                 R.id.mainScreen,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.langaugeScreen, true).build()
+                animationTransactionClearStack(R.id.langaugeScreen).build()
             )
         }
         uz_language_btn.setOnClickListener {
