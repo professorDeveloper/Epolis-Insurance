@@ -1,9 +1,12 @@
 package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.InputFilter.AllCaps
 import android.text.InputType
 import android.view.View
 import android.widget.DatePicker
@@ -13,22 +16,24 @@ import androidx.fragment.app.viewModels
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.remote.request.GetVehicleRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.PassportIdDataRequest
+import com.azamovhudstc.epolisinsurance.data.remote.request.SubmitPolicyRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.SubmitRequest
 import com.azamovhudstc.epolisinsurance.utils.*
+import com.azamovhudstc.epolisinsurance.utils.LocalData.govNumber
 import com.azamovhudstc.epolisinsurance.utils.LocalData.pollsPeopleType
+import com.azamovhudstc.epolisinsurance.utils.LocalData.reformatDate
+import com.azamovhudstc.epolisinsurance.utils.LocalData.stepViewController
+import com.azamovhudstc.epolisinsurance.utils.LocalData.submitPolicyRequest
+import com.azamovhudstc.epolisinsurance.utils.LocalData.vehicleId
 import com.azamovhudstc.epolisinsurance.utils.LocalData.vehicleResponse
 import com.azamovhudstc.epolisinsurance.utils.enums.AllInfoBtnType
 import com.azamovhudstc.epolisinsurance.utils.enums.PollsPeopleType
 import com.azamovhudstc.epolisinsurance.viewmodel.AllInfoPageViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AllInfoPageViewModelImp
-import com.azamovhudstc.sugurtaapp.utils.showSnack
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.all_info_page.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import www.sanju.motiontoast.MotionToastStyle
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -37,24 +42,21 @@ import java.util.*
 
 @AndroidEntryPoint
 class AllInfoPage : Fragment(R.layout.all_info_page) {
-
+    lateinit var selectedDate: LocalDate
     private val viewModel: AllInfoPageViewModel by viewModels<AllInfoPageViewModelImp>()
     private var openCollapseCar = false
 
     private var nextBtnType: AllInfoBtnType = AllInfoBtnType.Car
     private var openCollapseUser = false
-    private var isCarNumberCorrect = false
-    private var isCarSeriesCorrect = false
-    private var policyId =""
-    private var isCarPassportNumberCorrect = false
+    private var policyId = ""
 
+    @SuppressLint("NewApi")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val coroutineScope = CoroutineScope(Dispatchers.Main)
         viewModel.errorSubmitForm1Response.observe(this) {
             showSnack(message = it)
-            viewpagerChangeListener.invoke(1)
 
         }
         viewModel.progressLiveData.observe(this) {
@@ -67,12 +69,13 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             }
         }
         viewModel.userDataResponseLiveData.observe(this) {
+            userPassNumber.isEnabled = false
+            userPassSerie.isEnabled = false
+            polis_phone.requestFocus()
+            clear_response_user.visible()
             phone_verify_user.visible()
             choose_polis_container.visible()
             date_polis.visible()
-            userPassNumber.isEnabled = false
-            userPassSerie.isEnabled = false
-            clear_response_user.visible()
             nextBtnType = AllInfoBtnType.Next
         }
         viewModel.errorResponseLiveData.observe(this) {
@@ -82,22 +85,23 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             error_text.text = it
             response_expanded.gone()
             searchCarTexSerie.setErrorSmall()
-            coroutineScope.launch {
-                delay(5000)
-                searchCarNumber.setDefaultBig()
-                searchCarTexNumber.setDefault()
-                searchCarTexSerie.setDefaultSmall()
-
-                errorTxt.gone()
-            }
-
         }
         viewModel.submitForm1LiveData.observe(this) {
-            open_user_info.setImageResource(R.drawable.form_icons)
-            expandedContainerUser.gone()
-            open_car_info.setImageResource(R.drawable.form_icons)
-            expandedContainer.gone()
+            vehicleId = it.vehicle.id
+            submitPolicyRequest = SubmitPolicyRequest(
+                it.owner.phone.replace(Regex("[^0-9]"), ""),
+                it.policy.begin_date.replace('.', '-').reformatDate(),
+                it.policy.id.toString()
+            )
+            do5PeopleContainer.isClickable = false
+            do1PeopleContainer.isClickable = false
+            do5PeopleContainer.isEnabled = false
+            do1PeopleContainer.isEnabled = false
+            polis_phone.isEnabled = false
             viewpagerChangeListener.invoke(1)
+            start_polis_Date.isEnabled = false
+            govNumber = it.vehicle.gov_number
+            stepViewController.isOneDone = true
         }
         viewModel.errorByIdResponseLiveData.observe(this) {
             userPassSerie.setErrorSmall()
@@ -112,12 +116,16 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             userContainer.visible()
             policyId = it.result.policy_id.toString()
             disableCarInputs()
+            userPassSerie.filters = arrayOf<InputFilter>(AllCaps())
+
+
+            userPassSerie.requestFocus()
             vehicleResponse = it
             searched_user_named.text = it.result.owner
             searched_car_named.text = it.result.modelName
             address_searched_car.text = it.result.division
             searched_jsshshr.text = it.result.pinfl
-            searched_issueYear.text = it.result.issueYear.toString()
+            searched_issueYear.text = it.result.issueYear.toString().getYearCurrentLanguage()
             nextBtnType = AllInfoBtnType.User
         }
     }
@@ -170,6 +178,22 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
 
     }
 
+    private fun clearUserData() {
+        nextBtnType = AllInfoBtnType.User
+        userPassNumber.isEnabled = true
+        userPassSerie.isEnabled = true
+        userPassSerie.isAllCaps = true
+        userPassSerie.requestFocus()
+        userPassSerie.text.clear()
+        clear_response_user.gone()
+        phone_verify_user.gone()
+        choose_polis_container.gone()
+        date_polis.gone()
+        userPassNumber.text.clear()
+
+
+    }
+
     private fun clearCarData() {
         choose_polis_container.gone()
         response_expanded.gone()
@@ -193,7 +217,7 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             clearCarData()
         }
         clear_response_user.setOnClickListener {
-            clearCarData()
+            clearUserData()
         }
     }
 
@@ -219,7 +243,7 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
                 searchCarTexNumber.vibrationAnimation()
                 errorTxt.visible()
                 error_text.text = getString(R.string.car_number)
-                showToastError(title="API Error", description = "", style = MotionToastStyle.ERROR )
+
 
             } else {
                 viewModel.searchCar(
@@ -232,8 +256,18 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             }
 
         } else if (nextBtnType == AllInfoBtnType.User) {
-            if (userPassNumber.text.isEmpty() || userPassSerie.text.isEmpty()) {
-                showSnack(userContainer, getString(R.string.maydon_empty))
+            if (userPassSerie.text.trim().isEmpty()) {
+                userPassSerie.setErrorSmall()
+                userPassSerie.vibrationAnimation()
+                errorTxtUser.visible()
+                error_user_text.text = getString(R.string.passport_seria)
+
+            } else if (userPassNumber.text.trim().isEmpty()) {
+                userPassNumber.setError()
+                errorTxtUser.visible()
+                error_user_text.text = getString(R.string.passport_number)
+                userPassNumber.vibrationAnimation()
+
             } else {
                 userPassSerie.setDefaultSmall()
                 userPassNumber.setDefault()
@@ -249,12 +283,13 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
 
             }
         } else if (nextBtnType == AllInfoBtnType.Next) {
+
             if (polis_phone.text.toString().trim().isEmpty()) {
                 polis_phone.vibrationAnimation()
             } else {
                 viewModel.submitForm1(
                     SubmitRequest(
-                        phone = "998${polis_phone.unMaskedText.toString()}",
+                        phone = "998${polis_phone.text.toString()}",
                         beginDate = start_polis_Date.text.toString(),
                         policyId.toString(),
                         pollsPeopleType.polisType.toString()
@@ -262,6 +297,7 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
                 )
             }
         }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -270,6 +306,9 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
         val format = formatter.format(localDateTime)
         start_polis_Date.setText(format.toString())
+        val nextYearDate = localDateTime.plusYears(1).minusDays(1)
+        end_date.setText(formatter.format(nextYearDate))
+
         start_polis_Date.setOnClickListener {
             showDatePickerDialog()
 
@@ -278,39 +317,61 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun showDatePickerDialog() {
-        val calendar: Calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        if (::selectedDate.isInitialized) {
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                R.style.CustomDatePickerDialog,
+                { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
+                    selectedDate = LocalDate.of(selectedYear, selectedMonth + 1, selectedDay)
+                    val nextYearDate = selectedDate.plusYears(1).minusDays(1)
+                    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+                    end_date.setText(formatter.format(nextYearDate))
+                    start_polis_Date.setText(formatter.format(selectedDate))
+                },
+                selectedDate.year,
+                selectedDate.month.value,
+                selectedDate.dayOfMonth
+            )
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis()
 
-        val datePickerDialog = DatePickerDialog(
-            requireContext(),
-            R.style.CustomDatePickerDialog,
-            { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
-                val selectedDate = LocalDate.of(selectedYear, selectedMonth + 1, selectedDay)
-                val nextYearDate = selectedDate.plusYears(1)
-                val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
-                end_date.setText(formatter.format(nextYearDate))
-                start_polis_Date.setText(formatter.format(selectedDate))
-            },
-            year,
-            month,
-            day
-        )
-        datePickerDialog.datePicker.minDate = System.currentTimeMillis()
+            datePickerDialog.show()
+        } else {
+            val calendar: Calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                R.style.CustomDatePickerDialog,
+                { datePicker: DatePicker, selectedYear: Int, selectedMonth: Int, selectedDay: Int ->
+                    selectedDate = LocalDate.of(selectedYear, selectedMonth + 1, selectedDay)
+                    val nextYearDate = selectedDate.plusYears(1).minusDays(1)
+                    val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+                    end_date.setText(formatter.format(nextYearDate))
+                    start_polis_Date.setText(formatter.format(selectedDate))
+                },
+                year,
+                month,
+                day
+            )
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis()
 
-        datePickerDialog.show()
+            datePickerDialog.show()
+        }
+
     }
 
     private fun initContainers() {
         openCloseCollapseUserContainer.setOnClickListener {
             openCollapseUser = if (openCollapseUser) {
                 open_user_info.setImageResource(R.drawable.collapse_open)
+                expandedContainerUser.expandView()
                 expandedContainerUser.visible()
                 !openCollapseUser
 
             } else {
                 open_user_info.setImageResource(R.drawable.form_icons)
+                expandedContainer.gone()
                 expandedContainerUser.gone()
                 !openCollapseUser
             }
@@ -325,9 +386,23 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             } else {
                 open_car_info.setImageResource(R.drawable.form_icons)
                 expandedContainer.gone()
+
                 !openCollapseCar
             }
         }
+
+    }
+
+    private fun initRequestFocus() {
+        polis_phone.phoneMask()
+
+        searchCarNumber.requestFocusOpeningScreen()
+        searchCarNumber.requestFocus(length = 8, requestFocus = searchCarTexSerie)
+        searchCarTexSerie.requestFocus(length = 3, requestFocus = searchCarTexNumber)
+        searchCarTexNumber.requestFocus(length = 7, requestFocus = search_car)
+        userPassSerie.requestFocus(length = 2, requestFocus = userPassNumber)
+        userPassNumber.requestFocus(length = 7, requestFocus = search_car)
+        polis_phone.requestFocus(length = 14, start_polis_Date)
 
     }
 
@@ -337,6 +412,7 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
         search_car.setOnClickListener {
             nextClick()
         }
+        initRequestFocus()
         clearInitView()
         initContainers()
         initStartDate()
@@ -345,10 +421,5 @@ class AllInfoPage : Fragment(R.layout.all_info_page) {
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
         searchCarTexSerie.inputType =
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-
-//        listenEditText()
-
     }
-
-
 }

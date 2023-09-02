@@ -5,10 +5,6 @@
     <string name="language_button_title">Keyingisi</string>
     <string name="seria">Seriya</string>
     <string name="send_otp">Kodni Yuborish</string>
-    <string name="step_third">Shartnoma Malumotlari</string>
-        <string name="step_four">To`lov</string>
-    <string name="step_one">Umumiy Malumot</string>
-    <string name="step_two">Haydovchi Malumoti</string>
     <string name="category_item1">Hammasi</string>
     <string name="category_item2">Avtomatik</string>
     <string name="phone_des_register">Telefon raqamingizni kiriting, telefoningizga tasdiqlash \nkodi yuboramiz</string>
@@ -25,7 +21,6 @@
     <string name="jshshr">JSHSHIR</string>
     <string name="passportoridcart">Passport/ID karta</string>
     <string name="number">No`mer</string>
-    <string name="_998">+998 (##) ### ## ##</string>
     <string name="date_end">Tugash muddati</string>
     <string name="skip_intro">Oʻtkazib yuborish</string>
     <string name="intro_page_one_title">5 daqiqada onlayn sug`urta polisini oling</string>
@@ -54,14 +49,14 @@
     <string name="success_otp_btn_title">Tasdiqlang</string>
     <string name="add_driver">Haydovchi qo`shish</string>
     <string name="end_date_contract">Polisning Muddati </string>
-
+    <string name="save">Saqlash</string>
     <string name="data_born">Tug`ilgan sana</string>
     <string name="save_profile">O`zgartirishlarni Saqlash</string>
     <string name="intro_btn_txt">Foydalanishni boshlang</string>
     <string name="title_contact_us">Yordam markazi</string>
     <string name="contact_us_title">Biz qanday yordam bera olamiz?</string>
     <string name="contact_us_desc">Siz izlagan javobni topa olmadingizmi? Bizning qo`llab-quvvatlash markazimizga murojaat qiling!</string>
-    <string name="contact_question_title">Ommabop savollar</string>
+    <string name="contact_question_title">Eng ko`p so`ralgan\nSavollar</string>
     <string name="resend_otp_title">orqali kodni qayta yuboring</string>
     <string name="register_txt">Kirish</string>
     <string name="home">Uy</string>
@@ -85,7 +80,7 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
 </string>
     <string name="reset">Uzatish</string>
     <string name="item_name">ОСАГО</string>
-    <string name="next">Davom Etish</string>
+    <string name="next_btn">Davom Etish</string>
     <string name="russian_yazik">O`zbek Tili</string>
     <string name="dont_have_code">Kodni qayta yuborish</string>
     <string name="error_">Xatolik Sodir bo`ldi</string>
@@ -117,10 +112,30 @@ bunday ta'sirlangan Yechimdan foydalanishni to'xtatishi mumkin. Bunday holda, si
     <string name="car_passport_seria">Avtomobil passport Seriyasi</string>
     <string name="soon">Tez kunda</string>
     <string name="try_again">qayta urinish</string>
+    <string name="car_type">Avtomobil turi</string>
+    <string name="marka_model">Mashina modeli</string>
+    <string name="buy_polis_appbar_title">Sug`urtalashni ro`yxatdan o`tkazish</string>
+    <string name="drivers">Haydovchilar soni</string>
     <string name="no_connection_title">Ulanish yo‘q</string>
+    <string name="reward_tx">Imtiyozli emas</string>
+    <string name="premium_txt">Cheklanmagan</string>
+    <string name="price_polis_buy">Polis Narxi</string>
+    <string name="return_price_for_baddly_event">Sug`urta summasi</string>
+    <string name="car_region">Avtomobilni ro`yxatdan o`tkazish hududi</string>
     <string name="no_connection_des">Tarmoqqa ulanish yo`q, tarmoq sozlamalarini tekshiring yoki qaytadan urinib ko`ring !</string>
     <string name="summa_return">Sug`urta summasi</string>
+    <string name="five_driver_go">5 kishigacha</string>
+    <string name="tashkent_Region_no_premium_polis_price">56 000 so`m</string>
+    <string name="regions_premium_polis_price_with_out_tashkent">120 000 so`m</string>
+    <string name="regions_no_premium_polis_price_with_out_tashkent">40 000 so`m</string>
+    <string name="polis_return_sum">40 000 000 so`m</string>
+    <string name="uid_error">UID mavjud emas.Keyinroq urinib ko`ring</string>
+
+    <string name="remove">O`chirish</string>
+    <string name="reward_info">Imtiyozga ega</string>
+    <string name="tashkent_Region_premium_polis_price">168 000 So`m</string>
     <string name="cashbak">Keshbek</string>
+    <string name="car_year">Avtomobil ishlab chiqarilgan yili</string>
     <string name="price_polis">Polis narxi</string>
     <string name="summa_info">To‘lov miqdori</string>
     <string name="passport_seria">Passport Seriani kiriting</string>

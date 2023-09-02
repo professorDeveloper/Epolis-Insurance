@@ -14,11 +14,13 @@ import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.databinding.FragmentPolisScreenBinding
 import com.azamovhudstc.epolisinsurance.ui.adapter.PolisCategoryAdapter
 import com.azamovhudstc.epolisinsurance.utils.LocalData.isBuyOrRegistered
+import com.azamovhudstc.epolisinsurance.utils.animationTransaction
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
 import com.azamovhudstc.epolisinsurance.utils.gone
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.fragment_polis_screen.*
 import kotlinx.android.synthetic.main.tab_polis_item.view.*
 
 class PolisScreen : Fragment() {
@@ -40,7 +42,7 @@ class PolisScreen : Fragment() {
         val appReference = AppReference(App.instance)
         val categoryAdapter = PolisCategoryAdapter(loadCat(), requireActivity())
         binding.apply {
-            if (appReference.token.toString()=="null") {
+            if (appReference.token.toString() == "null") {
                 isRegister.visible()
                 viewPager.gone()
             } else {
@@ -71,8 +73,11 @@ class PolisScreen : Fragment() {
 
         }
         binding.checkCodeOtpBtn.setOnClickListener {
-            isBuyOrRegistered=true
-            findNavController().navigate(R.id.registerScreen)
+            isBuyOrRegistered = true
+            findNavController().navigate(
+                R.id.registerScreen, args = null, animationTransaction()
+                    .build()
+            )
         }
 
     }

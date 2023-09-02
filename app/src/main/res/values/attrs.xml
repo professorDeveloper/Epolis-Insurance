@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="CustomMaskEditText">
+        <attr name="CustomMaskEditText_mask" format="string" />
+        <attr name="charRepresentation" format="string" />
+        <attr name="maskIconEnabled" format="boolean" />
+    </declare-styleable>
+</resources>

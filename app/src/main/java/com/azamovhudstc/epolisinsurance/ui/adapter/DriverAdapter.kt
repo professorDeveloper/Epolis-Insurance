@@ -34,7 +34,7 @@ class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : Fra
         return driver
     }
 
-    fun addItem(item: TabModel, fragment: DriverPageItem) {
+    fun addItem(item: TabModel) {
         items.add(item)
         notifyDataSetChanged()
     }
@@ -53,8 +53,6 @@ class DriverAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle) : Fra
 
     }
 
-    fun submitListWithFragment(list: ArrayList<DriverPageItem>) {
 
-    }
 
 }

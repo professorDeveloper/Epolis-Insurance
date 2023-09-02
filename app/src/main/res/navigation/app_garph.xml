@@ -92,6 +92,9 @@
             app:popExitAnim="@anim/to_right"
             android:id="@+id/action_mainScreen_to_contactUsScreen2"
             app:destination="@id/contactUsScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_buyPolisScreen"
+            app:destination="@id/buyPolisScreen" />
     </fragment>
     <fragment
         android:id="@+id/registerScreen"
@@ -185,7 +188,15 @@
     <fragment
         android:id="@+id/buyPolisScreen"
         android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.BuyPolisScreen"
-        android:label="BuyPolisScreen" />
+        android:label="BuyPolisScreen" >
+        <action
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            android:id="@+id/action_buyPolisScreen_to_succesTransferScreen"
+            app:destination="@id/succesTransferScreen" />
+    </fragment>
     <navigation android:id="@+id/navigation"
         app:startDestination="@id/driverPageItem">
         <fragment
@@ -193,4 +204,9 @@
             android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item.DriverPageItem"
             android:label="DriverPageItem" />
     </navigation>
+    <fragment
+        android:id="@+id/succesTransferScreen"
+        android:name="com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.SuccesTransferScreen"
+        android:label="fragment_succes_transfer_screen"
+        tools:layout="@layout/fragment_succes_transfer_screen" />
 </navigation>

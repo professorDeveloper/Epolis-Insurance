@@ -20,30 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="24dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:layout_height="24dp"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:fontFamily="@font/gilory_bold"
                 android:text="@string/my_polis"
-
                 android:textColor="@color/textColor"
+                android:layout_marginStart="15dp"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginStart="20dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -105,18 +95,20 @@
             app:layout_constraintStart_toStartOf="@+id/imageView7"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/check_code_otp_btn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
+            app:strokeWidth="0dp"
             android:layout_marginHorizontal="24dp"
             android:layout_marginTop="25dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+            app:cardPreventCornerOverlap="true"
             app:cardBackgroundColor="@color/btn_color"
             app:cardCornerRadius="11dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10">
 
@@ -124,11 +116,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textAllCaps="true"
                 android:fontFamily="@font/gilory_bold"
                 android:text="@string/register_txt"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

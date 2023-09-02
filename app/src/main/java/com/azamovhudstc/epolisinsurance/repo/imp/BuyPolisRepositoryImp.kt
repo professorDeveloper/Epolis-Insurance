@@ -9,6 +9,7 @@ import com.azamovhudstc.epolisinsurance.data.remote.request.*
 import com.azamovhudstc.epolisinsurance.data.remote.response.driver.DriverErrorResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.driver.DriverResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.driver.SubmitForm1Response
+import com.azamovhudstc.epolisinsurance.data.remote.response.policy.SubmitPolicyResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.GetUserDataByIdResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.vehical.GetVehicleResponse
 import com.azamovhudstc.epolisinsurance.repo.BuyPolisRepository
@@ -22,42 +23,49 @@ import javax.inject.Inject
 
 class BuyPolisRepositoryImp @Inject constructor(private val buyPolisApi: BuyPollsApi) :
     BuyPolisRepository {
-    override fun submitForm1(submitRequest: SubmitRequest): Flow<Result<SubmitForm1Response>> = flow {
-        val submitForm1 = buyPolisApi.submitForm1(
-            submitRequest.phone,
-            submitRequest.beginDate,
-            submitRequest.policyId,
-            submitRequest.driverCount
-        )
+    override fun submitForm1(submitRequest: SubmitRequest): Flow<Result<SubmitForm1Response>> =
+        flow {
+            val submitForm1 = buyPolisApi.submitForm1(
+                submitRequest.phone,
+                submitRequest.beginDate,
+                submitRequest.policyId,
+                submitRequest.driverCount
+            )
 
-        if (submitForm1.isSuccessful){
-            emit(Result.success(submitForm1.body()!!))
-        }
-        else{
-            emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
-        }
-    }.flowOn(Dispatchers.IO)
-        .catch {
-            emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
+            if (submitForm1.isSuccessful) {
+                emit(Result.success(submitForm1.body()!!))
+            } else {
+                emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
+            }
+        }.flowOn(Dispatchers.IO)
+            .catch {
+                emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
 
-        }
+            }
 
     @SuppressLint("ResourceType")
     override fun removeDriver(driverRemoveRequest: DriverRemoveRequest) = flow {
+
+
         val removeDriver = buyPolisApi.removeDriver(
             driverRemoveRequest.removeDriverPassportNumber,
             driverRemoveRequest.removeDriverPassportSeries,
-            driverRemoveRequest.removeDriverRelationType,
+            driverRemoveRequest.removeDriverPosition,
             driverRemoveRequest.vehicleID,
 
-        )
+            )
         if (
             removeDriver.isSuccessful
-        ){
+        ) {
             emit(Result.success(removeDriver.body()!!))
-        }
-        else{
-            emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api).toString())))
+        } else {
+            emit(
+                Result.failure(
+                    Exception(
+                        App.instance.resources.getString(R.string.error_api).toString()
+                    )
+                )
+            )
         }
     }.catch {
         emit(Result.failure(Exception(it.message.toString())))
@@ -119,21 +127,19 @@ class BuyPolisRepositoryImp @Inject constructor(private val buyPolisApi: BuyPoll
         )
 
         if (driverData.isSuccessful) {
-            if (driverData.body().toString() != "null" || driverData.errorBody() ==null) {
+            if (driverData.body().toString() != "null" || driverData.errorBody() == null) {
                 println(":Errro ${driverData.errorBody()?.string()}")
                 println(":Errro ${driverData.body()?.toString()}")
 
-                if (driverData.body()!!.address==null){
+                if (driverData.body()!!.address == null) {
                     emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
 
-                }
-                else{
+                } else {
                     emit(Result.success(driverData.body()!!))
 
                 }
 
-            }
-            else {
+            } else {
                 var gson = Gson()
                 println(":Errro ${driverData.errorBody()?.string()}")
 
@@ -154,16 +160,23 @@ class BuyPolisRepositoryImp @Inject constructor(private val buyPolisApi: BuyPoll
         }
         .flowOn(Dispatchers.IO)
 
-    override fun submitCar(submitRequest: SubmitRequest): Flow<Result<Boolean>> = flow{
-//      val response=  buyPolisApi.submitCar(
-//            submitRequest.phone,
-//            submitRequest.beginDate,
-//            submitRequest.policyId,
-//            submitRequest.driverCount.toString()
-//        )
-//
-//        if (response.)
 
-    }
+    override fun submitPolicy(submitRequest: SubmitPolicyRequest): Flow<Result<SubmitPolicyResponse>> =
+        flow {
+            val submitPolicy = buyPolisApi.submitPolicy(
+                submitRequest.phone,
+                submitRequest.beginDate,
+                submitRequest.policyId
+            )
+            if (submitPolicy.isSuccessful) {
+                emit(Result.success(submitPolicy.body()!!))
+            } else {
+                emit(Result.failure(Exception(App.instance.resources.getString(R.string.error_api))))
+            }
+
+        }.catch {
+            emit(Result.failure(it))
+
+        }
 
 }

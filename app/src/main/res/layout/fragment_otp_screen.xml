@@ -130,16 +130,17 @@
             android:textColor="@color/btn_color" />
     </LinearLayout>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/check_code_otp_btn"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="20dp"
-            android:backgroundTint="@color/btn_color"
             android:clickable="true"
-
+            app:strokeWidth="0dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardBackgroundColor="@color/btn_color"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+
             app:cardCornerRadius="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +176,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
 
     <androidx.constraintlayout.widget.Guideline

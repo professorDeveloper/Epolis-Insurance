@@ -20,3 +20,4 @@ rootProject.name = "EpolisInsurance"
 
 
 include ':app'
+include ':benchmark'

@@ -8,7 +8,7 @@ import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
 import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.register.RegisterResponse
 import com.azamovhudstc.epolisinsurance.repo.AuthRepository
-import com.azamovhudstc.epolisinsurance.utils.hasConnection
+import com.azamovhudstc.epolisinsurance.tools.hasConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

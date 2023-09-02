@@ -11,9 +11,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_200">#4D6370
     </color>
+    <color name="backgroundMain">#ffffffff</color>
     <color name="textColor">#012033</color>
     <color name="white_500">#F7F8F9</color>
     <color name="category_unselected_color">#E6E9EB</color>
     <color name="gray_black">#333131</color>
     <color name="btn_color">#f58634</color>
+    <color name="bg_grey">#F7F8F9</color>
 </resources>

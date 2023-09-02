@@ -153,7 +153,6 @@
         android:visibility="gone"
         android:focusable="true"
         android:clickable="true"
-        android:foreground="?selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginHorizontal="20dp"
         android:text="@string/language_button_title"

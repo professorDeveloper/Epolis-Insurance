@@ -1,144 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/contact_us_item1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contact_us_item1_container_short"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/expandable_bg"
-        android:orientation="horizontal"
-        android:visibility="visible">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="10dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/gilory_bold"
-            android:text="@string/contact_us1"
-            android:textAlignment="textStart"
-            android:textColor="#012033"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline14_item"
-            tools:ignore="RtlCompat" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/form_icons"
-            app:layout_constraintBottom_toBottomOf="@+id/textView8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/textView8"
-            app:tint="@color/black" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline14_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="10dp"
-            app:layout_constraintGuide_end="10dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="10dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contact_us_item1_container_big"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/contactusContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/expandable_bg"
-        android:visibility="visible">
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="#99A6AD"
+        app:strokeWidth="1dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp" />
+            <LinearLayout
+                android:id="@+id/openContactUsCollapse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="16dp" />
+                android:elevation="1dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="start|center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="16dp" />
+                <TextView
+                    android:id="@+id/titleContactUs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="10"
+                    android:fontFamily="@font/urbanist_medium"
+                    android:text="@string/contact_us1"
+                    android:textColor="@color/textColor"
+                    android:textSize="16sp" />
 
+                <ImageView
+                    android:id="@+id/open_contactus_more"
+                    android:layout_gravity="center"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:elevation="1dp"
+                    android:src="@drawable/down_arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/openAboutCarCollapse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
 
-        <TextView
-            android:id="@+id/contact_us_item1_title"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/gilory_bold"
-            android:text="Какие способы оплаты принимаются?"
-            android:textColor="@color/btn_color"
-            android:textSize="14dp"
-            app:layout_constraintStart_toEndOf="@+id/guideline16"
-            app:layout_constraintTop_toBottomOf="@+id/guideline17" />
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_top_arrow"
-            app:layout_constraintBottom_toBottomOf="@+id/contact_us_item1_title"
-            app:layout_constraintEnd_toStartOf="@+id/guideline19"
-            app:layout_constraintStart_toEndOf="@+id/contact_us_item1_title"
-            app:layout_constraintTop_toTopOf="@+id/contact_us_item1_title" />
+            </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/contact_us_item1_desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16sp"
-            android:fontFamily="@font/gilory_medium"
-            android:text="Мы принимаем оплату всеми основными кредитными картами, а также
-Нажмите, Payme, Uzum и банковским переводом."
+            <LinearLayout
+                android:id="@+id/expandedContactUsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
 
-            app:layout_constraintBottom_toTopOf="@+id/guideline18"
-            app:layout_constraintEnd_toStartOf="@+id/guideline19"
-            app:layout_constraintStart_toStartOf="@+id/guideline16"
-            app:layout_constraintTop_toBottomOf="@id/contact_us_item1_title" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/openContactUsCollapse">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/contactusDesc"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="15sp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_info_contact_us"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 
 </LinearLayout>

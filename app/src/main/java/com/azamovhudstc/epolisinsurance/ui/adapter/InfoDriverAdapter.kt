@@ -7,24 +7,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.model.TabModel
+import com.azamovhudstc.epolisinsurance.utils.LocalData
+import com.azamovhudstc.epolisinsurance.utils.LocalData.setDataUIChangeListener
 import com.azamovhudstc.epolisinsurance.utils.LocalData.setDriverCountListener
+import com.azamovhudstc.epolisinsurance.utils.enums.DriversType
 import kotlinx.android.synthetic.main.tab_item_driver.view.*
 
 
 class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>() {
     val list = ArrayList<TabModel>()
     private var checkedPosition = 0
+
     private lateinit var itemClickListener: ((TabModel, Int) -> Unit)
-    fun     setDeleteItemClickListener(listener: (TabModel, Int) -> Unit) {
+    fun setDeleteItemClickListener(listener: (TabModel, Int) -> Unit) {
         itemClickListener = listener
     }
 
     inner class InfoDriverVH(view: View) : RecyclerView.ViewHolder(view) {
-        fun onBind(data: TabModel) {
+        fun onBind(data: TabModel,position: Int) {
+
             itemView.apply {
                 setDriverCountListener {
                     checkedPosition = it
                     notifyDataSetChanged()
+                }
+                if (data.driversDataUI==DriversType.NEW){
+                    tabContainer.setBackgroundResource(R.drawable.bg_dirver_tab_selected_done)
                 }
                 driver_tab_text.text = data.name
                 if (checkedPosition == -1) {
@@ -32,7 +40,7 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
                     driver_tab_text.setTextColor(Color.BLACK)
                 } else {
                     if (checkedPosition == adapterPosition) {
-                        tabContainer.setBackgroundResource(R.drawable.bg_dirver_tab_selected)
+                        tabContainer.setBackgroundResource(R.drawable.bg_dirver_tab_selected_done)
                         driver_tab_text.setTextColor(Color.WHITE)
                     } else {
                         tabContainer.setBackgroundResource(R.drawable.bg_driver_tab_unselected)
@@ -40,10 +48,16 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
                     }
                 }
 
+                setDataUIChangeListener {
+                    println("Changed")
+                    val dataUIbyPosition = LocalData.driversController.getDataUIbyPosition(position)
+                    if (dataUIbyPosition==DriversType.DONE){
 
+                    }
+                }
                 itemView.setOnClickListener {
                     itemView.apply {
-                        tabContainer.setBackgroundResource(R.drawable.bg_dirver_tab_selected)
+                        tabContainer.setBackgroundResource(R.drawable.bg_dirver_tab_selected_done)
                         driver_tab_text.setTextColor(Color.WHITE)
                         if (checkedPosition != adapterPosition) {
                             notifyItemChanged(checkedPosition)
@@ -91,7 +105,7 @@ class InfoDriverAdapter : RecyclerView.Adapter<InfoDriverAdapter.InfoDriverVH>()
     }
 
     override fun onBindViewHolder(holder: InfoDriverVH, position: Int) {
-        holder.onBind(list[position])
+        holder.onBind(list[position],position)
     }
 
     override fun getItemCount(): Int = list.size

@@ -1,12 +1,12 @@
 package com.azamovhudstc.epolisinsurance.data.remote.api
 
-import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
 import com.azamovhudstc.epolisinsurance.data.remote.response.register.ConfirmResponse
 import com.azamovhudstc.epolisinsurance.data.remote.response.register.RegisterResponse
-import com.azamovhudstc.epolisinsurance.utils.wrapper.ResponseWrapper
-import okhttp3.RequestBody
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
 interface AuthApi {
     @FormUrlEncoded

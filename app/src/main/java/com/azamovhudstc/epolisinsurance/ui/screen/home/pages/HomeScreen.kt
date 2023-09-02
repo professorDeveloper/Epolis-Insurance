@@ -5,20 +5,22 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
 import com.azamovhudstc.epolisinsurance.data.model.CategoryItem
+import com.azamovhudstc.epolisinsurance.tools.hasConnection
 import com.azamovhudstc.epolisinsurance.ui.adapter.CategoryAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBannerAdapter
 import com.azamovhudstc.epolisinsurance.ui.adapter.HomeBottomRecycleAdapter
-import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.utils.LocalData.PERIOD_MS
-import com.azamovhudstc.epolisinsurance.utils.LocalData.currentPage
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadBannerList
 import com.azamovhudstc.epolisinsurance.utils.LocalData.loadGridData
+import com.azamovhudstc.epolisinsurance.utils.animationTransaction
+import com.azamovhudstc.epolisinsurance.utils.convertDpToPixel
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
-import com.azamovhudstc.sugurtaapp.utils.convertDpToPixel
+import com.azamovhudstc.epolisinsurance.utils.showNetworkDialog
 import kotlinx.android.synthetic.main.fragment_home_screen.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -47,21 +49,24 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startAutoSlide()
-        if (!hasConnection()){
-            showNetworkDialog(requireActivity(),container_home)
+
+
+        if (!hasConnection()) {
+            showNetworkDialog(requireActivity(),container_home )
         }
-        initIndicator()
+        startAutoSlide()
+        initIndicator ()
+        categoryRv.adapter = cateAdapter
+        val list = loadCatHome()
+        list.clear()
+        list.addAll(loadCatHome())
+        cateAdapter.submitList(list)
+
+
+
     }
 
     private fun startAutoSlide() {
-        banner_home_top.currentItem = 2
-        banner_home_top.offscreenPageLimit = 1
-        banner_home_top.setPageTransformer(CardTransformer(requireContext()))
-        val itemDecoration = HorizontalMarginItemDecoration(
-            requireContext(),
-            R.dimen.viewpager_current_item_horizontal_margin
-        )
         val adapter = HomeBannerAdapter(loadBannerList())
         cateAdapter = CategoryAdapter()
         categoryRv.adapter = cateAdapter
@@ -74,22 +79,41 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         }
 
         homeBottomRecycleAdapter.setItemClickListener {
-            var appReference=AppReference(requireContext());
-            if (appReference.token!=null){
-                findNavController().navigate(R.id.buyPolisScreen,null,animationTransaction().build())
-            }
-            else{
-                findNavController().navigate(R.id.registerScreen,null,animationTransaction().build())
+            var appReference = AppReference(requireContext());
+            if (appReference.token != null) {
+                findNavController().navigate(
+                    R.id.buyPolisScreen,
+                    null,
+                    animationTransaction().build()
+                )
+            } else {
+                findNavController().navigate(
+                    R.id.registerScreen,
+                    null,
+                    animationTransaction().build()
+                )
             }
         }
-        banner_home_top.addItemDecoration(itemDecoration)
-        lifecycleScope.launch {
+        val bannerCount = adapter.itemCount
+        var currentPosition = 0
+
+        // Start auto-looping
+        viewLifecycleOwner.lifecycleScope.launch {
             while (isActive) {
                 delay(PERIOD_MS)
-                banner_home_top.currentItem = currentPage
-                currentPage = (currentPage + 1) % banner_home_top.adapter?.itemCount!!
+                currentPosition = (currentPosition + 1) % bannerCount
+                banner_home_top.setCurrentItem(currentPosition, true)
             }
         }
+
+        // Set a callback for page change events to update the current position
+        banner_home_top.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                currentPosition = position
+            }
+        })
+
+
     }
 
 
@@ -101,14 +125,13 @@ class HomeScreen : Fragment(R.layout.fragment_home_screen) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        categoryRv.adapter = cateAdapter
-        val list = loadCatHome()
-        list.clear()
-        list.addAll(loadCatHome())
-        cateAdapter.submitList(list)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        banner_home_top.adapter=null
+
     }
+
 
 
 }

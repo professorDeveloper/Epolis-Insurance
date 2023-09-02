@@ -16,6 +16,6 @@ class AddDriverUseCaseImp @Inject constructor(private val buyPolisRepository: Bu
     }
 
     override fun getDriverData(driverRequest: DriverRequest): Flow<Result<DriverResponse>> {
-        return buyPolisRepository.getDriver(driverRequest)
+         return buyPolisRepository.getDriver(driverRequest)
     }
 }

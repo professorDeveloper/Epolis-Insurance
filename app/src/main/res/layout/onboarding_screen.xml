@@ -46,27 +46,64 @@
         android:layout_height="55dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="50dp"
+        android:scaleType="center"
         android:background="@drawable/intro_btn_bg"
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <androidx.appcompat.widget.AppCompatButton
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/last_btn"
         android:layout_width="267dp"
         android:layout_height="55dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:fontFamily="@font/gilory_bold"
-        android:focusable="true"
+        tools:visibility="visible"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginHorizontal="15dp"
+        app:cardCornerRadius="14dp"
+
+        android:backgroundTint="@color/btn_color"
         android:clickable="true"
-        android:foreground="?selectableItemBackground"
+        android:focusable="true"
+        app:strokeWidth="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:visibility="invisible"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/intro_btn_bg"
         android:text="@string/intro_btn_txt"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/info_intro_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilory_bold"
+                android:text="@string/intro_btn_txt"
+                android:textAllCaps="true"
+                android:textColor="@color/white_500"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/info_intro_progress"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 
 
     <com.zhpan.indicator.IndicatorView

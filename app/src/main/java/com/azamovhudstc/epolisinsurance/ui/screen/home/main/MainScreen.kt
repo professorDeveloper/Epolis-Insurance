@@ -4,11 +4,16 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.shp.AppReference
+import com.azamovhudstc.epolisinsurance.tools.hasConnection
 import com.azamovhudstc.epolisinsurance.ui.adapter.BottomNavAdapter
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
+import com.azamovhudstc.epolisinsurance.utils.showNetworkDialog
 import kotlinx.android.synthetic.main.fragment_main_screen.*
 
 class MainScreen : Fragment(R.layout.fragment_main_screen) {
@@ -22,12 +27,22 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
         );
 
     }
-
+    
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback {
+            requireActivity().finishAffinity()
+            requireActivity().finish()
+
+        }
 
         view.apply {
-            val categoryAdapter = BottomNavAdapter(requireActivity())
+            val fm: FragmentManager = childFragmentManager
+            val lifecycle: Lifecycle = viewLifecycleOwner.lifecycle
+            if (!hasConnection()) {
+                showNetworkDialog(requireActivity(),refreshContainer )
+            }
+            val categoryAdapter = BottomNavAdapter(fm,lifecycle)
             mainViewPager.adapter = categoryAdapter
             mainViewPager.isUserInputEnabled = false
             val menu = bottom_navigation.menu
@@ -69,5 +84,19 @@ class MainScreen : Fragment(R.layout.fragment_main_screen) {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        println("onDestroyView")
+
+        mainViewPager?.let {
+            it.adapter=null
+
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("Destory")
+    }
 
 }

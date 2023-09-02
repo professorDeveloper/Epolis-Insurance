@@ -8,6 +8,8 @@ import com.azamovhudstc.epolisinsurance.data.remote.response.driver.RemovedSucce
 
 interface AddDriverViewModel {
     fun addDriver(driverRequest: DriverRequest)
+    fun initDrivers()
+    val initDriverLiveData:MutableLiveData<Boolean>
     fun removeDriver(driverRemoveRequest: DriverRemoveRequest)
     val removeDriverResponse:MutableLiveData<RemovedSuccessData>
     val driverResponseLiveData:MutableLiveData<DriverResponse>

@@ -55,6 +55,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/try_again"
         android:layout_width="250dp"
+        app:strokeColor="@color/btn_color"
         android:layout_height="55dp"
         android:layout_marginVertical="30dp"
         android:background="@drawable/button_bg"

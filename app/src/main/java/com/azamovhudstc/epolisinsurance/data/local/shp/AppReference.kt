@@ -5,8 +5,8 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.azamovhudstc.epolisinsurance.utils.enums.CurrentScreenEnum
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
-import com.azamovhudstc.sugurtaapp.utils.screenCurrentEnum
-import com.azamovhudstc.sugurtaapp.utils.screenEnum
+import com.azamovhudstc.epolisinsurance.utils.screenCurrentEnum
+import com.azamovhudstc.epolisinsurance.utils.screenEnum
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,7 +21,7 @@ class AppReference @Inject constructor(
 
 
     var currentLanguage: LanguageType
-        get() = sharedPref.getString("language", LanguageType.ru.name)!!.screenEnum()
+        get() = sharedPref.getString("language", null)!!.screenEnum()
         set(value) {
             sharedPref.edit().putString("language", value.name).apply()
         }

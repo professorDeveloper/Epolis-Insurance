@@ -14,6 +14,8 @@ interface UseCaseModule {
     @Binds
     fun getAuthUseCase(imp:AuthUseCaseImp):AuthUseCase
 
+    @Binds
+    fun getContactScreenUseCase(imp: ContactScreenUseCaseImp):ContactScreenUseCase
 
     @Binds
     fun getProfileUseCase(imp:ProfileUseCaseImp):ProfileUseCase

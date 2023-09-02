@@ -5,26 +5,49 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.ui.adapter.IntroPageAdapter
-import com.azamovhudstc.epolisinsurance.utils.animationTransactionClearStack
-import com.azamovhudstc.epolisinsurance.utils.invisible
-import com.azamovhudstc.epolisinsurance.utils.visible
-import com.azamovhudstc.sugurtaapp.utils.convertDpToPixel
+import com.azamovhudstc.epolisinsurance.utils.*
+import com.azamovhudstc.epolisinsurance.viewmodel.OnBoardingViewModel
+import com.azamovhudstc.epolisinsurance.viewmodel.imp.OnBoardingViewModelImp
 import kotlinx.android.synthetic.main.onboarding_screen.*
 import kotlinx.android.synthetic.main.onboarding_screen.view.*
 
 class OnboardScreen : Fragment(R.layout.onboarding_screen) {
+    private val viewModel: OnBoardingViewModel by viewModels<OnBoardingViewModelImp>()
+
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel.progressLiveData.observe(this) {
+            if (it) {
+                info_intro_text.gone()
+                info_intro_progress.visible()
+            } else {
+                info_intro_progress.gone()
+                info_intro_text.visible()
+            }
+        }
+        viewModel.resultLiveData.observe(this) {
+            val bundle = Bundle()
+            findNavController().navigate(
+                R.id.langaugeScreen,
+
+                bundle,
+                animationTransactionClearStack(R.id.onboardScreen).build()
+            )
+
+        }
         super.onCreate(savedInstanceState)
         activity?.window?.setFlags(
             WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
+        );
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = IntroPageAdapter(requireActivity())
@@ -66,12 +89,7 @@ class OnboardScreen : Fragment(R.layout.onboarding_screen) {
             }
         })
         last_btn.setOnClickListener {
-            val bundle =Bundle ()
-            findNavController().navigate(
-                R.id.langaugeScreen,
-                bundle,
-                animationTransactionClearStack(R.id.onboardScreen).build()
-            )
+            viewModel.next()
         }
         next_btn.setOnClickListener {
             intro_pager.currentItem += 1

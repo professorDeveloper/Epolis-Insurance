@@ -8,9 +8,9 @@
         <item name="android:unfocusedMonthDateColor">@color/btn_color</item>
         <item name="android:textColor">#808F99</item>
         <item name="colorPrimaryVariant">@color/bottom_icon_txt_color</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/btn_color</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/white</item>
 
         <item name="colorSecondaryVariant">@color/btn_color</item>
         <item name="colorOnSecondary">@color/black</item>

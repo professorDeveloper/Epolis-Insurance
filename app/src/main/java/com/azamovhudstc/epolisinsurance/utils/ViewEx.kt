@@ -2,16 +2,21 @@ package com.azamovhudstc.epolisinsurance.utils
 
 import android.app.Dialog
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.SystemClock
-import android.os.Vibrator
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -20,80 +25,70 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.app.App
+import com.azamovhudstc.epolisinsurance.tools.hasConnection
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.no_connection.view.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
 
 lateinit var viewpagerChangeListener: ((Int) -> Unit)
 fun setPositionListener(listener: (Int) -> Unit) {
     viewpagerChangeListener = listener
 }
-fun EditText.maskCarNumber(){
-    this.addTextChangedListener {
-        this.addTextChangedListener(object : TextWatcher {
-            private var isEditing = false
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Avvalgi matn o'zgarishi haqida xabar bermaslik uchun
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Matn o'zgarishida amalga oshiriladigan kod
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                // Keyin bo'sh
-                if (isEditing) {
-                    return
-                }
-
-                isEditing = true
-
-                val text = this@maskCarNumber.text.toString()
-
-                // Matndan sonlarni olib tashlash
-                val numericText = text.replace("[^\\d.]".toRegex(), "")
-
-                // Matndan faqat katta harflarni olib tashlash
-                val upperCaseText = text.replace("[^A-Z]".toRegex(), "")
-
-                val formattedText = StringBuilder()
-
-                if (numericText.length >= 3) {
-                    formattedText.append(numericText.substring(0, 2))
-                    formattedText.append(upperCaseText)
-                    formattedText.append(numericText.substring(2))
-                } else {
-                    formattedText.append(numericText)
-                    formattedText.append(upperCaseText)
-                }
-
-                this@maskCarNumber.setText(formattedText.toString())
-                this@maskCarNumber.setSelection(formattedText.length)
-
-                isEditing = false
-            }
-        })
-
-    }
+fun View.expandView() {
+    visibility = View.VISIBLE
+    animate()
+        .alpha(1.0f)
+        .translationY(0f)
+        .setDuration(300)
+        .setInterpolator(AccelerateDecelerateInterpolator())
+        .start()
 }
-fun View.alphaAnim() {
-    val anim = AnimationUtils.loadAnimation(
-        App.instance,
-        com.azamovhudstc.epolisinsurance.R.anim.alpha_anim
-    ).apply {
-        duration = 1500L
 
-        fillAfter = true
+
+fun EditText.phoneMask() {
+    val textWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            val formattedText = formatText(s.toString())
+            removeTextChangedListener(this) // TextWatcher ni olib tashlash
+            setText(formattedText) // Yangi formatdagi matnni EditText ga o'rnatish
+            setSelection(formattedText.length) // Kursorning pozitsiyasini tiklash
+            addTextChangedListener(this)
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+            // Matnda o'zgarish bo'lsa, editText ga yangi format beriladi
+            // TextWatcher ni qaytarish
+        }
     }
 
-    startAnimation(anim)
+    // TextWatcher ni EditText ga bog'lash
+    addTextChangedListener(textWatcher)
+
+}
+
+private fun formatText(text: String): String {
+    val regex = "(\\d{2})(\\d{3})(\\d{2})(\\d{2})".toRegex()
+    val replacement = "($1)-$2-$3-$4"
+    return text.replace(regex, replacement)
+}
+
+fun EditText.requestFocus(length: Int, requestFocus: View) =
+    this.addTextChangedListener { if (it.toString().length >= length) requestFocus.requestFocus() }
+
+fun EditText.requestFocusOpeningScreen() {
+    requestFocus()
+    val imm: InputMethodManager? =
+        App.instance.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+    imm?.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 
 }
 
 fun View.setErrorSmall() {
-    setBackgroundResource(com.azamovhudstc.epolisinsurance.R.drawable.bg_ceria_error)
+    setBackgroundResource(R.drawable.bg_ceria_error)
 }
 
 fun View.setError() {
@@ -103,6 +98,7 @@ fun View.setError() {
 fun View.setDefault() {
     setBackgroundResource(R.drawable.bg_nomer)
 }
+
 fun View.setDefaultBig() {
     setBackgroundResource(R.drawable.bg_add_polis_edit)
 }
@@ -128,6 +124,7 @@ fun View.slideStart(animTime: Long, startOffset: Long) {
     }
     startAnimation(slideUp)
 }
+
 
 fun View.visible() {
     visibility = View.VISIBLE
@@ -155,19 +152,21 @@ fun View.slideUp(animTime: Long, startOffset: Long) {
     startAnimation(slideUp)
 }
 
-fun Fragment.animationTransactionClearStack(clearFragmentID: Int): NavOptions.Builder {
+fun animationTransactionClearStack(clearFragmentID: Int): NavOptions.Builder {
     val navBuilder = NavOptions.Builder()
     navBuilder.setEnterAnim(R.anim.from_right).setExitAnim(R.anim.to_left)
         .setPopEnterAnim(R.anim.from_left).setPopExitAnim(R.anim.to_right)
         .setPopUpTo(clearFragmentID, true)
-    return  navBuilder
+    return navBuilder
 }
-fun Fragment.animationTransaction(): NavOptions.Builder {
+
+fun animationTransaction(): NavOptions.Builder {
     val navBuilder = NavOptions.Builder()
     navBuilder.setEnterAnim(R.anim.from_right).setExitAnim(R.anim.to_left)
         .setPopEnterAnim(R.anim.from_left).setPopExitAnim(R.anim.to_right)
     return navBuilder
 }
+
 fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
     val safeClickListener = SafeClickListener {
         onSafeClick(it)
@@ -191,9 +190,9 @@ class SafeClickListener(
     }
 }
 
-fun showNetworkDialog(context: FragmentActivity,container:View){
+fun showNetworkDialog(context: FragmentActivity, container: View?) {
     var dialog = Dialog(context)
-    container.gone()
+    container?.gone()
     val inflater = LayoutInflater.from(context)
     var dialogView = inflater.inflate(R.layout.no_connection, null)
     dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -204,14 +203,13 @@ fun showNetworkDialog(context: FragmentActivity,container:View){
         context.lifecycleScope.launch {
             delay(600)
             if (hasConnection()) {
-                container.visible()
+                container?.visible()
                 dialog.dismiss()
                 dialogView.try_againtxt.visible()
                 dialogView.try_again_progress.gone()
 
-            }
-            else {
-                container.gone()
+            } else {
+                container?.gone()
                 dialogView.try_againtxt.visible()
                 dialogView.try_again_progress.gone()
                 dialog.setContentView(dialogView)
@@ -225,12 +223,28 @@ fun showNetworkDialog(context: FragmentActivity,container:View){
     dialog.show()
 
 
+}
 
+
+fun Fragment.showSnack(
+    view: View = requireView(),
+    message: String,
+    duration: Int = Toast.LENGTH_SHORT
+) {
+    Snackbar.make(view, message, duration).show()
 }
-fun Fragment.vibrate(time:Long){
-    val vibrate = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    vibrate.vibrate(time)
+
+
+fun convertDpToPixel(dp: Float, context: Context): Float {
+    val resources: Resources = context.getResources()
+    val metrics: DisplayMetrics = resources.getDisplayMetrics()
+    return dp * (metrics.densityDpi / 160f)
 }
+
+fun AppCompatEditText.clear() {
+    setText("")
+}
+
 
 fun View.vibrationAnimation() {
     val vibrationAnim =

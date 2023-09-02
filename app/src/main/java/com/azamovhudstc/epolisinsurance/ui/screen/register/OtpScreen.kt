@@ -18,7 +18,6 @@ import com.azamovhudstc.epolisinsurance.data.remote.request.RegisterRequest
 import com.azamovhudstc.epolisinsurance.utils.*
 import com.azamovhudstc.epolisinsurance.viewmodel.AuthViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AuthViewModelImp
-import com.azamovhudstc.sugurtaapp.utils.parseCode
 import com.stfalcon.smsverifycatcher.SmsVerifyCatcher
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_otp_screen.*
@@ -96,6 +95,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
 
         }
         back_otp.setOnClickListener {
+            println("Qayt")
             findNavController().popBackStack()
         }
         initSmsVerifyCatcher()
@@ -105,12 +105,12 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
     private fun initSmsVerifyCatcher() {
         isGranted = arguments?.getBoolean("isPermission")!!
         if (isGranted)
-        smsVerifyCatcher = SmsVerifyCatcher(
-            activity
-        ) { message ->
-            otp_txt.setOTP(message.parseCode())
-        }
-        else{
+            smsVerifyCatcher = SmsVerifyCatcher(
+                activity
+            ) { message ->
+                otp_txt.setOTP(message.parseCode())
+            }
+        else {
             println("isnotGranted")
         }
     }
@@ -130,7 +130,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
     override fun onStart() {
         super.onStart()
         if (isGranted)
-        smsVerifyCatcher.onStart()
+            smsVerifyCatcher.onStart()
         else {
             println("isnotGranted")
         }
@@ -139,7 +139,7 @@ class OtpScreen : Fragment(R.layout.fragment_otp_screen) {
     override fun onStop() {
         super.onStop()
         if (isGranted)
-        smsVerifyCatcher.onStop()
+            smsVerifyCatcher.onStop()
         else println("isnotGranted")
     }
 

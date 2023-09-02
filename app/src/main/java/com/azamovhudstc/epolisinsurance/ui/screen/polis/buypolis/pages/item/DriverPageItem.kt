@@ -2,7 +2,7 @@ package com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.item
 
 import android.graphics.Color
 import android.os.Bundle
-import android.text.InputType
+import android.text.InputFilter
 import android.view.View
 import android.widget.AdapterView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +15,13 @@ import com.azamovhudstc.epolisinsurance.data.model.TabModel
 import com.azamovhudstc.epolisinsurance.data.remote.request.DriverRemoveRequest
 import com.azamovhudstc.epolisinsurance.data.remote.request.DriverRequest
 import com.azamovhudstc.epolisinsurance.utils.*
+import com.azamovhudstc.epolisinsurance.utils.LocalData.addNewTab
+import com.azamovhudstc.epolisinsurance.utils.LocalData.driverChangeState
 import com.azamovhudstc.epolisinsurance.utils.LocalData.listenAddProgress
-import com.azamovhudstc.epolisinsurance.utils.LocalData.position
+import com.azamovhudstc.epolisinsurance.utils.LocalData.vehicleId
+import com.azamovhudstc.epolisinsurance.utils.enums.DriversType
 import com.azamovhudstc.epolisinsurance.utils.enums.LanguageType
+import com.azamovhudstc.epolisinsurance.utils.enums.PollsPeopleType
 import com.azamovhudstc.epolisinsurance.viewmodel.AddDriverViewModel
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.AddDriverViewModelImp
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,18 +29,24 @@ import kotlinx.android.synthetic.main.fragment_driver_page_item.*
 
 
 @AndroidEntryPoint
-class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
+class DriverPageItem :
+    Fragment(R.layout.fragment_driver_page_item) {
     private var passportSere = false
     private var passportNumber = false
+    private var localPosition = 0
     private var successDriver = false
     private var date = false
+    private var isRealPositionDriver = 0
+    private var removePassSeries = ""
+    private var removePassNumber = ""
     private var selectedItemPosition = 0
-    private var openCollapseDriver = false
     private val viewModel: AddDriverViewModel by viewModels<AddDriverViewModelImp>()
     private lateinit var removeItemClickListener: ((TabModel, Int) -> Unit)
     fun setRemoveClickListener(removeListener: ((TabModel, Int) -> Unit)) {
         removeItemClickListener = removeListener
     }
+
+    private var isFirstTime = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,11 +71,19 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
 
         }
         viewModel.driverResponseLiveData.observe(this) {
+            println("salom")
+            println()
+            isRealPositionDriver = it.num ?: 0
             disableDriverInputs()
             successDriver = true
+
+            add_new_driver.visibility=View.VISIBLE
+            add_new_driver.slideUp(600,0)
+            removePassNumber = driver_passNumber.text.toString()
+            removePassSeries = driver_passSere.text.toString()
             listenAddProgress.invoke(false)
             driverLicenseSeries.setText(it.licenseSeria)
-            line_driver_response_top.setBackgroundResource(R.drawable.line_bg)
+            line_driver_response_top.setBackgroundResource(com.azamovhudstc.epolisinsurance.R.drawable.line_bg)
             kinshipContainer.gone()
             driverLicenseNumber.setText(it.licenseNumber)
             val layoutParams = delete_item.layoutParams as ConstraintLayout.LayoutParams
@@ -73,35 +91,38 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
             delete_item.layoutParams = layoutParams
             driverLicenseDate.setText(it.licenseDate)
             driver_fio.text =
-                "${it.firstNameLatin.firstLetterUpper()} ${it.lastNameLatin.firstLetterUpper()} ${it.middleNameLatin.firstLetterUpper()}"
+                "${it.firstNameLatin!!.firstLetterUpper()} ${it.lastNameLatin!!.firstLetterUpper()} ${it.middleNameLatin!!.firstLetterUpper()}"
             response_expanded_driver_item.visible()
             driver_bornDate.setDefault()
             driver_passNumber.setDefault()
             driver_passSere.setDefaultSmall()
             errorDriverTxt.gone()
 
+            val positionNum = arguments?.getInt("position", 0)!!
+            driverChangeState(positionNum.toInt(), driverType = DriversType.DONE)
         }
         viewModel.removeDriverResponse.observe(this) {
-            println(it.removed)
-            val data = arguments?.getSerializable("data") as TabModel
-            removeItemClickListener.invoke(data, position!!)
-            delete_item.onlyOneClick()
+            successDriver = false
+            add_new_driver.slideUp(400,0)
 
+            add_new_driver.visibility=View.GONE
+
+            clearData()
+            if (isRealPositionDriver!=0){
+                driverChangeState(isRealPositionDriver, driverType = DriversType.NEW)
+            }
+            else{
+                val positionNum = arguments?.getInt("position", 0)!!
+                driverChangeState(positionNum, driverType = DriversType.NEW)
+            }
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        driver_passSere.setText("")
-        driver_passNumber.setText("")
-        driver_passSere.inputType =
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-        driver_bornDate.setText(
-            ""
-        )
+        infoDriverItemContainer.slideStart(800, 0)
 
-
-
+        initView()
         driverKinship.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -110,7 +131,26 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
                 id: Long
             ) {
                 selectedItemPosition = position
+                driver_bornDate.requestFocus()
+                if (passportSere && passportNumber && date && selectedItemPosition > 0) {
+                    disableDriverInputs()
+                    val positionNum = arguments?.getInt("position", 0)!! + 1
+                    localPosition = positionNum
+                    viewModel.addDriver(
+                        DriverRequest(
+                            driver_bornDate.text.toString(),
+                            driver_passSere.text.toString(),
+                            driver_passNumber.text.toString(),
+                            vehicleId = vehicleId.toString(),
+                            driverNum = positionNum.toString(),
+
+                            selectedItemPosition.toString()
+                        )
+                    )
+                }
+
                 println("Position :DDD :$position")
+                get_kinship.setText(driverKinship.selectedItem.toString())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -124,12 +164,15 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
                 driver_passNumber.requestFocus()
                 if (passportSere && passportNumber && date && selectedItemPosition > 0) {
                     disableDriverInputs()
+                    val position = arguments?.getInt("position", 0)!! + 1
+                    localPosition = position
                     viewModel.addDriver(
                         DriverRequest(
                             driver_bornDate.text.toString(),
                             it.toString(),
                             driver_passNumber.text.toString(),
-                            vehicleId = "297",
+                            vehicleId = vehicleId.toString(),
+                            driverNum = position.toString(),
                             selectedItemPosition.toString()
                         )
                     )
@@ -140,24 +183,23 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
         }
         driver_passNumber.addTextChangedListener {
             if (it.toString().length == 7) {
+                driverKinship.requestFocus()
                 passportNumber = true
-                driver_bornDate.requestFocus()
                 if (passportSere && passportNumber && date && selectedItemPosition > 0) {
                     disableDriverInputs()
                     val position = arguments?.getInt("position", 0)!! + 1
+                    localPosition = position
                     viewModel.addDriver(
                         DriverRequest(
-                            driver_bornDate.text.toString(),
-                            driver_passSere.text.toString(),
                             it.toString(),
-                            vehicleId = "297",
-                            position.toString()
+                            driver_passSere.text.toString(),
+                            driver_passNumber.text.toString(),
+                            vehicleId = vehicleId.toString(),
+                            driverNum = position.toString(),
+                            selectedItemPosition.toString()
                         )
                     )
-                } else if (selectedItemPosition < 0) {
-                    errorDriverTxt.visible()
-                    kinshipContainer.vibrationAnimation()
-                    error_text_driver.text = requireActivity().getString(R.string.maydon_empty)
+
                 }
             } else {
                 passportNumber = false
@@ -165,33 +207,121 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
             }
         }
         driver_bornDate.addTextChangedListener {
+            if (LocalData.pollsPeopleType == PollsPeopleType.PremiumPolls) {
+                if (isFirstTime) {
+                    isFirstTime = false;
+                } else if (!isFirstTime) {
+                    isFirstTime = true
+                    val birthDate = it.toString()
+                    if (birthDate.length == 10) {
+                        date = true
+                        if (passportSere && passportNumber && date && selectedItemPosition > 0) {
+                            disableDriverInputs()
+                            val position = arguments?.getInt("position", 0)!! + 1
+                            localPosition = position
+                            viewModel.addDriver(
+                                DriverRequest(
+                                    driver_bornDate.text.toString(),
+                                    driver_passSere.text.toString(),
+                                    driver_passNumber.text.toString(),
+                                    vehicleId = vehicleId.toString(),
+                                    driverNum = position.toString(),
+                                    selectedItemPosition.toString()
+                                )
+                            )
+                        } else if (selectedItemPosition <= 0) {
+                            errorDriverTxt.visible()
+                            kinshipContainer.vibrationAnimation()
+                            error_text_driver.text =
+                                requireActivity().getString(R.string.maydon_empty)
+                        } else if (!passportSere) {
+                            errorDriverTxt.visible()
+                            driver_passSere.vibrationAnimation()
+                            error_text_driver.text =
+                                requireActivity().getString(R.string.maydon_empty)
+                        } else if (!passportNumber) {
+                            errorDriverTxt.visible()
+                            driver_passNumber.vibrationAnimation()
+                            error_text_driver.text =
+                                requireActivity().getString(R.string.maydon_empty)
 
-            if (it.toString().length == 10) {
-                date = true
-                if (passportSere && passportNumber && date && selectedItemPosition > 0) {
-                    disableDriverInputs()
-                    val position = arguments?.getInt("position", 0)!! + 1
-                    viewModel.addDriver(
-                        DriverRequest(
-                            it.toString(),
-                            driver_passSere.text.toString(),
-                            driver_passNumber.text.toString(),
-                            vehicleId = "297",
-                            position.toString()
-                        )
-                    )
-                } else if (selectedItemPosition < 0) {
-
-                    errorDriverTxt.visible()
-                    kinshipContainer.vibrationAnimation()
-                    error_text_driver.text = requireActivity().getString(R.string.maydon_empty)
+                        }
+                    } else {
+                        date = false
+                    }
                 }
             } else {
-                date = false
+                if (isFirstTime) {
+                    isFirstTime = false;
+                } else if (!isFirstTime) {
+                    isFirstTime = true
+                    val birthDate = it.toString()
+                    if (birthDate.length == 10) {
+                        date = true
+                        if (passportSere && passportNumber && date) {
+                            disableDriverInputs()
+                            val position = arguments?.getInt("position", 0)!! + 1
+                            localPosition = position
+                            viewModel.addDriver(
+                                DriverRequest(
+                                    driver_bornDate.text.toString(),
+                                    driver_passSere.text.toString(),
+                                    driver_passNumber.text.toString(),
+                                    vehicleId = vehicleId.toString(),
+                                    driverNum = position.toString(),
+                                    selectedItemPosition.toString()
+                                )
+                            )
+                        } else if (!passportSere) {
+                            errorDriverTxt.visible()
+                            driver_passSere.vibrationAnimation()
+                            error_text_driver.text =
+                                requireActivity().getString(R.string.maydon_empty)
+                        } else if (!passportNumber) {
+                            errorDriverTxt.visible()
+                            driver_passNumber.vibrationAnimation()
+                            error_text_driver.text =
+                                requireActivity().getString(R.string.maydon_empty)
+
+                        }
+                    } else {
+                        date = false
+                    }
+                }
+            }
+
+//            }}
+        }
+
+        delete_item.setSafeOnClickListener {
+            if (successDriver) {
+                if (isRealPositionDriver != 0) {
+                    viewModel.removeDriver(
+                        DriverRemoveRequest(
+                            removePassNumber.toString(),
+                            removePassSeries,
+                            vehicleID = vehicleId.toString(),
+                            isRealPositionDriver.toString()
+                        )
+                    )
+                } else {
+                    viewModel.removeDriver(
+                        DriverRemoveRequest(
+                            removePassNumber.toString(),
+                            removePassSeries,
+                            vehicleID = vehicleId.toString(),
+                            localPosition.toString()
+                        )
+                    )
+                }
+            } else {
+                clearData()
+                delete_item.onlyOneClick()
+                listenAddProgress.invoke(false)
 
             }
         }
-        initView()
+
     }
 
     private fun disableDriverInputs() {
@@ -212,33 +342,19 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
         driver_bornDate.setText("")
         driver_passNumber.setText("")
         driver_passSere.setText("")
+        removePassSeries = ""
+        kinshipContainer.visible()
+        removePassNumber = ""
         response_expanded_driver_item.gone()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        println("Tushdi")
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        if (removeDisable) {
-//            delete_item.gone()
-//        } else {
-//            delete_item.visible()
-//        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-//        if (removeDisable) {
-//            delete_item.gone()
-//        } else {
-//            delete_item.visible()
-//        }
-    }
 
     private fun initView() {
+        driver_passSere.filters = arrayOf<InputFilter>(InputFilter.AllCaps())
+        add_new_driver.setSafeOnClickListener {
+            addNewTab.invoke(Unit)
+        }
+        driver_passSere.requestFocusOpeningScreen()
         val data = arguments?.getSerializable("data") as TabModel
         val shp = AppReference(requireContext())
         when (shp.currentLanguage) {
@@ -251,33 +367,6 @@ class DriverPageItem : Fragment(R.layout.fragment_driver_page_item) {
 
             }
         }
-        val position = arguments?.getInt("position", 0)
-
-        //        delete_item.isEnabled = !removeDisable
-//        delete_item.gone()
-
-
-        delete_item.setSafeOnClickListener {
-            if (successDriver) {
-                clearData()
-                delete_item.onlyOneClick()
-                removeItemClickListener.invoke(data, LocalData.position!!)
-                delete_item.onlyOneClick()
-                viewModel.removeDriver(
-                    DriverRemoveRequest(
-                        driver_passNumber.text.toString(),
-                        driver_passSere.text.toString(),
-                        vehicleID = "297",
-                        position.toString()
-                    )
-                )
-            } else {
-                removeItemClickListener.invoke(data, LocalData.position!!)
-                clearData()
-                delete_item.onlyOneClick()
-            }
-        }
     }
-
 
 }

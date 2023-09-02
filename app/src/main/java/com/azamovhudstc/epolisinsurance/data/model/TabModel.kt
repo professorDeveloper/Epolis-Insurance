@@ -1,3 +1,5 @@
 package com.azamovhudstc.epolisinsurance.data.model
 
-    data class TabModel(var name:String,  ):java.io.Serializable
+import com.azamovhudstc.epolisinsurance.utils.enums.DriversType
+
+data class TabModel(var name:String, var driversDataUI: DriversType, ):java.io.Serializable

@@ -18,13 +18,12 @@ import com.azamovhudstc.epolisinsurance.R
 import com.azamovhudstc.epolisinsurance.data.local.room.entity.ProfileEntity
 import com.azamovhudstc.epolisinsurance.utils.LocalData.REQUEST_CODE
 import com.azamovhudstc.epolisinsurance.utils.gone
+import com.azamovhudstc.epolisinsurance.utils.stringToBitmap
+import com.azamovhudstc.epolisinsurance.utils.toStringWithBitmap
 import com.azamovhudstc.epolisinsurance.utils.visible
 import com.azamovhudstc.epolisinsurance.viewmodel.imp.EditProfileScreenViewModelImp
-import com.azamovhudstc.sugurtaapp.utils.stringToBitmap
-import com.azamovhudstc.sugurtaapp.utils.toStringWithBitmap
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.edi_profile_screen.*
-import kotlinx.android.synthetic.main.succes_otp_screen.*
 
 
 @AndroidEntryPoint

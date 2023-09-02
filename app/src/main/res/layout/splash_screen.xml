@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/impeks_g"
+        app:srcCompat="@drawable/impeks_g"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/splash_logo"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3">
         <TextView
-            android:textSize="14dp"
+            android:textSize="13dp"
             android:textColor="#f58634"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
@@ -44,6 +44,6 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="6dp"
-            android:src="@drawable/impeks_g" />
+            app:srcCompat="@drawable/impeks_g" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,14 +7,11 @@ import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.AllInfoPa
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.InfoContractPage
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.InfoDriversPage
 import com.azamovhudstc.epolisinsurance.ui.screen.polis.buypolis.pages.SendMoneyPage
-
 class BuyPolisAdapter(fragmentManager: FragmentActivity) :
     FragmentStateAdapter(fragmentManager) {
-
     override fun getItemCount(): Int {
         return 4
     }
-
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> {
@@ -23,7 +20,6 @@ class BuyPolisAdapter(fragmentManager: FragmentActivity) :
             1 -> {
                 InfoDriversPage()
             }
-
             2 -> {
                 InfoContractPage()
             }
@@ -31,6 +27,5 @@ class BuyPolisAdapter(fragmentManager: FragmentActivity) :
                 SendMoneyPage()
             }
         }
-
     }
 }

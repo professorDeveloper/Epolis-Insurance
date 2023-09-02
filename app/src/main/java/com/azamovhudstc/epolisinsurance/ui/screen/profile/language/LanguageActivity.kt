@@ -19,13 +19,21 @@ import kotlinx.android.synthetic.main.activity_language.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
+
 @AndroidEntryPoint
 class LanguageActivity : LocalizationAppCompatActivity() {
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private val viewModel by viewModels<ProfileScreenViewModelImp>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_language)
-        viewModel.successLanguageSaveData.observe(this,successLanguageChangeObserver)
+        viewModel.successLanguageSaveData.observe(this, successLanguageChangeObserver)
         uz_language_btn_profile.setOnClickListener {
             clearWithPosition(1)
             setLocate("uz")
@@ -37,8 +45,12 @@ class LanguageActivity : LocalizationAppCompatActivity() {
             setLocate("ru")
             LocalData.position = 2
             viewModel.saveLanguage(LanguageType.ru)
-        }}
+        }
+    }
+
     private val successLanguageChangeObserver = Observer<Unit> {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         finish()
 
     }
@@ -61,6 +73,7 @@ class LanguageActivity : LocalizationAppCompatActivity() {
             clearWithPosition(LocalData.position)
         }
     }
+
     private fun setLocate(language: String) {
         val activity = (this)
         activity.mySetLocate(Locale.forLanguageTag(language)) {

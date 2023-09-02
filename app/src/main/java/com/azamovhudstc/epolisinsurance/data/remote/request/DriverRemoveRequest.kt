@@ -4,5 +4,9 @@ data class DriverRemoveRequest(
     val removeDriverPassportNumber:String,
     val removeDriverPassportSeries:String,
     val vehicleID:String,
-    val removeDriverRelationType:String,
-)
+    val removeDriverPosition:String,
+){
+    override fun toString(): String {
+        return "DriverRemoveRequest(removeDriverPassportNumber='$removeDriverPassportNumber', removeDriverPassportSeries='$removeDriverPassportSeries', vehicleID='$vehicleID', removeDriverPosition='$removeDriverPosition')"
+    }
+}
